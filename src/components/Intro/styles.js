@@ -5,7 +5,7 @@ export const Container = styled('div')({})
 export const Title = styled('h1')({
   marginTop: 0,
   marginBottom: 16,
-  fontSize: 32,
+  fontSize: 24,
 })
 
 export const Img = styled('img')({
@@ -19,5 +19,13 @@ export const Img = styled('img')({
   marginRight: 16,
   '@media (min-width: 960px)': {
     height: 200,
+  },
+})
+
+export const Clearfix = styled('div')({
+  ':after': {
+    content: '""',
+    clear: 'both',
+    display: 'table',
   },
 })

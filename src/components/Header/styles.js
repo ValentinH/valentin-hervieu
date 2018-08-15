@@ -1,8 +1,11 @@
 import { css } from 'emotion'
 import styled from 'react-emotion'
 
+const background = '#022748'
+
 export const Container = styled('div')({
-  background: '#333',
+  background,
+  backgroundImage: `linear-gradient(120deg, ${background} 0%, #022f52 25%, #03375d 47%, #1b6584 75%, #3494ac 100%)`,
 })
 
 export const Content = styled('div')({
@@ -14,6 +17,10 @@ export const Content = styled('div')({
 
 export const Title = styled('h1')({
   margin: 0,
+  fontFamily: "'Lobster Two', cursive",
+  fontSize: 40,
+  lineHeight: '40px',
+  textShadow: `5px 5px 1px ${background}`,
 })
 
 const classes = {

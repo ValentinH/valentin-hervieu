@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import ExternalLink from '../ExternalLink'
-import { Container, Img, Title } from './styles'
+import { Container, Img, Title, Clearfix } from './styles'
 import profilPic from './profil.jpg'
 
 const Intro = () => (
@@ -27,8 +27,7 @@ const Intro = () => (
           {getAge()} years old.
         </p>
         <p>
-          Graduated from the University of Technologie of Compiègne, I work as a
-          front-end engineer at{' '}
+          I work as a front-end engineer at{' '}
           <ExternalLink href="https://ricardo.ch" title="Ricardo.ch">
             Ricardo.ch
           </ExternalLink>{' '}
@@ -36,10 +35,7 @@ const Intro = () => (
           <ExternalLink href={data.site.siteMetadata.linkedinUrl}>
             my résumé
           </ExternalLink>
-          ).
-        </p>
-        <p>
-          I enjoy making software and you can check{' '}
+          ). I enjoy making software and you can check{' '}
           <ExternalLink href={data.site.siteMetadata.githubUrl}>
             my GitHub profile
           </ExternalLink>{' '}
@@ -53,6 +49,7 @@ const Intro = () => (
           </ExternalLink>
           .
         </p>
+        <Clearfix />
       </Container>
     )}
   </StaticQuery>
