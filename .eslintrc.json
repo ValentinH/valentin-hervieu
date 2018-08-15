@@ -1,0 +1,17 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/prop-types": 0
+  },
+  "parser": "babel-eslint",
+  "plugins": ["prettier"],
+  "globals": {
+    "graphql": true
+  },
+  "settings": {
+    "react": {
+      "version": "16.4"
+    }
+  }
+}
