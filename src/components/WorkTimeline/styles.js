@@ -1,22 +1,45 @@
 import styled from 'react-emotion'
 
+export const Wrapper = styled('div')({
+  width: '100vw',
+  position: 'relative',
+  left: '50%',
+  right: '50%',
+  marginLeft: '-50vw',
+  marginRight: '-50vw',
+  overflow: 'auto',
+  padding: '0 200px',
+})
+
+const containerHeight = 428 /* needs to be adjusted if heights changes */
+const arrowWidth = 150
+
 export const Container = styled('div')({
   position: 'relative',
   display: 'inline-flex',
   marginTop: 40,
   background: '#fff',
-  // ':after': {
-  //   content: '""',
-  //   position: 'absolute',
-  //   top: 0,
-  //   right: -20,
-  //   width: 0,
-  //   height: 0,
-  //   borderLeft: '120px solid white',
-  //   borderBottom: '160px solid transparent',
-  //   borderTop: '160px solid transparent',
-  //   zIndex: '2',
-  // },
+  height: containerHeight,
+  ':before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: -arrowWidth,
+    width: arrowWidth,
+    height: containerHeight,
+    background: 'white',
+  },
+  ':after': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    right: -arrowWidth,
+    width: 0,
+    height: 0,
+    borderLeft: `${arrowWidth}px solid white`,
+    borderBottom: `${containerHeight / 2}px solid transparent`,
+    borderTop: `${containerHeight / 2}px solid transparent`,
+  },
 })
 
 export const YearContainer = styled('div')(({ current }) => ({

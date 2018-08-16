@@ -1,6 +1,7 @@
 import React from 'react'
 import ExternalLink from '../ExternalLink'
 import {
+  Wrapper,
   Container,
   YearContainer,
   YearLabel,
@@ -14,11 +15,13 @@ import {
 import srcData from './data'
 
 const WorkTimeline = () => (
-  <Container>
-    {srcData.map(yearData => (
-      <Year key={yearData.year} {...yearData} />
-    ))}
-  </Container>
+  <Wrapper>
+    <Container>
+      {srcData.map(yearData => (
+        <Year key={yearData.year} {...yearData} />
+      ))}
+    </Container>
+  </Wrapper>
 )
 
 const Year = ({ year, current, data }) => (
