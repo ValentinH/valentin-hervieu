@@ -23,8 +23,12 @@ export const Container = styled('div')({
   background: '#fff',
   height: containerHeight,
   transform: `translateX(calc(-100% + ${arrowWidth}px))`,
-  '@media (min-width: 960px)': {
+  [`@media (min-width: ${mobileBreakpoint}px)`]: {
     transform: `translateX(calc(-100% + ${mobileBreakpoint - sidePadding}px))`,
+  },
+  cursor: 'grab',
+  ':active': {
+    cursor: 'grabing',
   },
   ':before': {
     content: '""',
