@@ -1,5 +1,10 @@
 import styled from 'react-emotion'
 
+const containerHeight = 428 /* needs to be adjusted if heights changes */
+const arrowWidth = 150
+const sidePadding = 50
+const mobileBreakpoint = 960
+
 export const Wrapper = styled('div')({
   width: '100vw',
   position: 'relative',
@@ -7,12 +12,9 @@ export const Wrapper = styled('div')({
   right: '50%',
   marginLeft: '-50vw',
   marginRight: '-50vw',
-  overflow: 'auto',
-  padding: '0 200px',
+  overflow: 'hidden',
+  padding: `0 ${arrowWidth + sidePadding}px`,
 })
-
-const containerHeight = 428 /* needs to be adjusted if heights changes */
-const arrowWidth = 150
 
 export const Container = styled('div')({
   position: 'relative',
@@ -20,6 +22,10 @@ export const Container = styled('div')({
   marginTop: 40,
   background: '#fff',
   height: containerHeight,
+  transform: `translateX(calc(-100% + ${arrowWidth}px))`,
+  '@media (min-width: 960px)': {
+    transform: `translateX(calc(-100% + ${mobileBreakpoint - sidePadding}px))`,
+  },
   ':before': {
     content: '""',
     position: 'absolute',
