@@ -7,7 +7,6 @@ const IndexPage = () => (
   <Layout>
     <Intro />
     <WorkTimeline />
-    <Intro />
   </Layout>
 )
 

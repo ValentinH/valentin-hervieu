@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'react-emotion'
 
-const containerHeight = 428 /* needs to be adjusted if heights changes */
+const containerHeight = 360 /* needs to be adjusted if heights changes */
 const arrowWidth = 150
 const sidePadding = 50
 
@@ -82,7 +82,7 @@ const yearAnimations = Array(10)
     (res, _, i) => ({
       ...res,
       [`:nth-child(${i + 1})`]: {
-        animationDelay: `${1000 + i * 300}ms`,
+        animationDelay: `${1000 + i * 333}ms`,
       },
     }),
     {}
@@ -153,7 +153,25 @@ export const ExperienceContainer = styled('div')(({ current }) => ({
   margin: '0 8px',
   background: current ? '#FEB' : 'none',
 }))
-export const ExpDate = styled('div')({})
-export const ExpPlace = styled('div')({})
-export const ExpTitle = styled('div')({})
-export const ExpContent = styled('div')({})
+export const ExpDate = styled('div')({
+  fontSize: 12,
+  fontStyle: 'italic',
+  marginBottom: 8,
+  fontWeight: 500,
+})
+export const ExpPlace = styled('div')({
+  color: '#666',
+  fontSize: 14,
+  fontWeight: 600,
+  marginBottom: 8,
+})
+export const ExpTitle = styled('div')({
+  fontSize: 16,
+  fontWeight: '600',
+  color: '#444',
+})
+export const ExpContent = styled('div')({
+  lineHeight: 1.5,
+  fontSize: 14,
+  textAlign: 'justify',
+})

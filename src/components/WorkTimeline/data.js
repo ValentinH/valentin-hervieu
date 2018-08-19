@@ -49,7 +49,7 @@ export default [
         company: 'USEC',
         companyUrl: 'https://www.usec-utc.fr',
         place: 'Compiègne, France',
-        title: 'Software Development – Design & Development Engineer',
+        title: 'Full-stack engineer',
         content: (
           <p>
             Created an Android app for tablets allowing disabled people to
