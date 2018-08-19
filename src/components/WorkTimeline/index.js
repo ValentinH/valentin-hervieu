@@ -1,4 +1,5 @@
 import React from 'react'
+import animateScrollTo from 'animated-scroll-to'
 import ExternalLink from '../ExternalLink'
 import {
   Wrapper,
@@ -14,21 +15,27 @@ import {
 } from './styles'
 import srcData from './data'
 
-const contentSize = Math.min(960 - 50, window.innerWidth - 260) // right padding
-
 class WorkTimeline extends React.Component {
-  state = { translate: null }
-  initialTranslate = 0
   dragStartPosition = 0
-  dragStartTranslate = 0
+  dragStartScroll = 0
   rafTimeout = null
-  timelineRef = React.createRef()
+  wrapperRef = React.createRef()
 
   componentDidMount() {
-    if (this.timelineRef && this.timelineRef.current) {
-      const timelineWidth = this.timelineRef.current.getBoundingClientRect()
-        .width
-      this.initialTranslate = -(timelineWidth - contentSize)
+    this.scrollTimeline({ delay: 2000, speed: 1000 })
+  }
+
+  scrollTimeline = ({ delay, speed }) => {
+    if (this.wrapperRef && this.wrapperRef.current) {
+      const element = this.wrapperRef.current
+      window.setTimeout(() => {
+        const scrollDestination = element.scrollWidth - window.innerWidth
+        animateScrollTo(scrollDestination, {
+          element,
+          horizontal: true,
+          speed: speed,
+        })
+      }, delay)
     }
   }
 
@@ -39,42 +46,9 @@ class WorkTimeline extends React.Component {
   cleanEvents = () => {
     document.removeEventListener('mousemove', this.onMouseMove)
     document.removeEventListener('mouseup', this.onDragStopped)
-    document.removeEventListener('touchmove', this.onTouchMove)
-    document.removeEventListener('touchend', this.onDragStopped)
   }
-
-  ensureInit = callback => {
-    // if first interaction
-    if (this.state.translate === null) {
-      this.setState(
-        {
-          translate: this.initialTranslate,
-        },
-        callback
-      )
-    } else {
-      callback()
-    }
-  }
-
-  onWheel = e => {
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-      e.preventDefault()
-      const delta = e.deltaX
-      this.ensureInit(() =>
-        this.setState(state => ({
-          translate: this.restrictPosition(state.translate - delta),
-        }))
-      )
-    }
-  }
-
-  restrictPosition = value =>
-    Math.max(this.initialTranslate, Math.min(0, value))
 
   static getMousePoint = e => Number(e.clientX)
-
-  static getTouchPoint = touch => Number(touch.clientX)
 
   onMouseDown = e => {
     e.preventDefault()
@@ -85,22 +59,9 @@ class WorkTimeline extends React.Component {
 
   onMouseMove = e => this.onDrag(WorkTimeline.getMousePoint(e))
 
-  onTouchStart = e => {
-    e.preventDefault()
-    document.addEventListener('touchmove', this.onTouchMove, { passive: false }) // iOS 11 now defaults to passive: true
-    document.addEventListener('touchend', this.onDragStopped)
-    this.onDragStart(WorkTimeline.getTouchPoint(e.touches[0]))
-  }
-
-  onTouchMove = e => {
-    this.onDrag(WorkTimeline.getTouchPoint(e.touches[0]))
-  }
-
   onDragStart = x => {
-    this.ensureInit(() => {
-      this.dragStartPosition = x
-      this.dragStartTranslate = this.state.translate
-    })
+    this.dragStartPosition = x
+    this.dragStartScroll = this.wrapperRef.current.scrollLeft
   }
 
   onDrag = x => {
@@ -108,12 +69,10 @@ class WorkTimeline extends React.Component {
 
     this.rafTimeout = window.requestAnimationFrame(() => {
       if (x === undefined) return
-      const offsetX = x - this.dragStartPosition
-      const requestedPosition = this.dragStartTranslate + offsetX
+      const offsetX = this.dragStartPosition - x
+      const requestedPosition = this.dragStartScroll + offsetX
 
-      this.setState({
-        translate: this.restrictPosition(requestedPosition),
-      })
+      this.wrapperRef.current.scrollLeft = requestedPosition
     })
   }
 
@@ -122,19 +81,9 @@ class WorkTimeline extends React.Component {
   }
 
   render() {
-    const style = {}
-    if (this.state.translate != null) {
-      style.transform = `translateX(${this.state.translate}px)`
-    }
     return (
       <Wrapper innerRef={this.wrapperRef}>
-        <Container
-          innerRef={this.timelineRef}
-          onWheel={this.onWheel}
-          onMouseDown={this.onMouseDown}
-          onTouchStart={this.onTouchStart}
-          style={style}
-        >
+        <Container onMouseDown={this.onMouseDown}>
           {srcData.map(yearData => (
             <Year key={yearData.year} {...yearData} />
           ))}

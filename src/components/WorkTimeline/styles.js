@@ -3,7 +3,6 @@ import styled, { keyframes } from 'react-emotion'
 const containerHeight = 428 /* needs to be adjusted if heights changes */
 const arrowWidth = 150
 const sidePadding = 50
-const mobileBreakpoint = 960
 
 export const Wrapper = styled('div')({
   width: '100vw',
@@ -12,18 +11,20 @@ export const Wrapper = styled('div')({
   right: '50%',
   marginLeft: '-50vw',
   marginRight: '-50vw',
-  overflow: 'hidden',
-  padding: `0 ${arrowWidth + sidePadding}px`,
+  overflowX: 'auto',
+  overflowY: 'hidden',
+  marginBottom: 24,
+  '-ms-overflow-style': '-ms-autohiding-scrollbar',
+  '::-webkit-scrollbar': {
+    height: '0 !important',
+  },
 })
 
 const slideIn = keyframes({
   '0%': {
     transform: `translateX(-200%)`,
   },
-  '25%': {
-    transform: `translateX(0%)`,
-  },
-  '75%': {
+  '100%': {
     transform: `translateX(0%)`,
   },
 })
@@ -31,16 +32,13 @@ const slideIn = keyframes({
 export const Container = styled('div')({
   position: 'relative',
   display: 'inline-flex',
+  margin: `0 ${arrowWidth + sidePadding}px`,
   marginTop: 40,
   background: '#fff',
   height: containerHeight,
   animationName: slideIn,
-  animationDuration: '3s',
+  animationDuration: '1s',
   animationTimingFunction: 'ease-out',
-  transform: `translateX(calc(-100% + ${arrowWidth}px))`,
-  [`@media (min-width: ${mobileBreakpoint}px)`]: {
-    transform: `translateX(calc(-100% + ${mobileBreakpoint - sidePadding}px))`,
-  },
   cursor: 'grab',
   ':active': {
     cursor: 'grabing',
@@ -84,7 +82,7 @@ const yearAnimations = Array(10)
     (res, _, i) => ({
       ...res,
       [`:nth-child(${i + 1})`]: {
-        animationDelay: `${1000 + i * 500}ms`,
+        animationDelay: `${1000 + i * 300}ms`,
       },
     }),
     {}
