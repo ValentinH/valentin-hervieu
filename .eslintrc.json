@@ -7,7 +7,9 @@
   "parser": "babel-eslint",
   "plugins": ["prettier"],
   "globals": {
-    "graphql": true
+    "document": true,
+    "graphql": true,
+    "window": true
   },
   "settings": {
     "react": {

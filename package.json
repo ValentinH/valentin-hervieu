@@ -8,6 +8,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "^0.1.0-11",
+    "animated-scroll-to": "^1.2.2",
     "emotion": "^9.2.6",
     "emotion-server": "^9.2.6",
     "gatsby": "next",

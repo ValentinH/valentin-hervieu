@@ -6,6 +6,9 @@ html {
 }
 body {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #eee;
+  overflow-x: hidden;
 }
 *,
 *:before,

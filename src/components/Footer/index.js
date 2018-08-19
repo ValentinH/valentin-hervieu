@@ -21,7 +21,12 @@ const Footer = ({ data }) => {
     <Container>
       <Content>
         {links.map(link => (
-          <ExternalLink key={link.name} href={link.url} title={link.name}>
+          <ExternalLink
+            key={link.name}
+            href={link.url}
+            title={link.name}
+            className={classes.iconLink}
+          >
             <FontAwesomeIcon className={classes.icon} icon={link.icon} />
           </ExternalLink>
         ))}

@@ -27,6 +27,16 @@ const Layout = ({ children }) => (
           <meta name="description" content="Sample" />
           <meta name="keywords" content="sample, something" />
           <link rel="icon" type="image/png" href={favicon} />
+          <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+            rel="stylesheet"
+            async
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Lobster+Two:700&text=Valentin%20Hervieu"
+            rel="stylesheet"
+            async
+          />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Content>{children}</Content>
