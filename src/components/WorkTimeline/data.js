@@ -105,6 +105,7 @@ export default [
         companyUrl: 'https://www.ricardo.ch',
         place: 'Sophia-Antipolis, France',
         title: 'Front-end Engineer',
+        current: true,
         content: (
           <p>
             We are rebuilding an 18 y.o. ecommerce website using cool stuffs:

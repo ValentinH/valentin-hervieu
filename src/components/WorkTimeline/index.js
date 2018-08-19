@@ -155,8 +155,16 @@ const Year = ({ year, current, data }) => (
   </YearContainer>
 )
 
-const Experience = ({ date, company, companyUrl, place, title, content }) => (
-  <ExperienceContainer>
+const Experience = ({
+  date,
+  company,
+  companyUrl,
+  place,
+  title,
+  content,
+  current,
+}) => (
+  <ExperienceContainer current={current}>
     <ExpDate>{date}</ExpDate>
     <ExternalLink href={companyUrl}>{company}</ExternalLink>
     <ExpPlace>{place}</ExpPlace>

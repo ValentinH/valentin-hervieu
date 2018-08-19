@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import styled, { keyframes } from 'react-emotion'
 
 const containerHeight = 428 /* needs to be adjusted if heights changes */
 const arrowWidth = 150
@@ -16,12 +16,27 @@ export const Wrapper = styled('div')({
   padding: `0 ${arrowWidth + sidePadding}px`,
 })
 
+const slideIn = keyframes({
+  '0%': {
+    transform: `translateX(-200%)`,
+  },
+  '25%': {
+    transform: `translateX(0%)`,
+  },
+  '75%': {
+    transform: `translateX(0%)`,
+  },
+})
+
 export const Container = styled('div')({
   position: 'relative',
   display: 'inline-flex',
   marginTop: 40,
   background: '#fff',
   height: containerHeight,
+  animationName: slideIn,
+  animationDuration: '3s',
+  animationTimingFunction: 'ease-out',
   transform: `translateX(calc(-100% + ${arrowWidth}px))`,
   [`@media (min-width: ${mobileBreakpoint}px)`]: {
     transform: `translateX(calc(-100% + ${mobileBreakpoint - sidePadding}px))`,
@@ -52,6 +67,29 @@ export const Container = styled('div')({
   },
 })
 
+const appear = keyframes({
+  '0%': {
+    opacity: 0,
+    transform: 'translateX(-20%) scaleX(0)',
+  },
+  '100%': {
+    opacity: 1,
+    transform: 'translateX(0px) scaleX(1)',
+  },
+})
+
+const yearAnimations = Array(10)
+  .fill(0)
+  .reduce(
+    (res, _, i) => ({
+      ...res,
+      [`:nth-child(${i + 1})`]: {
+        animationDelay: `${1000 + i * 500}ms`,
+      },
+    }),
+    {}
+  )
+
 export const YearContainer = styled('div')(({ current }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -66,6 +104,12 @@ export const YearContainer = styled('div')(({ current }) => ({
   borderLeftColor: current
     ? 'rgba(250, 75, 42, 0.4)'
     : 'rgba(0, 114, 188, 0.4)',
+  opacity: 0,
+  transformOrigin: 'left center',
+  animation: appear,
+  animationDuration: '500ms',
+  animationFillMode: 'forwards',
+  ...yearAnimations,
   ':before': {
     content: '""',
     position: 'absolute',
@@ -102,14 +146,15 @@ export const YearContent = styled('div')({
   marginLeft: 16,
 })
 
-export const ExperienceContainer = styled('div')({
+export const ExperienceContainer = styled('div')(({ current }) => ({
   width: 280,
   padding: 16,
   border: '1px solid #ddd',
   boxShadow: '1px 1px 4px rgba(0, 0, 0, 0.2)',
   borderRadius: 3,
   margin: '0 8px',
-})
+  background: current ? '#FEB' : 'none',
+}))
 export const ExpDate = styled('div')({})
 export const ExpPlace = styled('div')({})
 export const ExpTitle = styled('div')({})
