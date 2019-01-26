@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import favicon from './favicon.png'
 
+import Analytics from '../Analytics'
 import Header from '../Header'
 import Content from '../Content'
 import Footer from '../Footer'
@@ -37,8 +38,10 @@ const Layout = ({ children }) => (
             rel="stylesheet"
             async
           />
+
           <script async defer src="https://buttons.github.io/buttons.js" />
         </Helmet>
+        <Analytics />
         <Header siteTitle={data.site.siteMetadata.title} />
         <Content>{children}</Content>
         <Footer />

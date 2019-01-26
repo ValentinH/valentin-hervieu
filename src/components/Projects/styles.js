@@ -22,7 +22,7 @@ export const GithubButton = styled('span')({
   marginLeft: 16,
 })
 
-export const Description = styled('p')({
+export const Description = styled('div')({
   margin: 0,
   textAlign: 'justify',
 })
