@@ -1,5 +1,5 @@
-import { css } from 'emotion'
-import styled from 'react-emotion'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
 const background = '#022748'
 
@@ -24,10 +24,10 @@ export const Title = styled('h1')({
 })
 
 const classes = {
-  link: css({
+  link: {
     color: 'white',
     textDecoration: 'none',
-  }),
+  },
 }
 
 export default classes

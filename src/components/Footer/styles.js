@@ -1,5 +1,5 @@
-import { css } from 'emotion'
-import styled from 'react-emotion'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
 export const Container = styled('div')({
   background: '#004a5d',
@@ -16,7 +16,7 @@ export const Content = styled('div')({
 })
 
 const classes = {
-  icon: css({
+  icon: {
     color: 'white',
     margin: '0 8px',
     fontSize: 20,
@@ -24,10 +24,10 @@ const classes = {
     ':hover': {
       transform: 'rotateZ(360deg)',
     },
-  }),
-  iconLink: css({
+  },
+  iconLink: {
     height: 20,
-  }),
+  },
 }
 
 export default classes

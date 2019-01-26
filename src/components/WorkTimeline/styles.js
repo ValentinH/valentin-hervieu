@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'react-emotion'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 
 const containerHeight = 360 /* needs to be adjusted if heights changes */
 const arrowWidth = 150
@@ -36,9 +37,7 @@ export const Container = styled('div')({
   marginTop: 40,
   background: '#fff',
   height: containerHeight,
-  animationName: slideIn,
-  animationDuration: '1s',
-  animationTimingFunction: 'ease-out',
+  animation: `${slideIn} 1s ease-out`,
   cursor: 'grab',
   ':active': {
     cursor: 'grabing',
@@ -104,8 +103,7 @@ export const YearContainer = styled('div')(({ current }) => ({
     : 'rgba(0, 114, 188, 0.4)',
   opacity: 0,
   transformOrigin: 'left center',
-  animation: appear,
-  animationDuration: '500ms',
+  animation: `${appear} 500ms`,
   animationFillMode: 'forwards',
   ...yearAnimations,
   ':before': {

@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitterSquare,
@@ -27,7 +28,7 @@ const Footer = ({ data }) => {
             title={link.name}
             className={classes.iconLink}
           >
-            <FontAwesomeIcon className={classes.icon} icon={link.icon} />
+            <FontAwesomeIcon css={classes.icon} icon={link.icon} />
           </ExternalLink>
         ))}
       </Content>

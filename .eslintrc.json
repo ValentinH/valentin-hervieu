@@ -5,7 +5,7 @@
     "react/prop-types": 0
   },
   "parser": "babel-eslint",
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "emotion"],
   "globals": {
     "document": true,
     "graphql": true,
@@ -13,7 +13,13 @@
   },
   "settings": {
     "react": {
-      "version": "16.4"
+      "version": "16.7"
     }
+  },
+  "rules": {
+    "emotion/jsx-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error"
   }
 }
