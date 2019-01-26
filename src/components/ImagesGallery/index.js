@@ -33,7 +33,7 @@ class ImagesGallery extends React.Component {
           <ImageGallery items={images} lazyLoad />
         ) : (
           <LoaderWrapper>
-            <Loader type="Bars" color="#0072bc" height="100" width="100" />
+            <Loader type="Bars" color="#0072bc" height="64" width="64" />
           </LoaderWrapper>
         )}
       </div>
