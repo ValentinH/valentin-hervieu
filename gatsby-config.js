@@ -1,5 +1,6 @@
 /* global module, require */
 const packageJson = require('./package.json')
+const colors = require('./src/const/colors.json')
 
 module.exports = {
   siteMetadata: {
@@ -10,5 +11,21 @@ module.exports = {
     githubUrl: 'http://github.com/ValentinH',
     twitterUrl: 'https://twitter.com/ValentinHervieu',
   },
-  plugins: ['gatsby-plugin-react-helmet', 'gatsby-plugin-emotion'],
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Valentin Hervieu',
+        short_name: 'ValentinH',
+        start_url: '/',
+        background_color: '#eee',
+        theme_color: colors.primaryColor,
+        display: 'fullscreen',
+        icon: 'src/images/logo.png',
+      },
+    },
+    'gatsby-plugin-offline',
+  ],
 }
