@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
+import colors from '../../const/colors.json'
 
 const containerHeight = 360 /* needs to be adjusted if heights changes */
 const arrowWidth = 150
@@ -132,7 +133,7 @@ export const YearContainer = styled('div')(({ current }) => ({
 export const YearLabel = styled('div')(({ current }) => ({
   position: 'absolute',
   top: 0,
-  color: current ? '#fa4b2a' : '#0072bc',
+  color: current ? colors.secondaryColor : colors.primaryColor,
   fontWeight: 'bold',
   marginLeft: 8,
 }))

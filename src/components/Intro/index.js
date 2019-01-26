@@ -39,13 +39,16 @@ const Intro = () => (
           <ExternalLink href={data.site.siteMetadata.githubUrl}>
             my GitHub profile
           </ExternalLink>{' '}
-          if you want to see my work.
+          if you want to see my projects.
         </p>
         <p>
           I&apos;m also available for freelancing and if you want to contact me,
-          feel free to send me an email{' '}
-          <ExternalLink href={`mailto:${data.site.siteMetadata.email}`}>
-            here
+          feel free to send me an email at{' '}
+          <ExternalLink
+            href={`mailto:${data.site.siteMetadata.email}`}
+            title="My email"
+          >
+            valentin@hervi.eu
           </ExternalLink>
           .
         </p>

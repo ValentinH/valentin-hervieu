@@ -24,10 +24,12 @@ const Layout = ({ children }) => (
     {data => (
       <>
         <Helmet>
+          <html lang="en" />
           <title>{data.site.siteMetadata.title}</title>
           <meta name="description" content="Sample" />
           <meta name="keywords" content="sample, something" />
           <link rel="icon" type="image/png" href={favicon} />
+          <meta name="theme-color" content="#db5945" />
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
             rel="stylesheet"

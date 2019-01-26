@@ -3,6 +3,7 @@ import axios from 'axios'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import ImageGallery from 'react-image-gallery'
 import Loader from 'react-loader-spinner'
+import colors from '../../const/colors.json'
 import { LoaderWrapper } from './styles'
 
 class ImagesGallery extends React.Component {
@@ -19,6 +20,8 @@ class ImagesGallery extends React.Component {
         images: response.data.map(url => ({
           original: `${url}=w1600`,
           thumbnail: `${url}=w200`,
+          originalAlt: 'One photo I like',
+          thumbnailAlt: 'Thumbnail of one photo I like',
         })),
       })
     }
@@ -33,7 +36,12 @@ class ImagesGallery extends React.Component {
           <ImageGallery items={images} lazyLoad />
         ) : (
           <LoaderWrapper>
-            <Loader type="Bars" color="#0072bc" height="64" width="64" />
+            <Loader
+              type="Bars"
+              color={colors.primaryColor}
+              height="64"
+              width="64"
+            />
           </LoaderWrapper>
         )}
       </div>

@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
+import colors from '../../const/colors.json'
 
 export const Item = styled('div')({
   marginBottom: 16,
 })
 
 export const Date = styled('span')({
-  color: '#0072bc',
+  color: colors.primaryColor,
   fontWeight: 'bold',
 })
 
