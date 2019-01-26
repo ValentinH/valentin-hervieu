@@ -7,6 +7,7 @@ import Analytics from '../Analytics'
 import Header from '../Header'
 import Content from '../Content'
 import Footer from '../Footer'
+import colors from '../../const/colors.json'
 import './index.css'
 
 const Layout = ({ children }) => (
@@ -29,7 +30,7 @@ const Layout = ({ children }) => (
           <meta name="description" content="Sample" />
           <meta name="keywords" content="sample, something" />
           <link rel="icon" type="image/png" href={favicon} />
-          <meta name="theme-color" content="#db5945" />
+          <meta name="theme-color" content={colors.primaryColor} />
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
             rel="stylesheet"
