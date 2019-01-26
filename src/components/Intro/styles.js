@@ -1,11 +1,8 @@
 import styled from '@emotion/styled'
 
-export const Container = styled('div')({})
-
-export const Title = styled('h1')({
+export const Title = styled('h2')({
   marginTop: 0,
   marginBottom: 16,
-  fontSize: 24,
 })
 
 export const Img = styled('img')({

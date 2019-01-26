@@ -104,7 +104,7 @@ export default [
         company: 'Ricardo.ch',
         companyUrl: 'https://www.ricardo.ch',
         place: 'Sophia-Antipolis, France',
-        title: 'Front-end Engineer',
+        title: 'Senior Front-end Engineer',
         current: true,
         content: (
           <p>

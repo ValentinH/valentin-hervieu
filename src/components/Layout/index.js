@@ -37,6 +37,7 @@ const Layout = ({ children }) => (
             rel="stylesheet"
             async
           />
+          <script async defer src="https://buttons.github.io/buttons.js" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Content>{children}</Content>

@@ -34,7 +34,7 @@ export const Container = styled('div')({
   position: 'relative',
   display: 'inline-flex',
   margin: `0 ${arrowWidth + sidePadding}px`,
-  marginTop: 40,
+  marginTop: 24,
   background: '#fff',
   height: containerHeight,
   animation: `${slideIn} 1s ease-out`,
@@ -80,7 +80,7 @@ const yearAnimations = Array(10)
   .reduce(
     (res, _, i) => ({
       ...res,
-      [`:nth-child(${i + 1})`]: {
+      [`:nth-of-type(${i + 1})`]: {
         animationDelay: `${1000 + i * 333}ms`,
       },
     }),

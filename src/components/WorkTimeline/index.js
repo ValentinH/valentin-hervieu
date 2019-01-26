@@ -82,20 +82,27 @@ class WorkTimeline extends React.Component {
 
   render() {
     return (
-      <Wrapper innerRef={this.wrapperRef}>
-        <Container onMouseDown={this.onMouseDown}>
-          {srcData.map(yearData => (
-            <Year key={yearData.year} {...yearData} />
-          ))}
-        </Container>
-      </Wrapper>
+      <div>
+        <h2>Work experience</h2>
+        <Wrapper ref={this.wrapperRef}>
+          <Container onMouseDown={this.onMouseDown}>
+            {srcData.map(yearData => (
+              <Year key={yearData.year} {...yearData} />
+            ))}
+          </Container>
+        </Wrapper>
+      </div>
     )
   }
 }
 
+const now = new Date()
+
 const Year = ({ year, current, data }) => (
   <YearContainer current={current}>
-    <YearLabel current={current}>{year}</YearLabel>
+    <YearLabel current={current}>
+      {current ? `${year} ... ${now.getFullYear()}` : year}
+    </YearLabel>
     <YearContent>
       {data.map(experience => (
         <Experience key={experience.title} {...experience} />
