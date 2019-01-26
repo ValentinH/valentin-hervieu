@@ -18,8 +18,14 @@ class ImagesGallery extends React.Component {
     if (response && response.data) {
       this.setState({
         images: response.data.map(url => ({
-          original: `${url}=w1600`,
-          thumbnail: `${url}=w200`,
+          original: `${url}=w1024`,
+          thumbnail: `${url}=w100`,
+          srcSet: `${url}=w1024 1024w,
+          ${url}=w2048 2048w,
+          ${url}=w800 800w`,
+          sizes: `(min-width: 1024px) 1024px,
+          (min-width: 2048px) 2048px,
+          800px`,
           originalAlt: 'One photo I like',
           thumbnailAlt: 'Thumbnail of one photo I like',
         })),
