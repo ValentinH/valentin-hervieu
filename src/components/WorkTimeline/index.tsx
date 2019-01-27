@@ -14,7 +14,7 @@ import {
   ExpTitle,
   ExpContent,
 } from './styles'
-import srcData from './data'
+import srcData, { ExperienceData, YearData } from './data'
 
 class WorkTimeline extends React.Component {
   state = {
@@ -22,15 +22,15 @@ class WorkTimeline extends React.Component {
   }
   dragStartPosition = 0
   dragStartScroll = 0
-  rafTimeout = null
-  wrapperRef = React.createRef()
+  rafTimeout: number = null
+  wrapperRef = React.createRef<HTMLDivElement>()
 
   playAnimation = () => {
     this.setState({ startAnimation: true })
     this.scrollTimeline({ delay: 2000, speed: 1000 })
   }
 
-  scrollTimeline = ({ delay, speed }) => {
+  scrollTimeline = ({ delay, speed }: { delay: number; speed: number }) => {
     if (this.wrapperRef && this.wrapperRef.current) {
       const element = this.wrapperRef.current
       const mobileThreshold = 540
@@ -56,23 +56,24 @@ class WorkTimeline extends React.Component {
     document.removeEventListener('mouseup', this.onDragStopped)
   }
 
-  static getMousePoint = e => Number(e.clientX)
+  static getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) =>
+    Number(e.clientX)
 
-  onMouseDown = e => {
+  onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
     document.addEventListener('mousemove', this.onMouseMove)
     document.addEventListener('mouseup', this.onDragStopped)
     this.onDragStart(WorkTimeline.getMousePoint(e))
   }
 
-  onMouseMove = e => this.onDrag(WorkTimeline.getMousePoint(e))
+  onMouseMove = (e: MouseEvent) => this.onDrag(WorkTimeline.getMousePoint(e))
 
-  onDragStart = x => {
+  onDragStart = (x: number) => {
     this.dragStartPosition = x
     this.dragStartScroll = this.wrapperRef.current.scrollLeft
   }
 
-  onDrag = x => {
+  onDrag = (x: number) => {
     if (this.rafTimeout) window.cancelAnimationFrame(this.rafTimeout)
 
     this.rafTimeout = window.requestAnimationFrame(() => {
@@ -121,20 +122,29 @@ class WorkTimeline extends React.Component {
 
 const now = new Date()
 
-const Year = ({ year, current, startAnimation, data }) => (
+type YearProps = {
+  startAnimation: boolean
+} & YearData
+
+const Year: React.SFC<YearProps> = ({
+  year,
+  current,
+  startAnimation,
+  data,
+}) => (
   <YearContainer current={current} startAnimation={startAnimation}>
     <YearLabel current={current}>
       {current ? `${year} ... ${now.getFullYear()}` : year}
     </YearLabel>
     <YearContent>
-      {data.map(experience => (
+      {data.map((experience: ExperienceData) => (
         <Experience key={experience.title} {...experience} />
       ))}
     </YearContent>
   </YearContainer>
 )
 
-const Experience = ({
+const Experience: React.SFC<ExperienceData> = ({
   date,
   company,
   companyUrl,

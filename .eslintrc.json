@@ -1,11 +1,13 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
-  "rules": {
-    "prettier/prettier": "error",
-    "react/prop-types": 0
-  },
-  "parser": "babel-eslint",
-  "plugins": ["prettier", "emotion"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier", "emotion"],
   "globals": {
     "document": true,
     "graphql": true,
@@ -17,10 +19,17 @@
     }
   },
   "rules": {
+    "prettier/prettier": "error",
     "emotion/jsx-import": "error",
     "emotion/no-vanilla": "error",
     "emotion/import-from-emotion": "error",
     "emotion/styled-import": "error",
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
   }
 }

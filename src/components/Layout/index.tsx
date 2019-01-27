@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import favicon from './favicon.png'
@@ -10,7 +10,15 @@ import Footer from '../Footer'
 import colors from '../../const/colors.json'
 import './index.css'
 
-const Layout = ({ children }) => (
+interface Data {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+}
+
+const Layout: React.SFC = ({ children }) => (
   <StaticQuery
     query={graphql`
       {
@@ -22,7 +30,7 @@ const Layout = ({ children }) => (
       }
     `}
   >
-    {data => (
+    {(data: Data) => (
       <>
         <Helmet>
           <html lang="en" />

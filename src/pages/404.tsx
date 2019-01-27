@@ -2,7 +2,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-const NotFoundPage = ({ data }) => (
+interface Four04Props {
+  data: {
+    site: {
+      siteMetadata: {
+        repository: string
+      }
+    }
+  }
+}
+
+const NotFoundPage: React.SFC<Four04Props> = ({ data }) => (
   <Layout>
     <h1>NOT FOUND</h1>
     <p>

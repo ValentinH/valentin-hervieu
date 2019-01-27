@@ -1,10 +1,15 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import Link from 'gatsby-link'
-
 import classes, { Container, Content, Title } from './styles'
 
-const Header = ({ siteTitle }) => (
+jsx // hack for jsx to be included
+
+interface Props {
+  siteTitle: string
+}
+
+const Header: React.SFC<Props> = ({ siteTitle }) => (
   <Container>
     <Content>
       <Title>

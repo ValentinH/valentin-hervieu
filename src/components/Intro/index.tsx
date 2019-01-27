@@ -7,6 +7,23 @@ import profilPic2x from './profil2x.jpg'
 import profilPicWebp from './profil.webp'
 import profilPicWebp2x from './profil2x.webp'
 
+interface Data {
+  site: {
+    siteMetadata: {
+      linkedinUrl: string
+      githubUrl: string
+      email: string
+    }
+  }
+}
+
+function getAge(): number {
+  const birthday = new Date('1991-03-21T02:00:00')
+  const ageDifMs = Date.now() - birthday.getTime()
+  const ageDate = new Date(ageDifMs) // miliseconds from epoch
+  return Math.abs(ageDate.getUTCFullYear() - 1970)
+}
+
 const Intro = () => (
   <StaticQuery
     query={graphql`
@@ -21,7 +38,7 @@ const Intro = () => (
       }
     `}
   >
-    {data => (
+    {(data: Data) => (
       <div>
         <picture>
           <source
@@ -70,12 +87,5 @@ const Intro = () => (
     )}
   </StaticQuery>
 )
-
-function getAge() {
-  const birthday = new Date('1991-03-21T02:00:00')
-  const ageDifMs = Date.now() - birthday.getTime()
-  const ageDate = new Date(ageDifMs) // miliseconds from epoch
-  return Math.abs(ageDate.getUTCFullYear() - 1970)
-}
 
 export default Intro
