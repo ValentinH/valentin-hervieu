@@ -31,10 +31,6 @@ const Layout = ({ children }) => (
           <meta name="keywords" content="sample, something" />
           <link rel="icon" type="image/png" href={favicon} />
           <meta name="theme-color" content={colors.primaryColor} />
-          <link
-            rel="prefetch"
-            href="https://google-photos-album.glitch.me/?id=EAfoBb227eETnbLS9"
-          />
         </Helmet>
         <Analytics />
         <Header siteTitle={data.site.siteMetadata.title} />
