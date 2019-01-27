@@ -31,14 +31,16 @@ const slideIn = keyframes({
   },
 })
 
-export const Container = styled('div')({
+export const Container = styled('div')(({ startAnimation }) => ({
   position: 'relative',
   display: 'inline-flex',
   margin: `0 ${arrowWidth + sidePadding}px`,
   marginTop: 24,
   background: '#fff',
   height: containerHeight,
-  animation: `${slideIn} 1s ease-out`,
+  transform: `translateX(-200%)`,
+  animation: startAnimation && `${slideIn} 1s ease-out`,
+  animationFillMode: 'forwards',
   cursor: 'grab',
   ':active': {
     cursor: 'grabing',
@@ -63,7 +65,7 @@ export const Container = styled('div')({
     borderBottom: `${containerHeight / 2}px solid transparent`,
     borderTop: `${containerHeight / 2}px solid transparent`,
   },
-})
+}))
 
 const appear = keyframes({
   '0%': {
@@ -88,7 +90,7 @@ const yearAnimations = Array(10)
     {}
   )
 
-export const YearContainer = styled('div')(({ current }) => ({
+export const YearContainer = styled('div')(({ current, startAnimation }) => ({
   display: 'flex',
   alignItems: 'center',
   position: 'relative',
@@ -103,8 +105,9 @@ export const YearContainer = styled('div')(({ current }) => ({
     ? 'rgba(250, 75, 42, 0.4)'
     : 'rgba(0, 114, 188, 0.4)',
   opacity: 0,
+  transform: 'translateX(-20%) scaleX(0)',
   transformOrigin: 'left center',
-  animation: `${appear} 500ms`,
+  animation: startAnimation && `${appear} 500ms`,
   animationFillMode: 'forwards',
   ...yearAnimations,
   ':before': {

@@ -1,5 +1,6 @@
 import React from 'react'
 import animateScrollTo from 'animated-scroll-to'
+import { InView } from 'react-intersection-observer'
 import ExternalLink from '../ExternalLink'
 import {
   Wrapper,
@@ -16,20 +17,27 @@ import {
 import srcData from './data'
 
 class WorkTimeline extends React.Component {
+  state = {
+    startAnimation: false,
+  }
   dragStartPosition = 0
   dragStartScroll = 0
   rafTimeout = null
   wrapperRef = React.createRef()
 
-  componentDidMount() {
+  playAnimation = () => {
+    this.setState({ startAnimation: true })
     this.scrollTimeline({ delay: 2000, speed: 1000 })
   }
 
   scrollTimeline = ({ delay, speed }) => {
     if (this.wrapperRef && this.wrapperRef.current) {
       const element = this.wrapperRef.current
+      const mobileThreshold = 540
+      const isMobile = window.innerWidth < mobileThreshold
+      const scrollOffset = isMobile ? mobileThreshold : window.innerWidth
       window.setTimeout(() => {
-        const scrollDestination = element.scrollWidth - window.innerWidth
+        const scrollDestination = element.scrollWidth - scrollOffset
         animateScrollTo(scrollDestination, {
           element,
           horizontal: true,
@@ -81,16 +89,31 @@ class WorkTimeline extends React.Component {
   }
 
   render() {
+    const { startAnimation } = this.state
     return (
       <div>
         <h2>Work experience</h2>
-        <Wrapper ref={this.wrapperRef}>
-          <Container onMouseDown={this.onMouseDown}>
-            {srcData.map(yearData => (
-              <Year key={yearData.year} {...yearData} />
-            ))}
-          </Container>
-        </Wrapper>
+        <InView
+          tag="div"
+          threshold={0.7}
+          triggerOnce
+          onChange={inView => inView && this.playAnimation()}
+        >
+          <Wrapper ref={this.wrapperRef}>
+            <Container
+              onMouseDown={this.onMouseDown}
+              startAnimation={startAnimation}
+            >
+              {srcData.map(yearData => (
+                <Year
+                  key={yearData.year}
+                  {...yearData}
+                  startAnimation={startAnimation}
+                />
+              ))}
+            </Container>
+          </Wrapper>
+        </InView>
       </div>
     )
   }
@@ -98,8 +121,8 @@ class WorkTimeline extends React.Component {
 
 const now = new Date()
 
-const Year = ({ year, current, data }) => (
-  <YearContainer current={current}>
+const Year = ({ year, current, startAnimation, data }) => (
+  <YearContainer current={current} startAnimation={startAnimation}>
     <YearLabel current={current}>
       {current ? `${year} ... ${now.getFullYear()}` : year}
     </YearLabel>

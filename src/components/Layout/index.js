@@ -41,7 +41,10 @@ const Layout = ({ children }) => (
             rel="stylesheet"
             async
           />
-
+          <script
+            crossOrigin="anonymous"
+            src="https://polyfill.io/v3/polyfill.js?flags=gated&features=default"
+          />
           <script async defer src="https://buttons.github.io/buttons.js" />
         </Helmet>
         <Analytics />
