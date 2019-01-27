@@ -32,17 +32,9 @@ const Layout = ({ children }) => (
           <link rel="icon" type="image/png" href={favicon} />
           <meta name="theme-color" content={colors.primaryColor} />
           <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
-            rel="stylesheet"
-            async
+            rel="prefetch"
+            href="https://google-photos-album.glitch.me/?id=EAfoBb227eETnbLS9"
           />
-          <link
-            href="https://fonts.googleapis.com/css?family=Lobster+Two:700&text=Valentin%20Hervieu"
-            rel="stylesheet"
-            async
-          />
-
-          <script async defer src="https://buttons.github.io/buttons.js" />
         </Helmet>
         <Analytics />
         <Header siteTitle={data.site.siteMetadata.title} />

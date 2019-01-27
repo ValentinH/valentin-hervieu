@@ -42,5 +42,20 @@ module.exports = {
           ['production', 'stage'].includes(process.env.NODE_ENV))(),
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Lobster Two`,
+            variants: [`700`],
+          },
+          {
+            family: `Open Sans`,
+            variants: [`400`, `700`],
+          },
+        ],
+      },
+    },
   ],
 }

@@ -6,6 +6,7 @@ const GithubButton = ({ user, repo, type = 'star' }) => {
   return (
     <iframe
       src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}${typeString}`}
+      title={`${repo} ${type} button`}
       frameBorder="0"
       scrolling="0"
       width="170px"

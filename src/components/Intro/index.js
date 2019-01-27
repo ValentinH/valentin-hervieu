@@ -3,7 +3,9 @@ import { StaticQuery, graphql } from 'gatsby'
 import ExternalLink from '../ExternalLink'
 import { Img, Title, Clearfix } from './styles'
 import profilPic from './profil.jpg'
+import profilPic2x from './profil2x.jpg'
 import profilPicWebp from './profil.webp'
+import profilPicWebp2x from './profil2x.webp'
 
 const Intro = () => (
   <StaticQuery
@@ -22,8 +24,14 @@ const Intro = () => (
     {data => (
       <div>
         <picture>
-          <source srcSet={profilPicWebp} type="image/webp" />
-          <source srcSet={profilPic} type="image/jpeg" />
+          <source
+            srcSet={`${profilPicWebp}, ${profilPicWebp2x} 2x`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${profilPic}, ${profilPic2x} 2x`}
+            type="image/jpeg"
+          />
           <Img src={profilPic} alt="Valentin Hervieu" />
         </picture>
         <Title>Welcome to my website!</Title>
