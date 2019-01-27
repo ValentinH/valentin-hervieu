@@ -2,6 +2,7 @@ import React from 'react'
 import { Content, Name, Description, Img, List, GithubButton } from './styles'
 import ExternalLink from '../ExternalLink'
 import tunezapLogo from './tunezap.png'
+import tunezapLogoWebp from './tunezap.webp'
 
 const Projects = () => (
   <div>
@@ -69,7 +70,11 @@ const Projects = () => (
         <Name>
           <h3>Tunezap.com</h3>
           <ExternalLink href="http://tunezap.com" title="Tunezap">
-            <Img src={tunezapLogo} alt="Tunezap.com logo" />
+            <picture>
+              <source srcSet={tunezapLogoWebp} type="image/webp" />
+              <source srcSet={tunezapLogo} type="image/png" />
+              <Img src={tunezapLogo} alt="Tunezap.com logo" />
+            </picture>
           </ExternalLink>
         </Name>
         <Description>
