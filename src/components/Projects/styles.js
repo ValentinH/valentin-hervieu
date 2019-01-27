@@ -16,10 +16,8 @@ export const Name = styled('div')({
   marginBottom: 8,
 })
 
-export const GithubButton = styled('span')({
-  position: 'relative',
-  top: 4,
-  marginLeft: 16,
+export const Title = styled('h3')({
+  marginRight: 16,
 })
 
 export const Description = styled('div')({
@@ -30,7 +28,6 @@ export const Description = styled('div')({
 export const Img = styled('img')({
   display: 'flex',
   height: 20,
-  marginLeft: 16,
 })
 
 export const List = styled('ul')({

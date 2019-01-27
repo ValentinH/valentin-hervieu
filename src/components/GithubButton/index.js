@@ -1,0 +1,18 @@
+import React from 'react'
+
+const GithubButton = ({ user, repo, type = 'star' }) => {
+  const typeString =
+    type === 'star' ? '&type=star&count=true' : '&type=watch&v=2'
+  return (
+    <iframe
+      src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}${typeString}`}
+      frameBorder="0"
+      scrolling="0"
+      width="170px"
+      height="20px"
+      style={{ display: 'flex' }}
+    />
+  )
+}
+
+export default GithubButton

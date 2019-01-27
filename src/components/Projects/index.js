@@ -1,6 +1,7 @@
 import React from 'react'
-import { Content, Name, Description, Img, List, GithubButton } from './styles'
+import { Content, Name, Title, Description, Img, List } from './styles'
 import ExternalLink from '../ExternalLink'
+import GithubButton from '../GithubButton'
 import tunezapLogo from './tunezap.png'
 import tunezapLogoWebp from './tunezap.webp'
 
@@ -10,18 +11,8 @@ const Projects = () => (
     <Content>
       <div>
         <Name>
-          <h3>react-easy-crop</h3>
-          <GithubButton>
-            <a
-              className="github-button"
-              href="https://github.com/ricardo-ch/react-easy-crop"
-              data-icon="octicon-star"
-              data-show-count="true"
-              aria-label="Star ricardo-ch/react-easy-crop on GitHub"
-            >
-              Star
-            </a>
-          </GithubButton>
+          <Title>react-easy-crop</Title>
+          <GithubButton user="ricardo-ch" repo="react-easy-crop" />
         </Name>
         <Description>
           A React component to crop images with easy interactions. I&apos;ve
@@ -37,18 +28,8 @@ const Projects = () => (
       </div>
       <div>
         <Name>
-          <h3>AngularJS Slider</h3>
-          <GithubButton>
-            <a
-              className="github-button"
-              href="https://github.com/angular-slider/angularjs-slider"
-              data-icon="octicon-star"
-              data-show-count="true"
-              aria-label="Star angular-slider/angularjs-slider on GitHub"
-            >
-              Star
-            </a>
-          </GithubButton>
+          <Title>AngularJS Slider</Title>
+          <GithubButton user="angular-slider" repo="angularjs-slider" />
         </Name>
         <Description>
           This is the most used slider directive for AngularJS 1.X with more
@@ -68,7 +49,7 @@ const Projects = () => (
 
       <div>
         <Name>
-          <h3>Tunezap.com</h3>
+          <Title>Tunezap.com</Title>
           <ExternalLink href="http://tunezap.com" title="Tunezap">
             <picture>
               <source srcSet={tunezapLogoWebp} type="image/webp" />
@@ -90,16 +71,8 @@ const Projects = () => (
       </div>
       <div>
         <Name>
-          <h3>valentin-hervieu.fr</h3>
-          <GithubButton>
-            <a
-              className="github-button"
-              href="https://github.com/ValentinH/valentin-hervieu"
-              aria-label="Watch ValentinH/valentin-hervieu on GitHub"
-            >
-              Watch
-            </a>
-          </GithubButton>
+          <Title>valentin-hervieu.fr</Title>
+          <GithubButton user="ValentinH" repo="valentin-hervieu" type="watch" />
         </Name>
         <Description>
           I use this website as a playground to try new things. At the moment,
