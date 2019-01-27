@@ -26,6 +26,12 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
+    {
+      resolve: `gatsby-plugin-polyfill-io`,
+      options: {
+        features: [`IntersectionObserver`],
+      },
+    },
     'gatsby-plugin-offline',
   ],
 }
