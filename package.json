@@ -25,6 +25,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "^0.1.0-11",
+    "@sentry/browser": "^4.5.3",
     "animated-scroll-to": "^1.2.2",
     "axios": "^0.18.0",
     "gatsby": "^2.0.98",
@@ -34,13 +35,13 @@
     "gatsby-plugin-offline": "^2.0.21",
     "gatsby-plugin-polyfill-io": "^1.0.5",
     "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-sentry": "^1.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-ga": "^2.5.6",
     "react-helmet": "^5.2.0",
     "react-image-gallery": "^0.8.12",
-    "react-intersection-observer": "^6.4.2",
-    "react-loader-spinner": "^2.3.0"
+    "react-intersection-observer": "^6.4.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",

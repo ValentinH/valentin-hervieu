@@ -1,4 +1,4 @@
-/* global module, require */
+/* global module, require, process */
 const packageJson = require('./package.json')
 const colors = require('./src/const/colors.json')
 
@@ -33,5 +33,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn: 'https://ce661a4a5d974d61b752bc771b266a25@sentry.io/1380519',
+        environment: process.env.NODE_ENV,
+        enabled: (() =>
+          ['production', 'stage'].includes(process.env.NODE_ENV))(),
+      },
+    },
   ],
 }
