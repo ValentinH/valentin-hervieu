@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
-
-const background = '#022748'
+import colors from '../../const/colors.json'
 
 export const Container = styled('div')({
-  background,
-  backgroundImage: `linear-gradient(120deg, ${background} 0%, #022f52 25%, #03375d 47%, #1b6584 75%, #3494ac 100%)`,
+  background: colors.primaryColor,
+  backgroundImage: `linear-gradient(to right bottom, ${
+    colors.primaryColor
+  }, #0079b4, #0083b2, #158caf, #3494ac)`,
 })
 
 export const Content = styled('div')({
@@ -19,7 +20,7 @@ export const Title = styled('h1')({
   fontFamily: "'Lobster Two', cursive",
   fontSize: 40,
   lineHeight: '40px',
-  textShadow: `5px 5px 1px ${background}`,
+  textShadow: `5px 5px 1px ${colors.primaryColor}`,
 })
 
 const classes = {

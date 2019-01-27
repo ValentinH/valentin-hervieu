@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
+import colors from '../../const/colors.json'
 
 export const Container = styled('div')({
-  background: '#004a5d',
+  background: colors.primaryColor,
 })
 
 export const Content = styled('div')({
