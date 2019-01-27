@@ -1,7 +1,7 @@
 import React from 'react'
 import { Item, Date, Diploma } from './styles'
 
-const Education = () => (
+const Education: React.SFC = () => (
   <div>
     <h2>Education</h2>
     <Item>

@@ -1,6 +1,24 @@
 import React from 'react'
 
-export default [
+export interface ExperienceData {
+  date: string
+  company: string
+  companyUrl: string
+  place: string
+  title: string
+  content: JSX.Element
+  current?: boolean
+}
+
+export interface YearData {
+  year: number
+  current?: boolean
+  data: ExperienceData[]
+}
+
+export type Data = YearData[]
+
+const data: Data = [
   {
     year: 2011,
     data: [
@@ -119,3 +137,5 @@ export default [
     ],
   },
 ]
+
+export default data

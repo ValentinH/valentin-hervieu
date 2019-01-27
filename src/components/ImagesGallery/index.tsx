@@ -1,11 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import 'react-image-gallery/styles/css/image-gallery.css'
-import ImageGallery from 'react-image-gallery'
+import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
 import * as Sentry from '@sentry/browser'
 
-class ImagesGallery extends React.Component {
-  state = {
+interface State {
+  images?: ReactImageGalleryItem[]
+}
+
+class ImagesGallery extends React.Component<{}, State> {
+  state: State = {
     images: null,
   }
 
@@ -16,7 +20,7 @@ class ImagesGallery extends React.Component {
       )
       if (response && response.data && response.data.length > 0) {
         this.setState({
-          images: response.data.map(url => ({
+          images: response.data.map((url: string) => ({
             original: `${url}=w1024`,
             thumbnail: `${url}=w100`,
             srcSet: `${url}=w1024 1024w,

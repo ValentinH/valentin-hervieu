@@ -8,10 +8,21 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { StaticQuery, graphql } from 'gatsby'
 import ExternalLink from '../ExternalLink'
-
 import classes, { Container, Content } from './styles'
 
-const Footer = ({ data }) => {
+jsx // havck for jsx to be included
+
+interface SocialData {
+  githubUrl: string
+  linkedinUrl: string
+  twitterUrl: string
+}
+
+interface Props {
+  data: SocialData
+}
+
+const Footer: React.SFC<Props> = ({ data }) => {
   const links = [
     { name: 'Twitter', url: data.twitterUrl, icon: faTwitterSquare },
     { name: 'Github', url: data.githubUrl, icon: faGithubSquare },
@@ -26,7 +37,7 @@ const Footer = ({ data }) => {
             key={link.name}
             href={link.url}
             title={link.name}
-            className={classes.iconLink}
+            css={classes.iconLink}
           >
             <FontAwesomeIcon css={classes.icon} icon={link.icon} />
           </ExternalLink>
@@ -34,6 +45,12 @@ const Footer = ({ data }) => {
       </Content>
     </Container>
   )
+}
+
+interface Query {
+  site: {
+    siteMetadata: SocialData
+  }
 }
 
 const FooterWithData = () => (
@@ -50,7 +67,7 @@ const FooterWithData = () => (
       }
     `}
   >
-    {data => <Footer data={data.site.siteMetadata} />}
+    {(data: Query) => <Footer data={data.site.siteMetadata} />}
   </StaticQuery>
 )
 

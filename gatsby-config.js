@@ -1,4 +1,4 @@
-/* global module, require, process */
+/* eslint-disable */
 const packageJson = require('./package.json')
 const colors = require('./src/const/colors.json')
 
@@ -12,6 +12,7 @@ module.exports = {
     twitterUrl: 'https://twitter.com/ValentinHervieu',
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     {

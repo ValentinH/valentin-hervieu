@@ -6,7 +6,7 @@ import Projects from '../components/Projects'
 import Education from '../components/Education'
 import ImagesGallery from '../components/ImagesGallery'
 
-const IndexPage = () => (
+const IndexPage: React.SFC = () => (
   <Layout>
     <Intro />
     <WorkTimeline />
