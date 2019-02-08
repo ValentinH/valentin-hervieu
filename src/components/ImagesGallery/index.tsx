@@ -3,6 +3,8 @@ import axios from 'axios'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
 import * as Sentry from '@sentry/browser'
+import Rect from '@reach/rect'
+import { ClassNames } from '@emotion/core'
 
 interface State {
   images?: ReactImageGalleryItem[]
@@ -44,10 +46,30 @@ class ImagesGallery extends React.Component<{}, State> {
   render() {
     const { images } = this.state
     return images ? (
-      <div>
-        <h2>Some pictures from my camera</h2>
-        <ImageGallery items={images} lazyLoad />
-      </div>
+      <Rect>
+        {({ rect, ref }) => (
+          <ClassNames>
+            {({ css }) => {
+              const height = rect ? (rect.width * 9) / 16 : undefined
+              return (
+                <div ref={ref}>
+                  <h2>Some pictures from my camera</h2>
+                  <ImageGallery
+                    items={images.map(img => ({
+                      ...img,
+                      originalClass: css({
+                        minHeight: height,
+                        background: '#121212',
+                      }),
+                    }))}
+                    lazyLoad
+                  />
+                </div>
+              )
+            }}
+          </ClassNames>
+        )}
+      </Rect>
     ) : null
   }
 }
