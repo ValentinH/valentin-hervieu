@@ -76,7 +76,15 @@ const Projects = () => (
         </Name>
         <Description>
           I use this website as a playground to try new things. At the moment,
-          it is built with Gatsby, GraphQL and Emotion.
+          it is built with Typescript, Gatsby, GraphQL and Emotion. I have
+          written an article about{' '}
+          <ExternalLink
+            href="https://medium.com/@ValentinHervieu/how-i-used-google-photos-to-host-my-website-pictures-gallery-d49f037c8e3c"
+            title="How I used Google Photos to host my website pictures gallery"
+          >
+            how I used Google Photos to host my pictures gallery
+          </ExternalLink>
+          .
         </Description>
       </div>
     </Content>
