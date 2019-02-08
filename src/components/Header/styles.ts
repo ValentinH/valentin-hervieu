@@ -1,11 +1,26 @@
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 import colors from '../../const/colors.json'
+
+const animatedBackground = keyframes({
+  '0%': {
+    backgroundPosition: '0% 50%',
+  },
+  '50%': {
+    backgroundPosition: '100% 50%',
+  },
+  '100%': {
+    backgroundPosition: '0% 50%',
+  },
+})
 
 export const Container = styled('div')({
   background: colors.primaryColor,
-  backgroundImage: `linear-gradient(to right bottom, ${
+  backgroundImage: `linear-gradient(246deg, ${colors.primaryColor}, #1ec0e9, ${
     colors.primaryColor
-  }, #0079b4, #0083b2, #158caf, #3494ac)`,
+  })`,
+  backgroundSize: '300% 300%',
+  animation: `${animatedBackground} 25s linear infinite`,
 })
 
 export const Content = styled('div')({
