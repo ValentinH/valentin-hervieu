@@ -9,8 +9,7 @@
     "lib": ["dom", "es2015", "es2017"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "baseUrl": "types",
-    "typeRoots": ["types"]
+    "baseUrl": "types"
   },
   "include": ["./src/**/*"]
 }
