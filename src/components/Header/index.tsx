@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import Link from 'gatsby-link'
-import classes, { Container, Content, Title } from './styles'
+import classes, { Container, Subtitle, Title } from './styles'
 
 jsx // hack for jsx to be included
 
@@ -11,13 +11,12 @@ interface Props {
 
 const Header: React.SFC<Props> = ({ siteTitle }) => (
   <Container>
-    <Content>
-      <Title>
-        <Link to="/" css={classes.link}>
-          {siteTitle}
-        </Link>
-      </Title>
-    </Content>
+    <Title>
+      <Link to="/" css={classes.link}>
+        {siteTitle}
+      </Link>
+    </Title>
+    <Subtitle>Senior Frontend Engineer</Subtitle>
   </Container>
 )
 

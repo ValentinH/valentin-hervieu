@@ -48,11 +48,11 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Lobster Two`,
-            variants: [`700`],
+            family: `Alegreya Sans SC`,
+            variants: [`100`, `300`],
           },
           {
-            family: `Open Sans`,
+            family: `Roboto`,
             variants: [`400`, `700`],
           },
         ],
