@@ -43,7 +43,7 @@ export const Container = styled('div')({
     bottom: 0,
     transform: 'translateZ(0)',
     background: `#1B2030 url(${imageUrl}=w2000) top center no-repeat`,
-    backgroundPositionY: -390,
+    backgroundPositionY: -20,
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
     animation: `${animatedBackground} 60s  linear 10ms infinite`,
@@ -74,9 +74,12 @@ export const Title = styled('h1')({
 export const Subtitle = styled('h1')({
   margin: 0,
   fontFamily: "'Alegreya Sans SC'",
-  fontWeight: 100,
+  fontWeight: 300,
   textShadow: `1px 2px 1px black`,
   fontSize: 18,
+  '@media (min-width: 1024px)': {
+    fontWeight: 100,
+  },
   [fullHdMedia]: {
     fontSize: 26,
   },
