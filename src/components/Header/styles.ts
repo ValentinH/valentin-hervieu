@@ -55,6 +55,10 @@ export const Container = styled('div')({
     [fullHdMedia]: {
       backgroundPositionY: -80,
     },
+    '@supports (-webkit-overflow-scrolling: touch)': {
+      backgroundAttachment: 'scroll',
+      backgroundPositionY: 0,
+    },
   },
 })
 
