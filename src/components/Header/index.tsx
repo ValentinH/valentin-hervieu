@@ -16,7 +16,7 @@ const Header: React.SFC<Props> = ({ siteTitle }) => (
         {siteTitle}
       </Link>
     </Title>
-    <Subtitle>Senior Frontend Engineer</Subtitle>
+    <Subtitle>Senior Front-end Engineer</Subtitle>
   </Container>
 )
 
