@@ -18,7 +18,7 @@ class ImagesGallery extends React.Component<{}, State> {
   async componentDidMount() {
     try {
       const response = await axios.get(
-        'https://google-photos-album.glitch.me/?id=EAfoBb227eETnbLS9'
+        'https://hbf801bpi8.execute-api.eu-west-3.amazonaws.com/production?id=EAfoBb227eETnbLS9'
       )
       if (response && response.data && response.data.length > 0) {
         this.setState({
