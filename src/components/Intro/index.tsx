@@ -57,7 +57,7 @@ const Intro = () => (
           {getAge()} years old.
         </p>
         <p>
-          I work as a senior front-end engineer for{' '}
+          I work as a principal front-end engineer for{' '}
           <ExternalLink href="https://ricardo.ch" title="Ricardo.ch">
             Ricardo.ch
           </ExternalLink>{' '}

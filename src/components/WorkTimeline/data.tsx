@@ -122,11 +122,11 @@ const data: Data = [
         company: 'Ricardo.ch',
         companyUrl: 'https://www.ricardo.ch',
         place: 'Sophia-Antipolis, France',
-        title: 'Senior Front-end Engineer',
+        title: 'Principal Front-end Engineer',
         current: true,
         content: (
           <p>
-            We are rebuilding an 18 y.o. ecommerce website using cool stuffs:
+            We are rebuilding a 20 y.o. ecommerce website using cool stuffs:
             React, SSR, Webpack, Node.js, MaterialUI...
             <br /> Ensuring that everything runs smoothly using Prometheus,
             Grafana and Google Analytics.
