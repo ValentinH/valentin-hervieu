@@ -38,7 +38,7 @@ const Projects = () => (
             href="https://npm-stat.com/charts.html?package=angularjs-slider&from=2015-01-01"
             title="NPM Stats"
           >
-            1 million downloads on NPM
+            2 million downloads on NPM
           </ExternalLink>
           . <br />I did not start this project, but I am the main contributor
           since July 2015. Since then I have added many features, full test
