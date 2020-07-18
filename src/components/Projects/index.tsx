@@ -16,8 +16,7 @@ const Projects = () => (
         </Name>
         <Description>
           A React component to crop images with easy interactions. I&apos;ve
-          started to implement this component at work for the new listing form
-          of{' '}
+          started to implement this component at work for the listing form of{' '}
           <ExternalLink href="https://ricardo.ch" title="Ricardo.ch">
             Ricardo.ch
           </ExternalLink>
@@ -26,6 +25,30 @@ const Projects = () => (
           agreement with my employer.
         </Description>
       </div>
+
+      <div>
+        <Name>
+          <Title>Medicalist</Title>
+          <ExternalLink href="https://medicalist.fr" title="Medicalist">
+            medicalist.fr
+          </ExternalLink>
+        </Name>
+        <Description>
+          This is a react-native application to manage your medicines and learn
+          about them. As this is using open-data from the French government, it
+          is only available in French.
+          <List>
+            <li>Scan medicine boxes using their QR code or barcode</li>
+            <li>Keep track of your stock and add personal notes</li>
+            <li>Search for any medicine</li>
+            <li>
+              Medicine record with all needed information: usage, dosage,
+              composition, price, leaflet, etc.
+            </li>
+          </List>
+        </Description>
+      </div>
+
       <div>
         <Name>
           <Title>AngularJS Slider</Title>
@@ -38,7 +61,7 @@ const Projects = () => (
             href="https://npm-stat.com/charts.html?package=angularjs-slider&from=2015-01-01"
             title="NPM Stats"
           >
-            2 million downloads on NPM
+            3 million downloads on NPM
           </ExternalLink>
           . <br />I did not start this project, but I am the main contributor
           since July 2015. Since then I have added many features, full test
@@ -47,28 +70,6 @@ const Projects = () => (
         </Description>
       </div>
 
-      <div>
-        <Name>
-          <Title>Tunezap.com</Title>
-          <ExternalLink href="http://tunezap.com" title="Tunezap">
-            <picture>
-              <source srcSet={tunezapLogoWebp} type="image/webp" />
-              <source srcSet={tunezapLogo} type="image/png" />
-              <Img src={tunezapLogo} alt="Tunezap.com logo" />
-            </picture>
-          </ExternalLink>
-        </Name>
-        <Description>
-          This is a web app I built as a student to create songs playlists. The
-          main features are:
-          <List>
-            <li>Playback using Youtube APIs</li>
-            <li>Lyrics display</li>
-            <li>Similar songs radio</li>
-            <li>Playlist sharing</li>
-          </List>
-        </Description>
-      </div>
       <div>
         <Name>
           <Title>valentin-hervieu.fr</Title>

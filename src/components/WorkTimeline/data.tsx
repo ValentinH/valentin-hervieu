@@ -127,7 +127,7 @@ const data: Data = [
         content: (
           <p>
             We are rebuilding a 20 y.o. ecommerce website using cool stuffs:
-            React, SSR, Webpack, Node.js, MaterialUI...
+            React, SSR, Typescript, Webpack, Node.js, MaterialUI...
             <br /> Ensuring that everything runs smoothly using Prometheus,
             Grafana and Google Analytics.
             <br /> Powered by our micro-services APIs.
