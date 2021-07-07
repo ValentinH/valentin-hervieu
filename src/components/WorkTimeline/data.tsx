@@ -126,7 +126,7 @@ const data: Data = [
         current: true,
         content: (
           <p>
-            We are rebuilding a 20 y.o. ecommerce website using cool stuffs:
+            We are polishing a 20 y.o. ecommerce website using cool stuffs:
             React, SSR, Typescript, Webpack, Node.js, MaterialUI...
             <br /> Ensuring that everything runs smoothly using Prometheus,
             Grafana and Google Analytics.
