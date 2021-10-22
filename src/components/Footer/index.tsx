@@ -1,34 +1,21 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitterSquare,
   faGithubSquare,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
-import { StaticQuery, graphql } from 'gatsby'
 import ExternalLink from '../ExternalLink'
 import classes, { Container, Content } from './styles'
+import config from '#src/const/config'
 
-jsx // havck for jsx to be included
+const links = [
+  { name: 'Twitter', url: config.twitterUrl, icon: faTwitterSquare },
+  { name: 'Github', url: config.githubUrl, icon: faGithubSquare },
+  { name: 'LinkedIn', url: config.linkedinUrl, icon: faLinkedin },
+]
 
-interface SocialData {
-  githubUrl: string
-  linkedinUrl: string
-  twitterUrl: string
-}
-
-interface Props {
-  data: SocialData
-}
-
-const Footer: React.SFC<Props> = ({ data }) => {
-  const links = [
-    { name: 'Twitter', url: data.twitterUrl, icon: faTwitterSquare },
-    { name: 'Github', url: data.githubUrl, icon: faGithubSquare },
-    { name: 'LinkedIn', url: data.linkedinUrl, icon: faLinkedin },
-  ]
-
+const Footer = () => {
   return (
     <Container>
       <Content>
@@ -47,28 +34,4 @@ const Footer: React.SFC<Props> = ({ data }) => {
   )
 }
 
-interface Query {
-  site: {
-    siteMetadata: SocialData
-  }
-}
-
-const FooterWithData = () => (
-  <StaticQuery
-    query={graphql`
-      {
-        site {
-          siteMetadata {
-            githubUrl
-            linkedinUrl
-            twitterUrl
-          }
-        }
-      }
-    `}
-  >
-    {(data: Query) => <Footer data={data.site.siteMetadata} />}
-  </StaticQuery>
-)
-
-export default FooterWithData
+export default Footer

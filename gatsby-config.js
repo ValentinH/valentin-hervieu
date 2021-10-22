@@ -1,6 +1,6 @@
 /* eslint-disable */
 const packageJson = require('./package.json')
-const colors = require('./src/const/colors.json')
+// const colors = require('./src/const/colors.json')
 
 module.exports = {
   siteMetadata: {
@@ -22,7 +22,7 @@ module.exports = {
         short_name: 'ValentinH',
         start_url: '/',
         background_color: '#eee',
-        theme_color: colors.primaryColor,
+        theme_color: 'colors.primaryColor',
         display: 'standalone',
         icon: 'src/images/logo.png',
       },

@@ -1,19 +1,16 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
-import Link from 'gatsby-link'
+import React from 'react'
+import Link from 'next/link'
 import classes, { Container, Subtitle, Title } from './styles'
 
-jsx // hack for jsx to be included
-
-interface Props {
+type Props = {
   siteTitle: string
 }
 
-const Header: React.SFC<Props> = ({ siteTitle }) => (
+const Header: React.FC<Props> = ({ siteTitle }) => (
   <Container>
     <Title>
-      <Link to="/" css={classes.link}>
-        {siteTitle}
+      <Link href="/">
+        <a css={classes.link}>{siteTitle}</a>
       </Link>
     </Title>
     <Subtitle>Passionate Front-end Engineer</Subtitle>

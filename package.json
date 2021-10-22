@@ -1,7 +1,7 @@
 {
   "name": "valentin-hervieu",
   "description": "My personal website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Valentin Hervieu <valentin@hervi.eu>",
   "keywords": [
     "valentin-hervieu",
@@ -10,17 +10,17 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "local:prod": "gatsby build && gatsby serve",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "format": "prettier --write 'src/**/*+(ts|tsx)?'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --ext .ts --ext .tsx",
-    "deploy": "gatsby build && gh-pages -d public -b master -r git@github.com:ValentinH/valentinh.github.io.git"
+    "deploy": "yarn build && gh-pages -d public -b master -r git@github.com:ValentinH/valentinh.github.io.git"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.6",
-    "@emotion/styled": "^10.0.6",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
@@ -31,18 +31,7 @@
     "@types/react-image-gallery": "^0.8.3",
     "animated-scroll-to": "^1.2.2",
     "axios": "^0.18.0",
-    "gatsby": "^2.1.4",
-    "gatsby-link": "^2.0.9",
-    "gatsby-plugin-emotion": "^4.0.1",
-    "gatsby-plugin-hotjar": "^1.0.1",
-    "gatsby-plugin-manifest": "^2.0.13",
-    "gatsby-plugin-offline": "^2.0.23",
-    "gatsby-plugin-polyfill-io": "^1.0.5",
-    "gatsby-plugin-prefetch-google-fonts": "^1.1.1",
-    "gatsby-plugin-react-helmet": "^3.0.5",
-    "gatsby-plugin-sentry": "^1.0.1",
-    "gatsby-plugin-typescript": "^2.0.3",
-    "google-fonts-plugin": "2.0.2",
+    "next": "^11.1.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-ga": "^2.5.6",
@@ -51,6 +40,7 @@
     "react-intersection-observer": "^6.4.2"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.3.0",
     "@typescript-eslint/eslint-plugin": "^1.1.0",
     "@typescript-eslint/parser": "^1.1.0",
     "eslint": "^5.12.1",
@@ -61,9 +51,6 @@
     "gh-pages": "^2.0.1",
     "prettier": "^1.16.1",
     "typescript": "^3.2.4"
-  },
-  "resolutions": {
-    "*/google-fonts-plugin": "2.0.2"
   },
   "repository": {
     "type": "git",

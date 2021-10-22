@@ -1,12 +1,11 @@
 import React from 'react'
-import { InterpolationWithTheme } from '@emotion/core'
 import { Link } from './styles'
 
-interface Props extends React.HTMLProps<HTMLAnchorElement> {
-  css?: InterpolationWithTheme<any>
+type Props = React.HTMLProps<HTMLAnchorElement> & {
+  css?: any // TODO fix me
 }
 
-const ExternalLink: React.SFC<Props> = ({ children, ...rest }) => (
+const ExternalLink: React.FC<Props> = ({ children, ...rest }) => (
   <Link {...rest} target="_blank" rel="noopener noreferrer">
     {children}
   </Link>

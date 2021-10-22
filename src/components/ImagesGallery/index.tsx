@@ -4,7 +4,7 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
 import * as Sentry from '@sentry/browser'
 import Rect from '@reach/rect'
-import { ClassNames } from '@emotion/core'
+import { ClassNames } from '@emotion/react'
 
 interface State {
   images?: ReactImageGalleryItem[]

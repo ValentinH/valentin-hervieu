@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
-import colors from '../../const/colors.json'
+import { keyframes } from '@emotion/react'
+import colors from '../../const/colors'
 
 const containerHeight = 360 /* needs to be adjusted if heights changes */
 const arrowWidth = 150
@@ -31,7 +31,7 @@ const slideIn = keyframes({
   },
 })
 
-interface ContainerProps {
+type ContainerProps = {
   startAnimation: boolean
 }
 

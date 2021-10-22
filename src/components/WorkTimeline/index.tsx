@@ -126,12 +126,7 @@ type YearProps = {
   startAnimation: boolean
 } & YearData
 
-const Year: React.SFC<YearProps> = ({
-  year,
-  current,
-  startAnimation,
-  data,
-}) => (
+const Year: React.FC<YearProps> = ({ year, current, startAnimation, data }) => (
   <YearContainer current={current} startAnimation={startAnimation}>
     <YearLabel current={current}>
       {current ? `${year} ... ${now.getFullYear()}` : year}
@@ -144,7 +139,7 @@ const Year: React.SFC<YearProps> = ({
   </YearContainer>
 )
 
-const Experience: React.SFC<ExperienceData> = ({
+const Experience: React.FC<ExperienceData> = ({
   date,
   company,
   companyUrl,
