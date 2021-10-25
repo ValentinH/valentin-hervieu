@@ -19,7 +19,7 @@ const classes = {
   icon: {
     color: 'white',
     margin: '0 8px',
-    fontSize: 20,
+    height: 20,
     transition: 'transform 500ms ease-in-out',
     ':hover': {
       transform: 'rotateZ(360deg)',

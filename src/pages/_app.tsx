@@ -14,7 +14,6 @@ import config from '#src/const/config'
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
-      <html lang="en" />
       <title>{config.title}</title>
       <meta name="description" content="Personal website of Valentin Hervieu" />
       <meta name="keywords" content="Valentin, Hervieu, React, Frontend" />
