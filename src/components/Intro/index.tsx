@@ -1,11 +1,9 @@
 import React from 'react'
 import ExternalLink from '../ExternalLink'
-import { Img, Title, Clearfix } from './styles'
+import { ImgWrapper, Title, Clearfix } from './styles'
 import profilPic from './profil.jpg'
-import profilPic2x from './profil2x.jpg'
-import profilPicWebp from './profil.webp'
-import profilPicWebp2x from './profil2x.webp'
 import config from '#src/const/config'
+import Image from 'next/image'
 
 function getAge(): number {
   const birthday = new Date('1991-03-21T02:00:00')
@@ -16,14 +14,14 @@ function getAge(): number {
 
 const Intro = () => (
   <div>
-    <picture>
-      <source
-        srcSet={`${profilPicWebp}, ${profilPicWebp2x} 2x`}
-        type="image/webp"
+    <ImgWrapper>
+      <Image
+        src={profilPic}
+        alt="Valentin Hervieu"
+        layout="responsive"
+        priority
       />
-      <source srcSet={`${profilPic}, ${profilPic2x} 2x`} type="image/jpeg" />
-      <Img src={profilPic} alt="Valentin Hervieu" />
-    </picture>
+    </ImgWrapper>
     <Title>Welcome to my website!</Title>
     <p>
       I&apos;m <strong>Valentin Hervieu</strong> from France and I&apos;m{' '}
