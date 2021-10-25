@@ -10,7 +10,8 @@
   "plugins": ["@typescript-eslint", "prettier", "emotion"],
   "globals": {
     "document": true,
-    "window": true
+    "window": true,
+    "Set": true
   },
   "settings": {
     "react": {

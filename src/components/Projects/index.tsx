@@ -1,9 +1,7 @@
 import React from 'react'
-import { Content, Name, Title, Description, Img, List } from './styles'
+import { Content, Name, Title, Description, List } from './styles'
 import ExternalLink from '../ExternalLink'
 import GithubButton from '../GithubButton'
-import tunezapLogo from './tunezap.png'
-import tunezapLogoWebp from './tunezap.webp'
 
 const Projects = () => (
   <div>
@@ -77,8 +75,8 @@ const Projects = () => (
         </Name>
         <Description>
           I use this website as a playground to try new things. At the moment,
-          it is built with Typescript, Gatsby, GraphQL and Emotion. I have
-          written an article about{' '}
+          it is built with Typescript, Next.js and Emotion. I have written an
+          article about{' '}
           <ExternalLink
             href="https://medium.com/@ValentinHervieu/how-i-used-google-photos-to-host-my-website-pictures-gallery-d49f037c8e3c"
             title="How I used Google Photos to host my website pictures gallery"

@@ -14,9 +14,7 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write 'src/**/*+(ts|tsx)?'",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./src --ext .ts --ext .tsx",
-    "deploy": "yarn build && gh-pages -d public -b master -r git@github.com:ValentinH/valentinh.github.io.git"
+    "lint": "eslint ./src --ext .ts --ext .tsx"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
