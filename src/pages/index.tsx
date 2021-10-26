@@ -11,14 +11,8 @@ import { ReactImageGalleryItem } from 'react-image-gallery'
 export const getStaticProps: GetStaticProps = async () => {
   const album = await getAlbum('EAfoBb227eETnbLS9')
   const images = album.map<ReactImageGalleryItem>(url => ({
-    original: `${url}=w1024`,
+    original: `${url}=w4000`,
     thumbnail: `${url}=w100`,
-    srcSet: `${url}=w1024 1024w,
-  ${url}=w2048 2048w,
-  ${url}=w800 800w`,
-    sizes: `(min-width: 1024px) 1024px,
-  (min-width: 2048px) 2048px,
-  800px`,
     originalAlt: 'One photo I like',
     thumbnailAlt: 'Thumbnail of one photo I like',
   }))
