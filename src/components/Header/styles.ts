@@ -11,7 +11,10 @@ const animatedBackground = keyframes({
 })
 
 const fullHdMedia = '@media (min-width: 1900px)'
-
+const backgroundRules = {
+  backgroundSize: 'cover',
+  backgroundAttachment: 'fixed',
+}
 export const Container = styled('div')({
   color: 'white',
   position: 'relative',
@@ -42,20 +45,16 @@ export const Container = styled('div')({
     right: 0,
     bottom: 0,
     transform: 'translateZ(0)',
-    background: `#1B2030 url(/background_600.jpeg) top center no-repeat`,
-    backgroundPositionY: -20,
-    backgroundSize: 'cover',
-    backgroundAttachment: 'fixed',
+    background: `#1B2030 url(/background_1400.webp) top center no-repeat`,
+    backgroundPositionY: -80,
+    ...backgroundRules,
     animation: `${animatedBackground} 60s  linear 10ms infinite`,
     transition: 'all 0.2s ease-in-out',
     zIndex: -2,
-    '@media (min-width: 600px)': {
-      backgroundPositionY: 0,
-      background: `#1B2030 url(/background_1400.jpeg) top center no-repeat`,
-    },
-    '@media (min-width: 1024px)': {
-      background: `#1B2030 url(/background_1920.jpeg) top center no-repeat`,
+    '@media (min-width: 1300px)': {
+      background: `#1B2030 url(/background_1920.webp) top center no-repeat`,
       backgroundPositionY: -80,
+      ...backgroundRules,
     },
     '@supports (-webkit-overflow-scrolling: touch)': {
       backgroundAttachment: 'scroll',
