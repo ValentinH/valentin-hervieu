@@ -25,11 +25,6 @@ export const Description = styled('div')({
   textAlign: 'justify',
 })
 
-export const Img = styled('img')({
-  display: 'flex',
-  height: 20,
-})
-
 export const List = styled('ul')({
   margin: '8px 0',
 })

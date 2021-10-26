@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
-import colors from '../../const/colors.json'
+import { keyframes } from '@emotion/react'
+import colors from '../../const/colors'
+import '@fontsource/roboto/700.css'
 
 const containerHeight = 360 /* needs to be adjusted if heights changes */
 const arrowWidth = 150
@@ -31,12 +32,13 @@ const slideIn = keyframes({
   },
 })
 
-interface ContainerProps {
+type ContainerProps = {
   startAnimation: boolean
 }
 
-export const Container = styled('div')(
-  ({ startAnimation }: ContainerProps) => ({
+export const Container = styled('div')<ContainerProps>(
+  // @ts-expect-error This is valid yet TS definition doesn't allow it
+  ({ startAnimation }) => ({
     position: 'relative',
     display: 'inline-flex',
     margin: `0 ${arrowWidth + sidePadding}px`,
@@ -154,7 +156,7 @@ export const YearLabel = styled('div')(({ current }: YearLabelProps) => ({
   position: 'absolute',
   top: 0,
   color: current ? colors.secondaryColor : colors.primaryColor,
-  fontWeight: 'bold',
+  fontWeight: 700,
   marginLeft: 8,
 }))
 
@@ -182,18 +184,17 @@ export const ExpDate = styled('div')({
   fontSize: 12,
   fontStyle: 'italic',
   marginBottom: 8,
-  fontWeight: 500,
 })
 export const ExpPlace = styled('div')({
   color: '#666',
   fontSize: 14,
-  fontWeight: 600,
+  fontWeight: 700,
   marginBottom: 8,
 })
 export const ExpTitle = styled('div')({
   color: '#444',
   fontSize: 16,
-  fontWeight: 600,
+  fontWeight: 700,
 })
 export const ExpContent = styled('div')({
   lineHeight: 1.5,

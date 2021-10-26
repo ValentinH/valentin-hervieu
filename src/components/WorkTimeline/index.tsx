@@ -22,7 +22,7 @@ class WorkTimeline extends React.Component {
   }
   dragStartPosition = 0
   dragStartScroll = 0
-  rafTimeout: number = null
+  rafTimeout: number | null = null
   wrapperRef = React.createRef<HTMLDivElement>()
 
   playAnimation = () => {
@@ -70,14 +70,14 @@ class WorkTimeline extends React.Component {
 
   onDragStart = (x: number) => {
     this.dragStartPosition = x
-    this.dragStartScroll = this.wrapperRef.current.scrollLeft
+    this.dragStartScroll = this.wrapperRef.current?.scrollLeft || 0
   }
 
   onDrag = (x: number) => {
     if (this.rafTimeout) window.cancelAnimationFrame(this.rafTimeout)
 
     this.rafTimeout = window.requestAnimationFrame(() => {
-      if (x === undefined) return
+      if (x === undefined || !this.wrapperRef.current) return
       const offsetX = this.dragStartPosition - x
       const requestedPosition = this.dragStartScroll + offsetX
 
@@ -126,12 +126,7 @@ type YearProps = {
   startAnimation: boolean
 } & YearData
 
-const Year: React.SFC<YearProps> = ({
-  year,
-  current,
-  startAnimation,
-  data,
-}) => (
+const Year: React.FC<YearProps> = ({ year, current, startAnimation, data }) => (
   <YearContainer current={current} startAnimation={startAnimation}>
     <YearLabel current={current}>
       {current ? `${year} ... ${now.getFullYear()}` : year}
@@ -144,7 +139,7 @@ const Year: React.SFC<YearProps> = ({
   </YearContainer>
 )
 
-const Experience: React.SFC<ExperienceData> = ({
+const Experience: React.FC<ExperienceData> = ({
   date,
   company,
   companyUrl,

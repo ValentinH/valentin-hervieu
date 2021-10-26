@@ -1,12 +1,12 @@
 import React from 'react'
 
-interface Props {
+type Props = {
   user: string
   repo: string
   type?: string
 }
 
-const GithubButton: React.SFC<Props> = ({ user, repo, type = 'star' }) => {
+const GithubButton: React.FC<Props> = ({ user, repo, type = 'star' }) => {
   const typeString =
     type === 'star' ? '&type=star&count=true' : '&type=watch&v=2'
   return (

@@ -10,8 +10,8 @@
   "plugins": ["@typescript-eslint", "prettier", "emotion"],
   "globals": {
     "document": true,
-    "graphql": true,
-    "window": true
+    "window": true,
+    "Set": true
   },
   "settings": {
     "react": {
@@ -20,14 +20,12 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "emotion/jsx-import": "error",
-    "emotion/no-vanilla": "error",
-    "emotion/import-from-emotion": "error",
-    "emotion/styled-import": "error",
     "react/prop-types": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/explicit-member-accessibility": 0
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/no-object-literal-type-assertion": 0,
+    "@typescript-eslint/prefer-interface": 0
   },
   "parserOptions": {
     "project": "./tsconfig.json"

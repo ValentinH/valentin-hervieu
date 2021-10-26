@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import colors from '../../const/colors.json'
+import colors from '../../const/colors'
 
 export const Container = styled('div')({
   background: colors.primaryColor,
@@ -19,7 +19,7 @@ const classes = {
   icon: {
     color: 'white',
     margin: '0 8px',
-    fontSize: 20,
+    height: 20,
     transition: 'transform 500ms ease-in-out',
     ':hover': {
       transform: 'rotateZ(360deg)',
