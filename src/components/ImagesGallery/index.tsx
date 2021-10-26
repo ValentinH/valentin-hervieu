@@ -1,7 +1,7 @@
-import React from 'react'
 import 'react-image-gallery/styles/css/image-gallery.css'
-import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
 import Image from 'next/image'
+import React from 'react'
+import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
 
 type Props = {
   images?: ReactImageGalleryItem[]
@@ -14,11 +14,11 @@ const ImagesGallery = ({ images }: Props) => {
     <div>
       <h2>Some pictures from my camera</h2>
       <ImageGallery
-        items={images.map(img => ({
+        items={images.map((img) => ({
           ...img,
         }))}
         showFullscreenButton={false}
-        renderItem={item =>
+        renderItem={(item) =>
           item.original && (
             <div
               css={{
@@ -36,7 +36,7 @@ const ImagesGallery = ({ images }: Props) => {
             </div>
           )
         }
-        renderThumbInner={item =>
+        renderThumbInner={(item) =>
           item.thumbnail && (
             <Image
               src={item.thumbnail}

@@ -1,9 +1,11 @@
-import React from 'react'
-import ExternalLink from '../ExternalLink'
-import { ImgWrapper, Title, Clearfix } from './styles'
-import profilPic from './profil.jpg'
-import config from '#src/const/config'
 import Image from 'next/image'
+import React from 'react'
+
+import config from '#src/const/config'
+
+import ExternalLink from '../ExternalLink'
+import profilPic from './profil.jpg'
+import { ImgWrapper, Title, Clearfix } from './styles'
 
 function getAge(): number {
   const birthday = new Date('1991-03-21T02:00:00')

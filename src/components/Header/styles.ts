@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
+import styled from '@emotion/styled'
 import '@fontsource/alegreya-sans-sc/100.css'
 import '@fontsource/alegreya-sans-sc/300.css'
 

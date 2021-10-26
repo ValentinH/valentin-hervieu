@@ -1,7 +1,9 @@
-import React from 'react'
 import animateScrollTo from 'animated-scroll-to'
+import React from 'react'
 import { InView } from 'react-intersection-observer'
+
 import ExternalLink from '../ExternalLink'
+import srcData, { ExperienceData, YearData } from './data'
 import {
   Wrapper,
   Container,
@@ -14,20 +16,25 @@ import {
   ExpTitle,
   ExpContent,
 } from './styles'
-import srcData, { ExperienceData, YearData } from './data'
 
 class WorkTimeline extends React.Component {
   state = {
     startAnimation: false,
   }
+
   dragStartPosition = 0
+
   dragStartScroll = 0
+
   rafTimeout: number | null = null
+
   wrapperRef = React.createRef<HTMLDivElement>()
 
-  playAnimation = () => {
-    this.setState({ startAnimation: true })
-    this.scrollTimeline({ delay: 2000, speed: 1000 })
+  static getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) =>
+    Number(e.clientX)
+
+  componentWillUnmount() {
+    this.cleanEvents()
   }
 
   scrollTimeline = ({ delay, speed }: { delay: number; speed: number }) => {
@@ -41,23 +48,21 @@ class WorkTimeline extends React.Component {
         animateScrollTo(scrollDestination, {
           element,
           horizontal: true,
-          speed: speed,
+          speed,
         })
       }, delay)
     }
   }
 
-  componentWillUnmount() {
-    this.cleanEvents()
+  playAnimation = () => {
+    this.setState({ startAnimation: true })
+    this.scrollTimeline({ delay: 2000, speed: 1000 })
   }
 
   cleanEvents = () => {
     document.removeEventListener('mousemove', this.onMouseMove)
     document.removeEventListener('mouseup', this.onDragStopped)
   }
-
-  static getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) =>
-    Number(e.clientX)
 
   onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
@@ -98,14 +103,14 @@ class WorkTimeline extends React.Component {
           tag="div"
           threshold={0.7}
           triggerOnce
-          onChange={inView => inView && this.playAnimation()}
+          onChange={(inView) => inView && this.playAnimation()}
         >
           <Wrapper ref={this.wrapperRef}>
             <Container
               onMouseDown={this.onMouseDown}
               startAnimation={startAnimation}
             >
-              {srcData.map(yearData => (
+              {srcData.map((yearData) => (
                 <Year
                   key={yearData.year}
                   {...yearData}

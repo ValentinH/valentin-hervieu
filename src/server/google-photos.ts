@@ -5,6 +5,7 @@ const regex = /\["(https:\/\/lh3\.googleusercontent\.com\/[a-zA-Z0-9\-_]*)"/g
 function extractPhotos(content: string) {
   const links = new Set()
   let match
+  // eslint-disable-next-line no-cond-assign
   while ((match = regex.exec(content))) {
     links.add(match[1])
   }

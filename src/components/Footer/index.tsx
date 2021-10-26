@@ -1,13 +1,15 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitterSquare,
   faGithubSquare,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
+
+import config from '#src/const/config'
+
 import ExternalLink from '../ExternalLink'
 import classes, { Container, Content } from './styles'
-import config from '#src/const/config'
 
 const links = [
   { name: 'Twitter', url: config.twitterUrl, icon: faTwitterSquare },
@@ -19,7 +21,7 @@ const Footer = () => {
   return (
     <Container>
       <Content>
-        {links.map(link => (
+        {links.map((link) => (
           <ExternalLink
             key={link.name}
             href={link.url}

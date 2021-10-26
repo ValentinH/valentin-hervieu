@@ -1,16 +1,20 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import React from 'react'
-import Intro from '../components/Intro'
-import WorkTimeline from '../components/WorkTimeline'
-import Projects from '../components/Projects'
+import { ReactImageGalleryItem } from 'react-image-gallery'
+
+import { getAlbum } from '#src/server/google-photos'
+
 import Education from '../components/Education'
 import ImagesGallery from '../components/ImagesGallery'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { getAlbum } from '#src/server/google-photos'
-import { ReactImageGalleryItem } from 'react-image-gallery'
+import Intro from '../components/Intro'
+import Projects from '../components/Projects'
+import WorkTimeline from '../components/WorkTimeline'
+
+
 
 export const getStaticProps: GetStaticProps = async () => {
   const album = await getAlbum('EAfoBb227eETnbLS9')
-  const images = album.map<ReactImageGalleryItem>(url => ({
+  const images = album.map<ReactImageGalleryItem>((url) => ({
     original: `${url}=w4000`,
     thumbnail: `${url}=w100`,
     originalAlt: 'One photo I like',

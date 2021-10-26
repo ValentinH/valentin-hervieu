@@ -1,5 +1,6 @@
-import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
+import styled from '@emotion/styled'
+
 import colors from '../../const/colors'
 import '@fontsource/roboto/700.css'
 
