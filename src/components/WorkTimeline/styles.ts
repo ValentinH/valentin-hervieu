@@ -99,7 +99,7 @@ const yearAnimations = Array(10)
     {}
   )
 
-interface YearContainerProps {
+type YearContainerProps = {
   current?: boolean
   startAnimation: boolean
 }
@@ -149,7 +149,7 @@ export const YearContainer = styled('div')(
   })
 )
 
-interface YearLabelProps {
+type YearLabelProps = {
   current?: boolean
 }
 
@@ -166,7 +166,7 @@ export const YearContent = styled('div')({
   marginLeft: 16,
 })
 
-interface ExperienceContainerProps {
+type ExperienceContainerProps = {
   current?: boolean
 }
 

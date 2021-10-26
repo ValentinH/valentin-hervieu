@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface ExperienceData {
+export type ExperienceData = {
   date: string
   company: string
   companyUrl: string
@@ -10,7 +10,7 @@ export interface ExperienceData {
   current?: boolean
 }
 
-export interface YearData {
+export type YearData = {
   year: number
   current?: boolean
   data: ExperienceData[]
@@ -115,24 +115,37 @@ const data: Data = [
   },
   {
     year: 2017,
-    current: true,
     data: [
       {
-        date: 'July 2017 – Present',
+        date: 'July 2017 – October 2021',
         company: 'Ricardo.ch',
         companyUrl: 'https://www.ricardo.ch',
         place: 'Sophia-Antipolis, France',
         title: 'Principal Front-end Engineer',
-        current: true,
         content: (
           <p>
-            We are polishing a 20 y.o. ecommerce website using cool stuffs:
-            React, SSR, Typescript, Webpack, Node.js, MaterialUI...
+            Polished a 20 y.o. ecommerce website using cool stuffs: React, SSR,
+            Typescript, Webpack, Node.js, MaterialUI...
             <br /> Ensuring that everything runs smoothly using Prometheus,
             Grafana and Google Analytics.
             <br /> Powered by our micro-services APIs.
           </p>
         ),
+      },
+    ],
+  },
+  {
+    year: 2021,
+    current: true,
+    data: [
+      {
+        date: 'November 2021 – Present',
+        company: 'Coming soon',
+        companyUrl: 'https://valentin-hervieu.fr',
+        place: 'Sophia-Antipolis, France',
+        title: 'Senior Front-end Engineer',
+        current: true,
+        content: <p>Loading...</p>,
       },
     ],
   },

@@ -17,29 +17,19 @@ import {
   ExpContent,
 } from './styles'
 
-class WorkTimeline extends React.Component {
-  state = {
-    startAnimation: false,
-  }
+const getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) =>
+  Number(e.clientX)
 
-  dragStartPosition = 0
+const WorkTimeline = () => {
+  const [startAnimation, setStartAnimation] = React.useState(false)
+  const dragStartPositionRef = React.useRef(0)
+  const dragStartScrollRef = React.useRef(0)
+  const rafTimeoutRef = React.useRef<number | null>(null)
+  const wrapperRef = React.useRef<HTMLDivElement | null>(null)
 
-  dragStartScroll = 0
-
-  rafTimeout: number | null = null
-
-  wrapperRef = React.createRef<HTMLDivElement>()
-
-  static getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) =>
-    Number(e.clientX)
-
-  componentWillUnmount() {
-    this.cleanEvents()
-  }
-
-  scrollTimeline = ({ delay, speed }: { delay: number; speed: number }) => {
-    if (this.wrapperRef && this.wrapperRef.current) {
-      const element = this.wrapperRef.current
+  const scrollTimeline = ({ delay = 100, speed = 1000 }) => {
+    if (wrapperRef && wrapperRef.current) {
+      const element = wrapperRef.current
       const mobileThreshold = 540
       const isMobile = window.innerWidth < mobileThreshold
       const scrollOffset = isMobile ? mobileThreshold : window.innerWidth
@@ -54,75 +44,72 @@ class WorkTimeline extends React.Component {
     }
   }
 
-  playAnimation = () => {
-    this.setState({ startAnimation: true })
-    this.scrollTimeline({ delay: 2000, speed: 1000 })
+  const playAnimation = () => {
+    setStartAnimation(true)
+    scrollTimeline({ delay: 2000, speed: 1000 })
   }
 
-  cleanEvents = () => {
-    document.removeEventListener('mousemove', this.onMouseMove)
-    document.removeEventListener('mouseup', this.onDragStopped)
+  const onDragStart = (x: number) => {
+    dragStartPositionRef.current = x
+    dragStartScrollRef.current = wrapperRef.current?.scrollLeft || 0
   }
 
-  onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
-    document.addEventListener('mousemove', this.onMouseMove)
-    document.addEventListener('mouseup', this.onDragStopped)
-    this.onDragStart(WorkTimeline.getMousePoint(e))
+    document.addEventListener('mousemove', onMouseMove)
+    document.addEventListener('mouseup', onDragStopped)
+    onDragStart(getMousePoint(e))
   }
 
-  onMouseMove = (e: MouseEvent) => this.onDrag(WorkTimeline.getMousePoint(e))
+  const onMouseMove = React.useCallback((e: MouseEvent) => {
+    const x = getMousePoint(e)
 
-  onDragStart = (x: number) => {
-    this.dragStartPosition = x
-    this.dragStartScroll = this.wrapperRef.current?.scrollLeft || 0
-  }
+    if (rafTimeoutRef.current)
+      window.cancelAnimationFrame(rafTimeoutRef.current)
 
-  onDrag = (x: number) => {
-    if (this.rafTimeout) window.cancelAnimationFrame(this.rafTimeout)
+    rafTimeoutRef.current = window.requestAnimationFrame(() => {
+      if (x === undefined || !wrapperRef.current) return
+      const offsetX = dragStartPositionRef.current - x
+      const requestedPosition = dragStartScrollRef.current + offsetX
 
-    this.rafTimeout = window.requestAnimationFrame(() => {
-      if (x === undefined || !this.wrapperRef.current) return
-      const offsetX = this.dragStartPosition - x
-      const requestedPosition = this.dragStartScroll + offsetX
-
-      this.wrapperRef.current.scrollLeft = requestedPosition
+      wrapperRef.current.scrollLeft = requestedPosition
     })
-  }
+  }, [])
 
-  onDragStopped = () => {
-    this.cleanEvents()
-  }
+  const onDragStopped = React.useCallback(() => {
+    document.removeEventListener('mousemove', onMouseMove)
+    document.removeEventListener('mouseup', onDragStopped)
+  }, [onMouseMove])
 
-  render() {
-    const { startAnimation } = this.state
-    return (
-      <div>
-        <h2>Work experience</h2>
-        <InView
-          tag="div"
-          threshold={0.7}
-          triggerOnce
-          onChange={(inView) => inView && this.playAnimation()}
-        >
-          <Wrapper ref={this.wrapperRef}>
-            <Container
-              onMouseDown={this.onMouseDown}
-              startAnimation={startAnimation}
-            >
-              {srcData.map((yearData) => (
-                <Year
-                  key={yearData.year}
-                  {...yearData}
-                  startAnimation={startAnimation}
-                />
-              ))}
-            </Container>
-          </Wrapper>
-        </InView>
-      </div>
-    )
-  }
+  React.useEffect(() => {
+    return () => {
+      onDragStopped()
+    }
+  }, [onDragStopped])
+
+  return (
+    <div>
+      <h2>Work experience</h2>
+      <InView
+        tag="div"
+        threshold={0.7}
+        triggerOnce
+        onChange={(inView) => inView && playAnimation()}
+      >
+        <Wrapper ref={wrapperRef}>
+          <Container onMouseDown={onMouseDown} startAnimation={startAnimation}>
+            {srcData.map((yearData) => (
+              <Year
+                key={yearData.year}
+                {...yearData}
+                startAnimation={startAnimation}
+              />
+            ))}
+          </Container>
+        </Wrapper>
+      </InView>
+    </div>
+  )
 }
 
 const now = new Date()
