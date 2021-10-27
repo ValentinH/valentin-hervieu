@@ -27,7 +27,8 @@
       "./typings",
       "./node_modules/@types"
     ],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

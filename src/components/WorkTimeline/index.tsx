@@ -35,9 +35,8 @@ const WorkTimeline = () => {
       const scrollOffset = isMobile ? mobileThreshold : window.innerWidth
       window.setTimeout(() => {
         const scrollDestination = element.scrollWidth - scrollOffset
-        animateScrollTo(scrollDestination, {
-          element,
-          horizontal: true,
+        animateScrollTo([scrollDestination, null], {
+          elementToScroll: element,
           speed,
         })
       }, delay)

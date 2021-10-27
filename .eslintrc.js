@@ -4,8 +4,6 @@ module.exports = {
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
     'plugin:import/typescript',
     'next',
     'next/core-web-vitals',
@@ -23,6 +21,7 @@ module.exports = {
     '@typescript-eslint/naming-convention': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-use-before-define': 0,
+    'arrow-body-style': 0,
     'import/extensions': [
       2,
       {
@@ -84,8 +83,13 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'react/prop-types': 0,
     'react/require-default-props': 0,
+    'react/require-default-props': [
+      0,
+      {
+        ignoreFunctionalComponents: true,
+      },
+    ],
     'react/state-in-constructor': 0,
     'react/static-property-placement': 0,
-    'react/require-default-props': [0, { ignoreFunctionalComponents: true }],
   },
 }
