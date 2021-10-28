@@ -4,8 +4,13 @@ import Image from 'next/image'
 import React from 'react'
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
 
+export type ImageType = ReactImageGalleryItem & {
+  originalPlaceholder: string
+  thumbnailPlaceholder: string
+}
+
 type Props = {
-  images?: ReactImageGalleryItem[]
+  images?: ImageType[]
 }
 
 const ImagesGallery = ({ images }: Props) => {
@@ -17,8 +22,38 @@ const ImagesGallery = ({ images }: Props) => {
       <ClassNames>
         {({ css }) => (
           <ImageGallery
-            items={images.map((img) => ({
-              ...img,
+            items={images.map((item) => ({
+              ...item,
+              renderItem: () =>
+                item.original && (
+                  <div
+                    css={{
+                      paddingBottom: '56.25%', // 16/9 ratio
+                      background: '#121212',
+                      position: 'relative',
+                    }}
+                  >
+                    <Image
+                      src={item.original}
+                      layout="fill"
+                      priority={item === images[0]}
+                      alt={item.originalAlt}
+                      placeholder="blur"
+                      blurDataURL={item.originalPlaceholder}
+                    />
+                  </div>
+                ),
+              renderThumbInner: () =>
+                item.thumbnail && (
+                  <Image
+                    src={item.thumbnail}
+                    width={92}
+                    height={55}
+                    alt={item.thumbnailAlt}
+                    placeholder="blur"
+                    blurDataURL={item.originalPlaceholder}
+                  />
+                ),
             }))}
             showFullscreenButton={false}
             additionalClass={css({
@@ -26,34 +61,6 @@ const ImagesGallery = ({ images }: Props) => {
                 display: 'inline-flex',
               },
             })}
-            renderItem={(item) =>
-              item.original && (
-                <div
-                  css={{
-                    paddingBottom: '56.25%', // 16/9 ratio
-                    background: '#121212',
-                    position: 'relative',
-                  }}
-                >
-                  <Image
-                    src={item.original}
-                    layout="fill"
-                    priority={item === images[0]}
-                    alt={item.originalAlt}
-                  />
-                </div>
-              )
-            }
-            renderThumbInner={(item) =>
-              item.thumbnail && (
-                <Image
-                  src={item.thumbnail}
-                  width={92}
-                  height={55}
-                  alt={item.thumbnailAlt}
-                />
-              )
-            }
           />
         )}
       </ClassNames>

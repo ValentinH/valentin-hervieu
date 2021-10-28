@@ -1,25 +1,38 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { getPlaiceholder } from 'plaiceholder'
 import React from 'react'
-import { ReactImageGalleryItem } from 'react-image-gallery'
 
 import { getAlbum } from '#src/server/google-photos'
 
 import Education from '../components/Education'
-import ImagesGallery from '../components/ImagesGallery'
+import ImagesGallery, { ImageType } from '../components/ImagesGallery'
 import Intro from '../components/Intro'
 import Projects from '../components/Projects'
 import WorkTimeline from '../components/WorkTimeline'
 
-
-
 export const getStaticProps: GetStaticProps = async () => {
   const album = await getAlbum('EAfoBb227eETnbLS9')
-  const images = album.map<ReactImageGalleryItem>((url) => ({
-    original: `${url}=w4000`,
-    thumbnail: `${url}=w100`,
-    originalAlt: 'One photo I like',
-    thumbnailAlt: 'Thumbnail of one photo I like',
-  }))
+  const images = await Promise.all(
+    album.map(async (url): Promise<ImageType> => {
+      const original = `${url}=w4000`
+      const thumbnail = `${url}=w100`
+      const [
+        { base64: originalPlaceholder },
+        { base64: thumbnailPlaceholder },
+      ] = await Promise.all([
+        getPlaiceholder(original),
+        getPlaiceholder(thumbnail),
+      ])
+      return {
+        original,
+        thumbnail,
+        originalAlt: 'One photo I like',
+        thumbnailAlt: 'Thumbnail of one photo I like',
+        originalPlaceholder,
+        thumbnailPlaceholder,
+      }
+    })
+  )
 
   return {
     props: {

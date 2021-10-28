@@ -22,6 +22,7 @@ const Intro = () => (
         alt="Valentin Hervieu"
         layout="responsive"
         priority
+        placeholder="blur"
       />
     </ImgWrapper>
     <Title>Welcome to my website!</Title>
