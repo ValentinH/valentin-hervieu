@@ -140,12 +140,17 @@ const data: Data = [
     data: [
       {
         date: 'November 2021 – Present',
-        company: 'Coming soon',
-        companyUrl: 'https://valentin-hervieu.fr',
+        company: 'Hublo',
+        companyUrl: 'https://hublo.com',
         place: 'Sophia-Antipolis, France',
-        title: 'Senior Front-end Engineer',
+        title: 'Senior Frontend Engineer',
         current: true,
-        content: <p>Loading...</p>,
+        content: (
+          <p>
+            Hublo modernizes human resource management in healthcare.
+            <br /> Our mission is to create digital tools that make the daily life of healthcare professionals easier, so that they can focus on their own mission: take care of patient. 
+          </p>
+        ),
       },
     ],
   },
