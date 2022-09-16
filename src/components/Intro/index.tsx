@@ -31,23 +31,15 @@ const Intro = () => (
       {getAge()} years old.
     </p>
     <p>
-      I work as a senior frontend engineer for{' '}
-      <ExternalLink href="https://hublo.com">
-        Hublo
+      I work as a lead frontend engineer for{' '}
+      <ExternalLink href="https://www.elba.security">
+        elba
       </ExternalLink>{' '}
-      in Sophia-Antipolis, France (Here&apos;s{' '}
+      from the French Riviera (Here&apos;s{' '}
       <ExternalLink href={config.linkedinUrl}>my résumé</ExternalLink>
       ). I enjoy making software and you can check{' '}
       <ExternalLink href={config.githubUrl}>my GitHub profile</ExternalLink> if
       you want to see my projects.
-    </p>
-    <p>
-      I&apos;m also available for freelancing and if you want to contact me,
-      feel free to send me an email at{' '}
-      <ExternalLink href={`mailto:${config.email}`} title="My email">
-        valentin@hervi.eu
-      </ExternalLink>
-      .
     </p>
     <Clearfix />
   </div>
