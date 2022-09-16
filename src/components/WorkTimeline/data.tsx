@@ -136,19 +136,37 @@ const data: Data = [
   },
   {
     year: 2021,
-    current: true,
     data: [
       {
-        date: 'November 2021 – Present',
+        date: 'November 2021 – January 2021',
         company: 'Hublo',
         companyUrl: 'https://hublo.com',
         place: 'Sophia-Antipolis, France',
         title: 'Senior Frontend Engineer',
-        current: true,
+        current: false,
         content: (
           <p>
             Hublo modernizes human resource management in healthcare.
-            <br /> Our mission is to create digital tools that make the daily life of healthcare professionals easier, so that they can focus on their own mission: take care of patient. 
+            <br /> Their mission is to create digital tools that make the daily life of healthcare professionals easier, so that they can focus on their own mission: take care of patient. 
+          </p>
+        ),
+      },
+    ],
+  },
+  {
+    year: 2022,
+    current: true,
+    data: [
+      {
+        date: 'January 2022 – Present',
+        company: 'elbz',
+        companyUrl: 'https://elba-security',
+        place: 'My house, France',
+        title: 'Lead Frontend Engineer',
+        current: true,
+        content: (
+          <p>
+            We detect security issues and guide your end-users on how to fix them.
           </p>
         ),
       },
