@@ -11,7 +11,7 @@ const Projects = () => (
       <div>
         <Name>
           <Title>react-easy-crop</Title>
-          <GithubButton user="ricardo-ch" repo="react-easy-crop" />
+          <GithubButton user="ValentinH" repo="react-easy-crop" />
         </Name>
         <Description>
           A React component to crop images with easy interactions. I&apos;ve
