@@ -138,7 +138,7 @@ const data: Data = [
     year: 2021,
     data: [
       {
-        date: 'November 2021 – January 2021',
+        date: 'November 2021 – January 2022',
         company: 'Hublo',
         companyUrl: 'https://hublo.com',
         place: 'Sophia-Antipolis, France',
