@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const regex = /\["(https:\/\/lh3\.googleusercontent\.com\/[a-zA-Z0-9\-_]*)"/g
+const regex =
+  /\["(https:\/\/lh3\.googleusercontent\.com\/pw\/[a-zA-Z0-9\-_]*)"/g
 
 function extractPhotos(content: string) {
   const links = new Set()
