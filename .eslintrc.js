@@ -3,8 +3,8 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:import/typescript',
+    'prettier',
     'next',
     'next/core-web-vitals',
   ],
@@ -14,9 +14,10 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.eslint.json',
   },
-  plugins: ['@typescript-eslint/eslint-plugin', 'prettier', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'import', 'prettier', 'react-hooks'],
   root: true,
   rules: {
+    'react/function-component-definition': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/naming-convention': 0,
     '@typescript-eslint/no-explicit-any': 0,

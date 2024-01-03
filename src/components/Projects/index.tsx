@@ -1,8 +1,8 @@
 import React from 'react'
 
+import { Content, Name, Title, Description, List } from './styles'
 import ExternalLink from '../ExternalLink'
 import GithubButton from '../GithubButton'
-import { Content, Name, Title, Description, List } from './styles'
 
 const Projects = () => (
   <div>

@@ -2,7 +2,6 @@ import animateScrollTo from 'animated-scroll-to'
 import React from 'react'
 import { InView } from 'react-intersection-observer'
 
-import ExternalLink from '../ExternalLink'
 import srcData, { ExperienceData, YearData } from './data'
 import {
   Wrapper,
@@ -16,6 +15,7 @@ import {
   ExpTitle,
   ExpContent,
 } from './styles'
+import ExternalLink from '../ExternalLink'
 
 const getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) =>
   Number(e.clientX)

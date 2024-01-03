@@ -8,8 +8,8 @@ import React from 'react'
 
 import config from '#src/const/config'
 
-import ExternalLink from '../ExternalLink'
 import classes, { Container, Content } from './styles'
+import ExternalLink from '../ExternalLink'
 
 const links = [
   { name: 'Twitter', url: config.twitterUrl, icon: faTwitterSquare },

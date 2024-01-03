@@ -5,12 +5,12 @@ import Head from 'next/head'
 import * as React from 'react'
 import ReactGA from 'react-ga'
 
+import colors from '#src/components/../const/colors'
 import Content from '#src/components/Content'
 import Footer from '#src/components/Footer'
 import Header from '#src/components/Header'
 import config from '#src/const/config'
 
-import colors from '#src/components/../const/colors'
 
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

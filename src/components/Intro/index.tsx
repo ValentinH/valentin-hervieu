@@ -3,9 +3,9 @@ import React from 'react'
 
 import config from '#src/const/config'
 
-import ExternalLink from '../ExternalLink'
 import profilPic from './profil.jpg'
 import { ImgWrapper, Title, Clearfix } from './styles'
+import ExternalLink from '../ExternalLink'
 
 function getAge(): number {
   const birthday = new Date('1991-03-21T02:00:00')
