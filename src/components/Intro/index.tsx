@@ -20,7 +20,12 @@ const Intro = () => (
       <Image
         src={profilPic}
         alt="Valentin Hervieu"
-        layout="responsive"
+        sizes="30vw"
+        style={{
+          width: '100%',
+          height: 'auto',
+          display: 'block',
+        }}
         priority
         placeholder="blur"
       />
@@ -32,10 +37,8 @@ const Intro = () => (
     </p>
     <p>
       I work as a lead frontend engineer for{' '}
-      <ExternalLink href="https://www.elba.security">
-        elba
-      </ExternalLink>{' '}
-      from the French Riviera (Here&apos;s{' '}
+      <ExternalLink href="https://www.elba.security">elba</ExternalLink> from
+      the French Riviera (Here&apos;s{' '}
       <ExternalLink href={config.linkedinUrl}>my résumé</ExternalLink>
       ). I enjoy making software and you can check{' '}
       <ExternalLink href={config.githubUrl}>my GitHub profile</ExternalLink> if

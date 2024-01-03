@@ -35,9 +35,9 @@ const ImagesGallery = ({ images }: Props) => {
                   >
                     <Image
                       src={item.original}
-                      layout="fill"
                       priority={item === images[0]}
-                      alt={item.originalAlt}
+                      alt={item.originalAlt || ''}
+                      fill
                       placeholder="blur"
                       blurDataURL={item.originalPlaceholder}
                     />
@@ -49,7 +49,7 @@ const ImagesGallery = ({ images }: Props) => {
                     src={item.thumbnail}
                     width={92}
                     height={55}
-                    alt={item.thumbnailAlt}
+                    alt={item.thumbnailAlt || ''}
                     placeholder="blur"
                     blurDataURL={item.originalPlaceholder}
                   />

@@ -10,8 +10,8 @@ type Props = {
 const Header: React.FC<Props> = ({ siteTitle }) => (
   <Container>
     <Title>
-      <Link href="/">
-        <a css={classes.link}>{siteTitle}</a>
+      <Link href="/" css={classes.link}>
+        {siteTitle}
       </Link>
     </Title>
     <Subtitle>Passionate Front-end Engineer</Subtitle>
