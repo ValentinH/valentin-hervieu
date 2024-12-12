@@ -43,6 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
+
 const IndexPage = ({ images }: Props) => (
   <>
     <Intro />
