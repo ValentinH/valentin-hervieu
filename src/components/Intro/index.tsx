@@ -3,7 +3,7 @@ import React from 'react'
 
 import config from '#src/const/config'
 
-import profilPic from './profil.jpg'
+import profilPic from './profile-2023.jpg'
 import { ImgWrapper, Title, Clearfix } from './styles'
 import ExternalLink from '../ExternalLink'
 
