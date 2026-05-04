@@ -1,6 +1,5 @@
 export type GalleryImage = {
-  original: string;
-  thumbnail: string;
-  originalAlt: string;
+  src: string;
+  alt: string;
   thumbnailAlt: string;
 };

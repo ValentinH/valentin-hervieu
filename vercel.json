@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "images": {
+    "sizes": [92, 184, 320, 640, 960, 1280, 1600, 1715, 1920, 2048, 3430, 3840],
+    "qualities": [75],
+    "formats": ["image/avif", "image/webp"],
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "lh3.googleusercontent.com",
+        "pathname": "/pw/**"
+      }
+    ],
+    "localPatterns": [
+      {
+        "pathname": "/assets/**"
+      }
+    ]
+  }
+}

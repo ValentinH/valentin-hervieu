@@ -9,13 +9,9 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
 }
 
 async function getGalleryImage(url: string): Promise<GalleryImage> {
-  const original = `${url}=w4000`;
-  const thumbnail = `${url}=w100`;
-
   return {
-    original,
-    thumbnail,
-    originalAlt: 'One photo I like',
+    src: `${url}=w4000`,
+    alt: 'One photo I like',
     thumbnailAlt: 'Thumbnail of one photo I like',
   };
 }

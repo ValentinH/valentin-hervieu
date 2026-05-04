@@ -14,3 +14,7 @@ declare module '*.webp' {
 }
 
 declare module '@fontsource/*';
+
+interface ImportMetaEnv {
+  readonly VERCEL: boolean;
+}

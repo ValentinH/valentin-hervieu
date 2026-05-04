@@ -4,6 +4,7 @@ bun-error.log
 
 .DS_Store
 .next
+.vercel
 .playwright-mcp
 .output
 .vinxi

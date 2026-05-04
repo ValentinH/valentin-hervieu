@@ -3,12 +3,41 @@ import viteReact from '@vitejs/plugin-react';
 import { nitro } from 'nitro/vite';
 import { defineConfig } from 'vite';
 
+const vercelImageConfig = {
+  domains: [],
+  sizes: [92, 184, 320, 640, 960, 1280, 1600, 1715, 1920, 2048, 3430, 3840],
+  qualities: [75],
+  formats: ['image/avif' as const, 'image/webp' as const],
+  remotePatterns: [
+    {
+      protocol: 'https' as const,
+      hostname: 'lh3.googleusercontent.com',
+      pathname: '/pw/**',
+    },
+  ],
+  localPatterns: [
+    {
+      pathname: '/assets/**',
+    },
+  ],
+};
+
 const config = defineConfig({
+  define: {
+    'import.meta.env.VERCEL': JSON.stringify(process.env.VERCEL === '1'),
+  },
   resolve: {
     tsconfigPaths: true,
   },
   plugins: [
-    nitro(),
+    nitro({
+      vercel: {
+        config: {
+          version: 3,
+          images: vercelImageConfig,
+        },
+      },
+    }),
     tanstackStart({
       pages: [{ path: '/' }],
       prerender: {

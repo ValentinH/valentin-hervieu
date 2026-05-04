@@ -5,6 +5,8 @@ import ImageGallery from 'react-image-gallery';
 
 import { GalleryImage } from '#src/types/images';
 
+import AppImage from '../AppImage';
+
 const emptyImages: GalleryImage[] = [];
 
 const ImagesGallery = () => {
@@ -19,9 +21,10 @@ const ImagesGallery = () => {
         {({ css }) => (
           <ImageGallery
             items={images.map((item) => ({
-              ...item,
+              original: item.src,
+              thumbnail: item.src,
               renderItem: () =>
-                item.original && (
+                item.src && (
                   <div
                     css={{
                       paddingBottom: '56.25%', // 16/9 ratio
@@ -29,13 +32,16 @@ const ImagesGallery = () => {
                       position: 'relative',
                     }}
                   >
-                    <img
-                      src={item.original}
-                      alt={item.originalAlt || ''}
+                    <AppImage
+                      src={item.src}
+                      alt={item.alt}
+                      layout="fullWidth"
+                      aspectRatio={16 / 9}
+                      breakpoints={[320, 640, 960, 1280, 1600, 1920]}
+                      objectFit="contain"
                       style={{
                         width: '100%',
                         height: '100%',
-                        objectFit: 'contain',
                         position: 'absolute',
                         inset: 0,
                       }}
@@ -43,14 +49,17 @@ const ImagesGallery = () => {
                   </div>
                 ),
               renderThumbInner: () =>
-                item.thumbnail && (
-                  <img
-                    src={item.thumbnail}
+                item.src && (
+                  <AppImage
+                    src={item.src}
                     width={92}
                     height={55}
+                    layout="fixed"
+                    breakpoints={[92, 184]}
                     alt={item.thumbnailAlt || ''}
+                    objectFit="cover"
                     style={{
-                      objectFit: 'cover',
+                      display: 'block',
                     }}
                   />
                 ),

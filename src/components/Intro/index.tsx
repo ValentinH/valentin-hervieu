@@ -2,14 +2,19 @@ import config from '#src/const/config';
 
 import profilPic from './profile-2026.jpg';
 import { ImgWrapper, Title, Clearfix } from './styles';
+import AppImage from '../AppImage';
 import ExternalLink from '../ExternalLink';
 
 const Intro = () => (
   <div>
     <ImgWrapper>
-      <img
+      <AppImage
         src={profilPic}
         alt="Valentin Hervieu"
+        width={1715}
+        height={1715}
+        layout="constrained"
+        breakpoints={[320, 640, 960, 1715, 3430]}
         style={{
           width: '100%',
           height: 'auto',
