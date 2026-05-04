@@ -8,12 +8,13 @@
       {
         "protocol": "https",
         "hostname": "lh3.googleusercontent.com",
-        "pathname": "/pw/**"
+        "pathname": "^/pw/.*$"
       }
     ],
     "localPatterns": [
       {
-        "pathname": "/assets/**"
+        "pathname": "^/assets/.*$",
+        "search": ""
       }
     ]
   }

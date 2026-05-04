@@ -12,12 +12,13 @@ const vercelImageConfig = {
     {
       protocol: 'https' as const,
       hostname: 'lh3.googleusercontent.com',
-      pathname: '/pw/**',
+      pathname: '^/pw/.*$',
     },
   ],
   localPatterns: [
     {
-      pathname: '/assets/**',
+      pathname: '^/assets/.*$',
+      search: '',
     },
   ],
 };
