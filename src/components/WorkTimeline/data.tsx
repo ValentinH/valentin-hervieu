@@ -147,7 +147,9 @@ const data: Data = [
         content: (
           <p>
             Hublo modernizes human resource management in healthcare.
-            <br /> Their mission is to create digital tools that make the daily life of healthcare professionals easier, so that they can focus on their own mission: take care of patient. 
+            <br /> Their mission is to create digital tools that make the daily
+            life of healthcare professionals easier, so that they can focus on
+            their own mission: take care of patient.
           </p>
         ),
       },
@@ -161,12 +163,20 @@ const data: Data = [
         date: 'January 2022 – Present',
         company: 'elba',
         companyUrl: 'https://elba-security',
-        place: 'My house, France',
-        title: 'Lead Frontend Engineer',
+        place: 'Remote from France',
+        title: 'Founding Product Engineer',
         current: true,
         content: (
           <p>
-            We detect security issues and guide your end-users on how to fix them.
+            Helped build Elba&apos;s B2B security SaaS from early foundations to
+            production.
+            <br />
+            Owned end-to-end product work across AI-assisted editors, security
+            automation workflows, analytics, observability, and multi-channel
+            communication.
+            <br />
+            Core stack: TypeScript, React, Next.js, GraphQL, PostgreSQL,
+            Inngest, analytics, and observability tooling.
           </p>
         ),
       },

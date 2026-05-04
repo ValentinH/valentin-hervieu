@@ -3,16 +3,9 @@ import React from 'react'
 
 import config from '#src/const/config'
 
-import profilPic from './profile-2023.jpg'
+import profilPic from './profile-2026.jpg'
 import { ImgWrapper, Title, Clearfix } from './styles'
 import ExternalLink from '../ExternalLink'
-
-function getAge(): number {
-  const birthday = new Date('1991-03-21T02:00:00')
-  const ageDifMs = Date.now() - birthday.getTime()
-  const ageDate = new Date(ageDifMs) // miliseconds from epoch
-  return Math.abs(ageDate.getUTCFullYear() - 1970)
-}
 
 const Intro = () => (
   <div>
@@ -32,11 +25,11 @@ const Intro = () => (
     </ImgWrapper>
     <Title>Welcome to my website!</Title>
     <p>
-      I&apos;m <strong>Valentin Hervieu</strong> from France and I&apos;m{' '}
-      {getAge()} years old.
+      I&apos;m <strong>Valentin Hervieu</strong> from France and I am in my
+      thirties.
     </p>
     <p>
-      I work as a lead frontend engineer for{' '}
+      I work as a Founding Product Engineer for{' '}
       <ExternalLink href="https://www.elba.security">elba</ExternalLink> from
       the French Riviera (Here&apos;s{' '}
       <ExternalLink href={config.linkedinUrl}>my résumé</ExternalLink>

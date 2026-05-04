@@ -14,14 +14,17 @@ const Projects = () => (
           <GithubButton user="ValentinH" repo="react-easy-crop" />
         </Name>
         <Description>
-          A React component to crop images with easy interactions. I&apos;ve
-          started to implement this component at work for the listing form of{' '}
+          A React component library to crop images with easy interactions.
+          I&apos;ve started to implement this component at work for the listing
+          form of{' '}
           <ExternalLink href="https://ricardo.ch" title="Ricardo.ch">
             Ricardo.ch
           </ExternalLink>
-          .<br /> Then, I thought it was a cool project and I decided to
-          continue working on it on my personal time and make it open-source in
-          agreement with my employer.
+          .<br /> Then, I thought it was a nice project and I decided to
+          continue working on it on my personal time and made it open-source
+          with the agreement of my employer.
+          <br />
+          Today, it has been downloaded near 100 million times on NPM.
         </Description>
       </div>
 
@@ -54,7 +57,7 @@ const Projects = () => (
           <GithubButton user="angular-slider" repo="angularjs-slider" />
         </Name>
         <Description>
-          This is the most used slider directive for AngularJS 1.X with more
+          This was the most used slider directive for AngularJS 1.X with more
           than{' '}
           <ExternalLink
             href="https://npm-stat.com/charts.html?package=angularjs-slider&from=2015-01-01"
@@ -62,10 +65,10 @@ const Projects = () => (
           >
             3 million downloads on NPM
           </ExternalLink>
-          . <br />I did not start this project, but I am the main contributor
-          since July 2015. Since then I have added many features, full test
-          coverage, a documentation website and handle all issues and pull
-          requests.
+          . <br />I did not start this project, but I was the main maintainer
+          between 2015 and 2022. During this time, I have added many features,
+          full test coverage, a documentation website and handle all issues and
+          pull requests.
         </Description>
       </div>
 

@@ -67,7 +67,7 @@ export const Title = styled('h1')({
   margin: 0,
   fontFamily: "'Alegreya Sans SC'",
   fontWeight: 300,
-  fontSize: 40,
+  fontSize: 48,
   lineHeight: '40px',
   textShadow: `2px 3px 1px black`,
   [fullHdMedia]: {
@@ -81,7 +81,7 @@ export const Subtitle = styled('h1')({
   fontFamily: "'Alegreya Sans SC'",
   fontWeight: 300,
   textShadow: `1px 2px 1px black`,
-  fontSize: 18,
+  fontSize: 24,
   '@media (min-width: 1024px)': {
     fontWeight: 100,
   },

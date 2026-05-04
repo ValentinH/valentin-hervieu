@@ -14,7 +14,7 @@ const Header: React.FC<Props> = ({ siteTitle }) => (
         {siteTitle}
       </Link>
     </Title>
-    <Subtitle>Passionate Front-end Engineer</Subtitle>
+    <Subtitle>Passionate Product Engineer</Subtitle>
   </Container>
 )
 
