@@ -5,16 +5,20 @@ import '@fontsource/alegreya-sans-sc/300.css'
 
 const animatedBackground = keyframes({
   '0%': {
-    transform: 'scale(1.)',
+    transform: 'scale(1)',
   },
   '50%': { transform: 'scale(1.2)' },
 })
 
-const fullHdMedia = '@media (min-width: 1900px)'
+const fullHdMedia = '@media (min-width: 1400px)'
 const backgroundRules = {
+  backgroundColor: '#1B2030',
+  backgroundImage: 'url(/background_600.webp)',
+  backgroundPosition: 'center top',
+  backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  backgroundAttachment: 'fixed',
 }
+
 export const Container = styled('div')({
   color: 'white',
   position: 'relative',
@@ -28,14 +32,28 @@ export const Container = styled('div')({
   maxHeight: 300,
   ':before': {
     content: '""',
-    height: '40%',
     position: 'absolute',
+    top: 0,
+    right: 0,
     bottom: 0,
     left: 0,
-    right: 0,
     zIndex: -1,
-    background:
-      'linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(27,32,48,1) 100%)',
+    backgroundImage: `
+      radial-gradient(
+        ellipse 54% 50% at 50% 50%,
+        rgba(0, 0, 0, 0.52),
+        rgba(0, 0, 0, 0.32) 38%,
+        rgba(0, 0, 0, 0) 72%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(27, 32, 48, 0),
+        rgba(27, 32, 48, 0.52)
+      )
+    `,
+    backgroundPosition: 'center, bottom',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100% 100%, 100% 36%',
   },
   ':after': {
     content: '""',
@@ -45,20 +63,17 @@ export const Container = styled('div')({
     right: 0,
     bottom: 0,
     transform: 'translateZ(0)',
-    background: `#1B2030 url(/background_1400.webp) top center no-repeat`,
-    backgroundPositionY: -80,
     ...backgroundRules,
     animation: `${animatedBackground} 60s  linear 10ms infinite`,
     transition: 'all 0.2s ease-in-out',
     zIndex: -2,
-    '@media (min-width: 1300px)': {
-      background: `#1B2030 url(/background_1920.webp) top center no-repeat`,
-      backgroundPositionY: -80,
-      ...backgroundRules,
+    '@media (min-width: 700px)': {
+      backgroundImage: 'url(/background_1400.webp)',
+      backgroundPosition: 'center -40px',
     },
-    '@supports (-webkit-overflow-scrolling: touch)': {
-      backgroundAttachment: 'scroll',
-      backgroundPositionY: 0,
+    '@media (min-width: 1300px)': {
+      backgroundImage: 'url(/background_1920.webp)',
+      backgroundPosition: 'center -80px',
     },
   },
 })
@@ -67,7 +82,7 @@ export const Title = styled('h1')({
   margin: 0,
   fontFamily: "'Alegreya Sans SC'",
   fontWeight: 300,
-  fontSize: 48,
+  fontSize: 40,
   lineHeight: '40px',
   textShadow: `2px 3px 1px black`,
   [fullHdMedia]: {
@@ -81,7 +96,7 @@ export const Subtitle = styled('h1')({
   fontFamily: "'Alegreya Sans SC'",
   fontWeight: 300,
   textShadow: `1px 2px 1px black`,
-  fontSize: 24,
+  fontSize: 18,
   '@media (min-width: 1024px)': {
     fontWeight: 100,
   },

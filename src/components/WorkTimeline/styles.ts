@@ -178,7 +178,7 @@ export const ExperienceContainer = styled('div')(
     boxShadow: '1px 1px 4px rgba(0, 0, 0, 0.2)',
     borderRadius: 3,
     margin: '0 8px',
-    background: current ? '#FEB' : 'none',
+    background: current ? '#ffec6e63' : 'none',
   })
 )
 export const ExpDate = styled('div')({
