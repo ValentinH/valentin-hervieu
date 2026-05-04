@@ -1,15 +1,15 @@
-import React, { Attributes } from 'react'
+import { HTMLProps, ReactNode } from 'react';
 
-import { Link } from './styles'
+import { Link } from './styles';
 
-type Props = React.HTMLProps<HTMLAnchorElement> & {
-  css?: Attributes['css']
-}
+type Props = HTMLProps<HTMLAnchorElement> & {
+  children: ReactNode;
+};
 
-const ExternalLink: React.FC<Props> = ({ children, ...rest }) => (
+const ExternalLink = ({ children, ...rest }: Props) => (
   <Link {...rest} as={undefined} target="_blank" rel="noopener noreferrer">
     {children}
   </Link>
-)
+);
 
-export default ExternalLink
+export default ExternalLink;

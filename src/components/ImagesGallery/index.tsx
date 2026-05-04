@@ -1,20 +1,18 @@
-import 'react-image-gallery/styles/css/image-gallery.css'
-import { ClassNames } from '@emotion/react'
-import Image from 'next/image'
-import React from 'react'
-import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
+import 'react-image-gallery/styles/image-gallery.css';
+import { ClassNames } from '@emotion/react';
+import React from 'react';
+import ImageGallery from 'react-image-gallery';
 
-export type ImageType = ReactImageGalleryItem & {
-  originalPlaceholder: string
-  thumbnailPlaceholder: string
-}
+import { GalleryImage } from '#src/types/images';
 
-type Props = {
-  images?: ImageType[]
-}
+import AppImage from '../AppImage';
 
-const ImagesGallery = ({ images }: Props) => {
-  if (!images) return null
+const emptyImages: GalleryImage[] = [];
+
+const ImagesGallery = () => {
+  const images = useGalleryImages();
+
+  if (!images.length) return null;
 
   return (
     <div>
@@ -23,9 +21,10 @@ const ImagesGallery = ({ images }: Props) => {
         {({ css }) => (
           <ImageGallery
             items={images.map((item) => ({
-              ...item,
+              original: item.src,
+              thumbnail: item.src,
               renderItem: () =>
-                item.original && (
+                item.src && (
                   <div
                     css={{
                       paddingBottom: '56.25%', // 16/9 ratio
@@ -33,25 +32,35 @@ const ImagesGallery = ({ images }: Props) => {
                       position: 'relative',
                     }}
                   >
-                    <Image
-                      src={item.original}
-                      priority={item === images[0]}
-                      alt={item.originalAlt || ''}
-                      fill
-                      placeholder="blur"
-                      blurDataURL={item.originalPlaceholder}
+                    <AppImage
+                      src={item.src}
+                      alt={item.alt}
+                      layout="fullWidth"
+                      aspectRatio={16 / 9}
+                      breakpoints={[320, 640, 960, 1280, 1600, 1920]}
+                      objectFit="contain"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        inset: 0,
+                      }}
                     />
                   </div>
                 ),
               renderThumbInner: () =>
-                item.thumbnail && (
-                  <Image
-                    src={item.thumbnail}
+                item.src && (
+                  <AppImage
+                    src={item.src}
                     width={92}
                     height={55}
+                    layout="fixed"
+                    breakpoints={[92, 184]}
                     alt={item.thumbnailAlt || ''}
-                    placeholder="blur"
-                    blurDataURL={item.originalPlaceholder}
+                    objectFit="cover"
+                    style={{
+                      display: 'block',
+                    }}
                   />
                 ),
             }))}
@@ -65,7 +74,35 @@ const ImagesGallery = ({ images }: Props) => {
         )}
       </ClassNames>
     </div>
-  )
+  );
+};
+
+function useGalleryImages() {
+  const [images, setImages] = React.useState(emptyImages);
+
+  React.useEffect(() => {
+    let shouldUpdate = true;
+
+    async function fetchImages() {
+      const response = await fetch('/api/images');
+
+      if (!response.ok) return;
+
+      const nextImages = (await response.json()) as GalleryImage[];
+
+      if (shouldUpdate) {
+        setImages(nextImages);
+      }
+    }
+
+    fetchImages().catch(() => undefined);
+
+    return () => {
+      shouldUpdate = false;
+    };
+  }, []);
+
+  return images;
 }
 
-export default ImagesGallery
+export default ImagesGallery;

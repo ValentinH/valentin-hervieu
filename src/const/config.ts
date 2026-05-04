@@ -5,6 +5,6 @@ const config = {
   linkedinUrl: 'https://www.linkedin.com/in/valentin-hervieu/',
   githubUrl: 'http://github.com/ValentinH',
   twitterUrl: 'https://twitter.com/ValentinHervieu',
-} as const
+} as const;
 
-export default config
+export default config;

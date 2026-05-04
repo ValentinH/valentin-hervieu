@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
-import colors from '../../const/colors'
+import colors from '../../const/colors';
 
 export const Link = styled('a')({
   textDecoration: 'none',
@@ -8,4 +8,4 @@ export const Link = styled('a')({
   ':hover': {
     textDecoration: 'underline',
   },
-})
+});

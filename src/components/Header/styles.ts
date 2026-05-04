@@ -1,23 +1,24 @@
-import { keyframes } from '@emotion/react'
-import styled from '@emotion/styled'
-import '@fontsource/alegreya-sans-sc/100.css'
-import '@fontsource/alegreya-sans-sc/300.css'
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Link } from '@tanstack/react-router';
+import '@fontsource/alegreya-sans-sc/100.css';
+import '@fontsource/alegreya-sans-sc/300.css';
 
 const animatedBackground = keyframes({
   '0%': {
     transform: 'scale(1)',
   },
   '50%': { transform: 'scale(1.2)' },
-})
+});
 
-const fullHdMedia = '@media (min-width: 1400px)'
+const fullHdMedia = '@media (min-width: 1400px)';
 const backgroundRules = {
   backgroundColor: '#1B2030',
   backgroundImage: 'url(/background_600.webp)',
   backgroundPosition: 'center top',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-}
+};
 
 export const Container = styled('div')({
   color: 'white',
@@ -76,7 +77,7 @@ export const Container = styled('div')({
       backgroundPosition: 'center -80px',
     },
   },
-})
+});
 
 export const Title = styled('h1')({
   margin: 0,
@@ -89,7 +90,7 @@ export const Title = styled('h1')({
     fontSize: 60,
     lineHeight: '60px',
   },
-})
+});
 
 export const Subtitle = styled('h1')({
   margin: 0,
@@ -103,13 +104,9 @@ export const Subtitle = styled('h1')({
   [fullHdMedia]: {
     fontSize: 26,
   },
-})
+});
 
-const classes = {
-  link: {
-    color: 'white',
-    textDecoration: 'none',
-  },
-}
-
-export default classes
+export const HeaderLink = styled(Link)({
+  color: 'white',
+  textDecoration: 'none',
+});

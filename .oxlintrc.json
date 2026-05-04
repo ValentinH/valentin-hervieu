@@ -1,0 +1,6 @@
+{
+  "ignorePatterns": [".next", ".output", ".tanstack", "node_modules", "src/routeTree.gen.ts"],
+  "rules": {
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }]
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "singleQuote": true,
+  "ignore": [".next", ".output", ".tanstack", ".vercel", "node_modules", "src/routeTree.gen.ts"]
+}
