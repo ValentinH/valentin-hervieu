@@ -68,6 +68,7 @@ const ImagesGallery = () => {
             additionalClass={css({
               '& .image-gallery-thumbnail': {
                 display: 'inline-flex',
+                overflow: 'hidden',
               },
             })}
           />
