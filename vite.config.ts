@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 const vercelImageConfig = {
   domains: [],
-  sizes: [92, 184, 320, 640, 960, 1280, 1600, 1715, 1920, 2048, 3430, 3840],
+  sizes: [92, 184, 320, 640, 960, 1280, 1600, 1920],
   qualities: [75],
   formats: ['image/avif' as const, 'image/webp' as const],
   remotePatterns: [

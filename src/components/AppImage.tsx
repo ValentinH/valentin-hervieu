@@ -5,7 +5,7 @@ import type { Operations, TransformerFunction } from 'unpic';
 import { transform as vercelTransform } from 'unpic/providers/vercel';
 import type { VercelOperations, VercelOptions } from 'unpic/providers/vercel';
 
-export const imageWidths = [92, 184, 320, 640, 960, 1280, 1600, 1715, 1920, 2048, 3430, 3840];
+export const imageWidths = [92, 184, 320, 640, 960, 1280, 1600, 1920];
 
 export const imageQuality = 75;
 

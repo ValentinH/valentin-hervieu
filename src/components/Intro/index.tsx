@@ -11,10 +11,10 @@ const Intro = () => (
       <AppImage
         src={profilPic}
         alt="Valentin Hervieu"
-        width={1715}
-        height={1715}
+        width={156}
+        height={156}
         layout="constrained"
-        breakpoints={[320, 640, 960, 1715, 3430]}
+        breakpoints={[92, 184, 320]}
         style={{
           width: '100%',
           height: 'auto',
