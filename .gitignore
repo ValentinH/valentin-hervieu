@@ -4,3 +4,8 @@ bun-error.log
 
 .DS_Store
 .next
+.playwright-mcp
+.output
+.vinxi
+dist
+tsconfig.tsbuildinfo

@@ -1,20 +1,16 @@
-import 'react-image-gallery/styles/css/image-gallery.css'
-import { ClassNames } from '@emotion/react'
-import Image from 'next/image'
-import React from 'react'
-import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery'
+import 'react-image-gallery/styles/image-gallery.css';
+import { ClassNames } from '@emotion/react';
+import React from 'react';
+import ImageGallery from 'react-image-gallery';
 
-export type ImageType = ReactImageGalleryItem & {
-  originalPlaceholder: string
-  thumbnailPlaceholder: string
-}
+import { GalleryImage } from '#src/types/images';
 
-type Props = {
-  images?: ImageType[]
-}
+const emptyImages: GalleryImage[] = [];
 
-const ImagesGallery = ({ images }: Props) => {
-  if (!images) return null
+const ImagesGallery = () => {
+  const images = useGalleryImages();
+
+  if (!images.length) return null;
 
   return (
     <div>
@@ -33,25 +29,29 @@ const ImagesGallery = ({ images }: Props) => {
                       position: 'relative',
                     }}
                   >
-                    <Image
+                    <img
                       src={item.original}
-                      priority={item === images[0]}
                       alt={item.originalAlt || ''}
-                      fill
-                      placeholder="blur"
-                      blurDataURL={item.originalPlaceholder}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                        position: 'absolute',
+                        inset: 0,
+                      }}
                     />
                   </div>
                 ),
               renderThumbInner: () =>
                 item.thumbnail && (
-                  <Image
+                  <img
                     src={item.thumbnail}
                     width={92}
                     height={55}
                     alt={item.thumbnailAlt || ''}
-                    placeholder="blur"
-                    blurDataURL={item.originalPlaceholder}
+                    style={{
+                      objectFit: 'cover',
+                    }}
                   />
                 ),
             }))}
@@ -65,7 +65,35 @@ const ImagesGallery = ({ images }: Props) => {
         )}
       </ClassNames>
     </div>
-  )
+  );
+};
+
+function useGalleryImages() {
+  const [images, setImages] = React.useState(emptyImages);
+
+  React.useEffect(() => {
+    let shouldUpdate = true;
+
+    async function fetchImages() {
+      const response = await fetch('/api/images');
+
+      if (!response.ok) return;
+
+      const nextImages = (await response.json()) as GalleryImage[];
+
+      if (shouldUpdate) {
+        setImages(nextImages);
+      }
+    }
+
+    fetchImages().catch(() => undefined);
+
+    return () => {
+      shouldUpdate = false;
+    };
+  }, []);
+
+  return images;
 }
 
-export default ImagesGallery
+export default ImagesGallery;

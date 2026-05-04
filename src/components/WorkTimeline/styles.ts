@@ -1,12 +1,12 @@
-import { keyframes } from '@emotion/react'
-import styled from '@emotion/styled'
+import { keyframes, CSSObject } from '@emotion/react';
+import styled from '@emotion/styled';
 
-import colors from '../../const/colors'
-import '@fontsource/roboto/700.css'
+import colors from '../../const/colors';
+import '@fontsource/roboto/700.css';
 
-const containerHeight = 360 /* needs to be adjusted if heights changes */
-const arrowWidth = 150
-const sidePadding = 50
+const containerHeight = 360; /* needs to be adjusted if heights changes */
+const arrowWidth = 150;
+const sidePadding = 50;
 
 export const Wrapper = styled('div')({
   width: '100vw',
@@ -18,11 +18,11 @@ export const Wrapper = styled('div')({
   overflowX: 'auto',
   overflowY: 'hidden',
   marginBottom: 24,
-  '-ms-overflow-style': '-ms-autohiding-scrollbar',
+  msOverflowStyle: '-ms-autohiding-scrollbar',
   '::-webkit-scrollbar': {
     height: '0 !important',
   },
-})
+});
 
 const slideIn = keyframes({
   '0%': {
@@ -31,15 +31,14 @@ const slideIn = keyframes({
   '100%': {
     transform: `translateX(0%)`,
   },
-})
+});
 
 type ContainerProps = {
-  startAnimation: boolean
-}
+  startAnimation: boolean;
+};
 
-export const Container = styled('div')<ContainerProps>(
-  // @ts-expect-error This is valid yet TS definition doesn't allow it
-  ({ startAnimation }) => ({
+export const Container = styled.div<ContainerProps>(
+  ({ startAnimation }): CSSObject => ({
     position: 'relative',
     display: 'inline-flex',
     margin: `0 ${arrowWidth + sidePadding}px`,
@@ -47,7 +46,7 @@ export const Container = styled('div')<ContainerProps>(
     background: '#fff',
     height: containerHeight,
     transform: `translateX(-200%)`,
-    animation: startAnimation && `${slideIn} 1s ease-out`,
+    animation: startAnimation ? `${slideIn} 1s ease-out` : undefined,
     animationFillMode: 'forwards',
     cursor: 'grab',
     ':active': {
@@ -73,8 +72,8 @@ export const Container = styled('div')<ContainerProps>(
       borderBottom: `${containerHeight / 2}px solid transparent`,
       borderTop: `${containerHeight / 2}px solid transparent`,
     },
-  })
-)
+  }),
+);
 
 const appear = keyframes({
   '0%': {
@@ -85,7 +84,7 @@ const appear = keyframes({
     opacity: 1,
     transform: 'translateX(0px) scaleX(1)',
   },
-})
+});
 
 const yearAnimations = Array(10)
   .fill(0)
@@ -96,16 +95,16 @@ const yearAnimations = Array(10)
         animationDelay: `${1000 + i * 333}ms`,
       },
     }),
-    {}
-  )
+    {},
+  );
 
 type YearContainerProps = {
-  current?: boolean
-  startAnimation: boolean
-}
+  current?: boolean;
+  startAnimation: boolean;
+};
 
-export const YearContainer = styled('div')(
-  ({ current, startAnimation }: YearContainerProps) => ({
+export const YearContainer = styled.div<YearContainerProps>(
+  ({ current, startAnimation }): CSSObject => ({
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
@@ -116,13 +115,11 @@ export const YearContainer = styled('div')(
     marginBottom: -25,
     borderLeftWidth: 5,
     borderLeftStyle: 'solid',
-    borderLeftColor: current
-      ? 'rgba(250, 75, 42, 0.4)'
-      : 'rgba(0, 114, 188, 0.4)',
+    borderLeftColor: current ? 'rgba(250, 75, 42, 0.4)' : 'rgba(0, 114, 188, 0.4)',
     opacity: 0,
     transform: 'translateX(-20%) scaleX(0)',
     transformOrigin: 'left center',
-    animation: startAnimation && `${appear} 500ms`,
+    animation: startAnimation ? `${appear} 500ms` : undefined,
     animationFillMode: 'forwards',
     ...yearAnimations,
     ':before': {
@@ -146,59 +143,57 @@ export const YearContainer = styled('div')(
       height: 2,
       background: '#b8dbec',
     },
-  })
-)
+  }),
+);
 
 type YearLabelProps = {
-  current?: boolean
-}
+  current?: boolean;
+};
 
-export const YearLabel = styled('div')(({ current }: YearLabelProps) => ({
+export const YearLabel = styled.div<YearLabelProps>(({ current }) => ({
   position: 'absolute',
   top: 0,
   color: current ? colors.secondaryColor : colors.primaryColor,
   fontWeight: 700,
   marginLeft: 8,
-}))
+}));
 
 export const YearContent = styled('div')({
   display: 'flex',
   marginLeft: 16,
-})
+});
 
 type ExperienceContainerProps = {
-  current?: boolean
-}
+  current?: boolean;
+};
 
-export const ExperienceContainer = styled('div')(
-  ({ current }: ExperienceContainerProps) => ({
-    width: 280,
-    padding: 16,
-    border: '1px solid #ddd',
-    boxShadow: '1px 1px 4px rgba(0, 0, 0, 0.2)',
-    borderRadius: 3,
-    margin: '0 8px',
-    background: current ? '#ffec6e63' : 'none',
-  })
-)
+export const ExperienceContainer = styled.div<ExperienceContainerProps>(({ current }) => ({
+  width: 280,
+  padding: 16,
+  border: '1px solid #ddd',
+  boxShadow: '1px 1px 4px rgba(0, 0, 0, 0.2)',
+  borderRadius: 3,
+  margin: '0 8px',
+  background: current ? '#ffec6e63' : 'none',
+}));
 export const ExpDate = styled('div')({
   fontSize: 12,
   fontStyle: 'italic',
   marginBottom: 8,
-})
+});
 export const ExpPlace = styled('div')({
   color: '#666',
   fontSize: 14,
   fontWeight: 700,
   marginBottom: 8,
-})
+});
 export const ExpTitle = styled('div')({
   color: '#444',
   fontSize: 16,
   fontWeight: 700,
-})
+});
 export const ExpContent = styled('div')({
   lineHeight: 1.5,
   fontSize: 14,
   textAlign: 'justify',
-})
+});

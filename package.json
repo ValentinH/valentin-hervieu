@@ -1,64 +1,61 @@
 {
   "name": "valentin-hervieu",
-  "description": "My personal website",
   "version": "2.0.0",
-  "author": "Valentin Hervieu <valentin@hervi.eu>",
+  "description": "My personal website",
   "keywords": [
-    "valentin-hervieu",
+    "hervieu",
     "valentin",
-    "hervieu"
+    "valentin-hervieu"
   ],
   "license": "MIT",
-  "packageManager": "bun@1.3.3",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "format": "prettier --write 'src/**/*+(ts|tsx)?'",
-    "lint": "eslint ./src --ext .ts --ext .tsx",
-    "lint:ts": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@fontsource/alegreya-sans-sc": "^4.5.0",
-    "@fontsource/roboto": "^4.5.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
-    "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
-    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
-    "@fortawesome/react-fontawesome": "^0.1.0-11",
-    "animated-scroll-to": "^2.2.0",
-    "axios": "^0.24.0",
-    "next": "^14.0.1",
-    "plaiceholder": "^2.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-ga": "^3.3.0",
-    "react-image-gallery": "^1.2.7",
-    "react-intersection-observer": "^8.32.2",
-    "sharp": "^0.29.2"
-  },
-  "devDependencies": {
-    "@emotion/babel-plugin": "^11.3.0",
-    "@types/node": "20.10.6",
-    "@types/react-image-gallery": "^1.0.5",
-    "@typescript-eslint/eslint-plugin": "^6.17.0",
-    "@typescript-eslint/parser": "^6.17.0",
-    "eslint": "^8.56.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.1.0",
-    "eslint-config-next": "^14.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-prettier": "^5.1.2",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.3.0",
-    "typescript": "^5.0.0"
-  },
+  "author": "Valentin Hervieu <valentin@hervi.eu>",
   "repository": {
     "type": "git",
     "url": "https://github.com/ValentinHervieu/valentin-hervieu"
-  }
+  },
+  "type": "module",
+  "imports": {
+    "#src/*": "./src/*"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs",
+    "format": "oxfmt . '!src/routeTree.gen.ts'",
+    "format:check": "oxfmt --check . '!src/routeTree.gen.ts'",
+    "lint": "oxlint . --react-plugin --jsx-a11y-plugin --import-plugin",
+    "lint:ts": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fontsource/alegreya-sans-sc": "^5.2.7",
+    "@fontsource/roboto": "^5.2.10",
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
+    "@tanstack/react-router": "^1.169.1",
+    "@tanstack/react-start": "^1.167.62",
+    "animated-scroll-to": "^2.3.2",
+    "axios": "^1.16.0",
+    "nitro": "^3.0.260429-beta",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-ga": "^3.3.1",
+    "react-image-gallery": "^2.1.2",
+    "react-intersection-observer": "^10.0.3"
+  },
+  "devDependencies": {
+    "@tanstack/router-plugin": "^1.167.32",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  },
+  "packageManager": "bun@1.3.3"
 }

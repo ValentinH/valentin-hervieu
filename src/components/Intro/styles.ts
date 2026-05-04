@@ -1,9 +1,9 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const Title = styled('h2')({
   marginTop: 0,
   marginBottom: 16,
-})
+});
 
 export const Clearfix = styled('div')({
   ':after': {
@@ -11,7 +11,7 @@ export const Clearfix = styled('div')({
     clear: 'both',
     display: 'table',
   },
-})
+});
 
 export const ImgWrapper = styled('div')({
   width: 95,
@@ -25,4 +25,4 @@ export const ImgWrapper = styled('div')({
   '@media (min-width: 960px)': {
     width: 156,
   },
-})
+});

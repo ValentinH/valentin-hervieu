@@ -1,14 +1,11 @@
-import React from 'react'
-
 type Props = {
-  user: string
-  repo: string
-  type?: string
-}
+  user: string;
+  repo: string;
+  type?: string;
+};
 
-const GithubButton: React.FC<Props> = ({ user, repo, type = 'star' }) => {
-  const typeString =
-    type === 'star' ? '&type=star&count=true' : '&type=watch&v=2'
+const GithubButton = ({ user, repo, type = 'star' }: Props) => {
+  const typeString = type === 'star' ? '&type=star&count=true' : '&type=watch&v=2';
   return (
     <iframe
       src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}${typeString}`}
@@ -19,7 +16,7 @@ const GithubButton: React.FC<Props> = ({ user, repo, type = 'star' }) => {
       height="20px"
       style={{ display: 'flex' }}
     />
-  )
-}
+  );
+};
 
-export default GithubButton
+export default GithubButton;

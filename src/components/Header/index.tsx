@@ -1,21 +1,16 @@
-import Link from 'next/link'
-import React from 'react'
-
-import classes, { Container, Subtitle, Title } from './styles'
+import { Container, HeaderLink, Subtitle, Title } from './styles';
 
 type Props = {
-  siteTitle: string
-}
+  siteTitle: string;
+};
 
-const Header: React.FC<Props> = ({ siteTitle }) => (
+const Header = ({ siteTitle }: Props) => (
   <Container>
     <Title>
-      <Link href="/" css={classes.link}>
-        {siteTitle}
-      </Link>
+      <HeaderLink to="/">{siteTitle}</HeaderLink>
     </Title>
     <Subtitle>Passionate Product Engineer</Subtitle>
   </Container>
-)
+);
 
-export default Header
+export default Header;

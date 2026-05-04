@@ -1,44 +1,36 @@
-import Image from 'next/image'
-import React from 'react'
+import config from '#src/const/config';
 
-import config from '#src/const/config'
-
-import profilPic from './profile-2026.jpg'
-import { ImgWrapper, Title, Clearfix } from './styles'
-import ExternalLink from '../ExternalLink'
+import profilPic from './profile-2026.jpg';
+import { ImgWrapper, Title, Clearfix } from './styles';
+import ExternalLink from '../ExternalLink';
 
 const Intro = () => (
   <div>
     <ImgWrapper>
-      <Image
+      <img
         src={profilPic}
         alt="Valentin Hervieu"
-        sizes="30vw"
         style={{
           width: '100%',
           height: 'auto',
           display: 'block',
         }}
-        priority
-        placeholder="blur"
       />
     </ImgWrapper>
     <Title>Welcome to my website!</Title>
     <p>
-      I&apos;m <strong>Valentin Hervieu</strong> from France and I am in my
-      thirties.
+      I&apos;m <strong>Valentin Hervieu</strong> from France and I am in my thirties.
     </p>
     <p>
       I work as a Founding Product Engineer for{' '}
-      <ExternalLink href="https://www.elba.security">elba</ExternalLink> from
-      the French Riviera (Here&apos;s{' '}
-      <ExternalLink href={config.linkedinUrl}>my résumé</ExternalLink>
+      <ExternalLink href="https://www.elba.security">elba</ExternalLink> from the French Riviera
+      (Here&apos;s <ExternalLink href={config.linkedinUrl}>my résumé</ExternalLink>
       ). I enjoy making software and you can check{' '}
-      <ExternalLink href={config.githubUrl}>my GitHub profile</ExternalLink> if
-      you want to see my projects.
+      <ExternalLink href={config.githubUrl}>my GitHub profile</ExternalLink> if you want to see my
+      projects.
     </p>
     <Clearfix />
   </div>
-)
+);
 
-export default Intro
+export default Intro;
