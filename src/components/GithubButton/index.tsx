@@ -12,9 +12,9 @@ const GithubButton = ({ user, repo, type = 'star' }: Props) => {
       title={`${repo} ${type} button`}
       frameBorder="0"
       scrolling="0"
-      width="170px"
+      width="100px"
       height="20px"
-      style={{ display: 'flex' }}
+      className="flex"
     />
   );
 };

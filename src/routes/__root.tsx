@@ -45,7 +45,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header siteTitle={config.title} />
-        <main className="max-w-screen-lg mx-auto p-4 space-y-8">{children}</main>
+        <main className="max-w-screen-xl mx-auto p-4 space-y-8">{children}</main>
         <Footer />
         <Scripts />
       </body>
