@@ -24,8 +24,8 @@ const Intro = () => (
     <div>
       <h2 className="leading-0">Hi 👋</h2>
       <p className="pt-2">
-        I&apos;m Valentin, a Staff-level Product Engineer with 12+ years of experience
-        trying to build the right things right.
+        I&apos;m Valentin, a Staff-level Product Engineer with 12+ years of experience trying to
+        build the right things right.
       </p>
       <p>
         My strongest work sits at the intersection of product craft, TypeScript/React, AI systems,

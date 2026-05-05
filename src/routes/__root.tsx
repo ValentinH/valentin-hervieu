@@ -2,8 +2,8 @@ import '@fontsource/roboto';
 import 'react-image-gallery/styles/image-gallery.css';
 
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router';
+import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
-import ReactGA from 'react-ga';
 
 import Footer from '#src/components/Footer';
 import Header from '#src/components/Header';
@@ -33,11 +33,6 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  React.useEffect(() => {
-    ReactGA.initialize('UA-40453888-1');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
-
   return (
     <html lang="en">
       <head>
@@ -47,6 +42,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Header siteTitle={config.title} />
         <main className="max-w-screen-xl mx-auto p-4 space-y-12">{children}</main>
         <Footer />
+        <Analytics />
         <Scripts />
       </body>
     </html>
