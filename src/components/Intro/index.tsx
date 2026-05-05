@@ -5,8 +5,8 @@ import AppImage from '../AppImage';
 import ExternalLink from '../ExternalLink';
 
 const Intro = () => (
-  <section className="flow-root mt-8">
-    <div className="float-left mb-2 mr-2 w-[95px] rounded border border-solid border-[#ddd] bg-white p-[3px] shadow-[1px_1px_3px_#ccc] lg:mr-6 lg:w-[156px]">
+  <section className="flow-root sm:mt-8">
+    <div className="mx-auto mb-4 w-[156px] rounded border border-solid border-[#ddd] bg-white p-[3px] shadow-[1px_1px_3px_#ccc] sm:float-left sm:mb-2 sm:mr-2 sm:w-[95px] lg:mr-6 lg:w-[156px]">
       <AppImage
         src={profilPic}
         alt="Valentin Hervieu"
