@@ -1,8 +1,8 @@
 import { faTwitterSquare, faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import config from '#src/const/config';
 
-import { Container, Content, Icon, IconLink } from './styles';
 import ExternalLink from '../ExternalLink';
 
 const links = [
@@ -13,15 +13,18 @@ const links = [
 
 const Footer = () => {
   return (
-    <Container>
-      <Content>
+    <footer className="bg-primary">
+      <div className="mx-auto flex max-w-screen-lg items-center justify-center p-1 text-center">
         {links.map((link) => (
-          <IconLink as={ExternalLink} key={link.name} href={link.url} title={link.name}>
-            <Icon icon={link.icon} />
-          </IconLink>
+          <ExternalLink key={link.name} className="h-5" href={link.url} title={link.name}>
+            <FontAwesomeIcon
+              className="mx-2 h-5 text-white transition-transform duration-500 ease-in-out hover:rotate-[360deg]"
+              icon={link.icon}
+            />
+          </ExternalLink>
         ))}
-      </Content>
-    </Container>
+      </div>
+    </footer>
   );
 };
 

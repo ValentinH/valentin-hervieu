@@ -5,7 +5,6 @@ import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router';
 import React from 'react';
 import ReactGA from 'react-ga';
 
-import Content from '#src/components/Content';
 import Footer from '#src/components/Footer';
 import Header from '#src/components/Header';
 import colors from '#src/const/colors';
@@ -46,7 +45,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header siteTitle={config.title} />
-        <Content>{children}</Content>
+        <main className="max-w-screen-lg mx-auto p-4 space-y-8">{children}</main>
         <Footer />
         <Scripts />
       </body>

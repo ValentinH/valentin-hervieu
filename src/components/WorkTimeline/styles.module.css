@@ -1,0 +1,134 @@
+.wrapper {
+  scrollbar-width: none;
+}
+
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  transform: translateX(-200%);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 150px;
+  height: 400px;
+  background: white;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -160px;
+  width: 0;
+  height: 0;
+  border-left: 160px solid white;
+  border-bottom: 200px solid transparent;
+  border-top: 200px solid transparent;
+}
+
+.containerAnimated {
+  animation: timeline-slide-in 1s ease-out forwards;
+}
+
+.year {
+  border-left-color: rgba(0, 114, 188, 0.4);
+  transform: translateX(-20%) scaleX(0);
+  transform-origin: left center;
+}
+
+.year::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  background: #38a9dc;
+  border-radius: 100%;
+}
+
+.year::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  margin-top: -1px;
+  width: 16px;
+  height: 2px;
+  background: #b8dbec;
+}
+
+.yearCurrent {
+  border-left-color: rgba(250, 75, 42, 0.4);
+}
+
+.yearAnimated {
+  animation: timeline-appear 500ms forwards;
+}
+
+.year:nth-of-type(1) {
+  animation-delay: 1000ms;
+}
+
+.year:nth-of-type(2) {
+  animation-delay: 1333ms;
+}
+
+.year:nth-of-type(3) {
+  animation-delay: 1666ms;
+}
+
+.year:nth-of-type(4) {
+  animation-delay: 1999ms;
+}
+
+.year:nth-of-type(5) {
+  animation-delay: 2332ms;
+}
+
+.year:nth-of-type(6) {
+  animation-delay: 2665ms;
+}
+
+.year:nth-of-type(7) {
+  animation-delay: 2998ms;
+}
+
+.year:nth-of-type(8) {
+  animation-delay: 3331ms;
+}
+
+.year:nth-of-type(9) {
+  animation-delay: 3664ms;
+}
+
+.year:nth-of-type(10) {
+  animation-delay: 3997ms;
+}
+
+@keyframes timeline-slide-in {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes timeline-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-20%) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px) scaleX(1);
+  }
+}

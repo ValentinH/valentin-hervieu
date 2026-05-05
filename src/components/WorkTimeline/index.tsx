@@ -1,20 +1,12 @@
 import animateScrollTo from 'animated-scroll-to';
 import React from 'react';
 import { InView } from 'react-intersection-observer';
+import '@fontsource/roboto/700.css';
+
+import { cn } from '#src/lib/utils';
 
 import srcData, { ExperienceData, YearData } from './data';
-import {
-  Wrapper,
-  Container,
-  YearContainer,
-  YearLabel,
-  YearContent,
-  ExperienceContainer,
-  ExpDate,
-  ExpPlace,
-  ExpTitle,
-  ExpContent,
-} from './styles';
+import styles from './styles.module.css';
 import ExternalLink from '../ExternalLink';
 
 const getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) => Number(e.clientX);
@@ -85,18 +77,32 @@ const WorkTimeline = () => {
   }, [onDragStopped]);
 
   return (
-    <div>
+    <section>
       <h2>Work experience</h2>
       <InView as="div" threshold={0.7} triggerOnce onChange={(inView) => inView && playAnimation()}>
-        <Wrapper ref={wrapperRef}>
-          <Container onMouseDown={onMouseDown} startAnimation={startAnimation}>
+        <div
+          className={cn(
+            styles.wrapper,
+            'relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-auto overflow-y-hidden',
+          )}
+          ref={wrapperRef}
+        >
+          <div
+            className={cn(
+              styles.container,
+              'relative mx-[200px] mt-6 inline-flex h-[400px] cursor-grab bg-white active:cursor-[grabing]',
+              startAnimation && styles.containerAnimated,
+            )}
+            onMouseDown={onMouseDown}
+            role="presentation"
+          >
             {srcData.map((yearData) => (
               <Year key={yearData.year} {...yearData} startAnimation={startAnimation} />
             ))}
-          </Container>
-        </Wrapper>
+          </div>
+        </div>
       </InView>
-    </div>
+    </section>
   );
 };
 
@@ -107,14 +113,25 @@ type YearProps = {
 } & YearData;
 
 const Year = ({ year, current, startAnimation, data }: YearProps) => (
-  <YearContainer current={current} startAnimation={startAnimation}>
-    <YearLabel current={current}>{current ? `${year} ... ${now.getFullYear()}` : year}</YearLabel>
-    <YearContent>
+  <div
+    className={cn(
+      styles.year,
+      'relative -top-6 mb-[-25px] mr-4 flex items-center border-l-[5px] pb-4 pt-10 opacity-0',
+      current && styles.yearCurrent,
+      startAnimation && styles.yearAnimated,
+    )}
+  >
+    <div
+      className={cn('absolute top-0 ml-2 font-bold', current ? 'text-secondary' : 'text-primary')}
+    >
+      {current ? `${year} ... ${now.getFullYear()}` : year}
+    </div>
+    <div className="ml-4 flex">
       {data.map((experience: ExperienceData) => (
         <Experience key={experience.title} {...experience} />
       ))}
-    </YearContent>
-  </YearContainer>
+    </div>
+  </div>
 );
 
 const Experience = ({
@@ -126,13 +143,18 @@ const Experience = ({
   content,
   current,
 }: ExperienceData) => (
-  <ExperienceContainer current={current}>
-    <ExpDate>{date}</ExpDate>
+  <div
+    className={cn(
+      'mx-2 w-[280px] rounded-sm border border-solid border-[#ddd] p-4 shadow-[1px_1px_4px_rgba(0,0,0,0.2)]',
+      current && 'bg-[#ffec6e63]',
+    )}
+  >
+    <div className="mb-2 text-[12px] italic">{date}</div>
     <ExternalLink href={companyUrl}>{company}</ExternalLink>
-    <ExpPlace>{place}</ExpPlace>
-    <ExpTitle>{title}</ExpTitle>
-    <ExpContent>{content}</ExpContent>
-  </ExperienceContainer>
+    <div className="mb-2 text-[14px] font-bold text-[#666]">{place}</div>
+    <div className="text-[16px] font-bold text-[#444]">{title}</div>
+    <div className="text-[14px] leading-[1.5]">{content}</div>
+  </div>
 );
 
 export default WorkTimeline;

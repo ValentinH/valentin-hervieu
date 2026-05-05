@@ -1,3 +1,17 @@
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@theme {
+  --color-primary: #036eb3;
+  --color-secondary: #fa4b2a;
+  --color-page: #eee;
+  --color-heading: #272222;
+  --color-header: #1b2030;
+  --font-alegreya: 'Alegreya Sans SC', sans-serif;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -7,7 +21,7 @@ html {
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: #eee;
+  background: var(--color-page);
   overflow-x: hidden;
 }
 *,
@@ -17,17 +31,17 @@ body {
 }
 
 ::selection {
-  background: #036eb3;
+  background: var(--color-primary);
   color: white;
 }
 
 h2 {
-  color: #272222;
+  color: var(--color-heading);
   font-size: 24px;
   margin: 16px 0;
 }
 
 h3 {
-  color: #272222;
+  color: var(--color-heading);
   margin: 0;
 }
