@@ -79,7 +79,7 @@ const WorkTimeline = () => {
   return (
     <section>
       <h2>Work experience</h2>
-      <InView as="div" threshold={0.7} triggerOnce onChange={(inView) => inView && playAnimation()}>
+      <InView as="div" threshold={0.1} triggerOnce onChange={(inView) => inView && playAnimation()}>
         <div
           className={cn(
             styles.wrapper,

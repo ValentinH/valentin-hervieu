@@ -6,6 +6,10 @@
   display: none;
 }
 
+:root {
+  --timeline-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .container {
   transform: translateX(-200%);
 }
@@ -33,7 +37,7 @@
 }
 
 .containerAnimated {
-  animation: timeline-slide-in 1s ease-out forwards;
+  animation: timeline-slide-in 450ms var(--timeline-ease-out) forwards;
 }
 
 .year {
@@ -70,47 +74,47 @@
 }
 
 .yearAnimated {
-  animation: timeline-appear 500ms forwards;
+  animation: timeline-appear 260ms var(--timeline-ease-out) forwards;
 }
 
 .year:nth-of-type(1) {
-  animation-delay: 1000ms;
+  animation-delay: 250ms;
 }
 
 .year:nth-of-type(2) {
-  animation-delay: 1333ms;
+  animation-delay: 310ms;
 }
 
 .year:nth-of-type(3) {
-  animation-delay: 1666ms;
+  animation-delay: 370ms;
 }
 
 .year:nth-of-type(4) {
-  animation-delay: 1999ms;
+  animation-delay: 430ms;
 }
 
 .year:nth-of-type(5) {
-  animation-delay: 2332ms;
+  animation-delay: 490ms;
 }
 
 .year:nth-of-type(6) {
-  animation-delay: 2665ms;
+  animation-delay: 550ms;
 }
 
 .year:nth-of-type(7) {
-  animation-delay: 2998ms;
+  animation-delay: 610ms;
 }
 
 .year:nth-of-type(8) {
-  animation-delay: 3331ms;
+  animation-delay: 670ms;
 }
 
 .year:nth-of-type(9) {
-  animation-delay: 3664ms;
+  animation-delay: 730ms;
 }
 
 .year:nth-of-type(10) {
-  animation-delay: 3997ms;
+  animation-delay: 790ms;
 }
 
 @keyframes timeline-slide-in {
