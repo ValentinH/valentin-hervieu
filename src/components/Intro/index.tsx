@@ -5,8 +5,8 @@ import AppImage from '../AppImage';
 import ExternalLink from '../ExternalLink';
 
 const Intro = () => (
-  <section className="flex items-start gap-4">
-    <div className="w-[95px] shrink-0 rounded border border-solid border-[#ddd] bg-white p-[3px] shadow-[1px_1px_3px_#ccc] lg:w-[156px]">
+  <section className="flow-root mt-8">
+    <div className="float-left mb-2 mr-2 w-[95px] rounded border border-solid border-[#ddd] bg-white p-[3px] shadow-[1px_1px_3px_#ccc] lg:mr-6 lg:w-[156px]">
       <AppImage
         src={profilPic}
         alt="Valentin Hervieu"
@@ -22,17 +22,27 @@ const Intro = () => (
       />
     </div>
     <div>
-      <h2 className="mb-4 mt-0">Welcome to my website!</h2>
-      <p>
-        I&apos;m <strong>Valentin Hervieu</strong> from France and I am in my thirties.
+      <h2 className="leading-0">Hi 👋</h2>
+      <p className="pt-2">
+        I&apos;m Valentin, a Staff-level Product Engineer with 12+ years of experience
+        trying to build the right things right.
       </p>
       <p>
-        I work as a Founding Product Engineer for{' '}
-        <ExternalLink href="https://www.elba.security">elba</ExternalLink> from the French Riviera
-        (Here&apos;s <ExternalLink href={config.linkedinUrl}>my résumé</ExternalLink>
-        ). I enjoy making software and you can check{' '}
-        <ExternalLink href={config.githubUrl}>my GitHub profile</ExternalLink> if you want to see my
-        projects.
+        My strongest work sits at the intersection of product craft, TypeScript/React, AI systems,
+        workflow automation, and pragmatic architecture. I like turning ambiguous product ideas into
+        fast, polished, reliable software: data model, backend workflows, UI details, rollout,
+        analytics, and long-term maintenance.
+      </p>
+      <p>
+        I care about the full product loop: understanding the user problem, shaping the solution,
+        building with taste, handling production realities, measuring what matters, and cleaning up
+        the old path once the new one works.
+      </p>
+      <p>
+        I also maintain open-source projects used by thousands of developers, including React/Svelte
+        components and developer tooling. You can find my projects on{' '}
+        <ExternalLink href={config.githubUrl}>GitHub</ExternalLink> and more background on{' '}
+        <ExternalLink href={config.linkedinUrl}>LinkedIn</ExternalLink>.
       </p>
     </div>
   </section>
