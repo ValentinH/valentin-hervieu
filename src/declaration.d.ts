@@ -22,4 +22,8 @@ declare module '@fontsource/*';
 
 interface ImportMetaEnv {
   readonly VERCEL: boolean;
+  readonly VITE_RESUME_LOCATION?: string;
+  readonly VITE_RESUME_PHONE?: string;
+  readonly VITE_RESUME_EMAIL?: string;
+  readonly VITE_RESUME_WEBSITE?: string;
 }

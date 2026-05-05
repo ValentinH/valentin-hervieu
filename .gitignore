@@ -1,6 +1,8 @@
 # Project dependencies
 node_modules
 bun-error.log
+.env.local
+.env*.local
 
 .DS_Store
 .next
@@ -9,4 +11,5 @@ bun-error.log
 .output
 .vinxi
 dist
+generated
 tsconfig.tsbuildinfo
