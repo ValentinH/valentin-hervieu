@@ -47,53 +47,56 @@ const contactItems: ContactItem[] = [
   { icon: faLink, label: import.meta.env.VITE_RESUME_WEBSITE ?? '' },
 ];
 
-const summary = `Product-minded engineer with 12+ years building polished SaaS products. Strong in
-TypeScript, React, Next.js, GraphQL and product architecture. Experienced in turning
-ambiguous problems into high-quality UI, reliable systems, AI-assisted workflows, and
-strong collaboration with product and design.`
+const summary =
+`Staff-level Product Engineer with 12+ years building polished SaaS products and open-source developer tools.
+Strong in TypeScript, React, Next.js, GraphQL, product architecture, AI-assisted workflows, observability,
+ and close product/design collaboration.`;
+
 
 const experiences: Experience[] = [
   {
-    period: '2022 - Present',
+    period: '2022 - 2026',
     company: 'elba.security',
     title: 'Founding Product Engineer',
     location: 'Remote, France',
     bullets: [
       "Founding engineer in a small product team building Elba's B2B security SaaS from early foundations to a production-grade platform.",
-      'Owned complex product areas end-to-end across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics, observability and AI-assisted workflows.',
-      'Built an AI-assisted training editor with generation, translation, quizzes, localized previews, and multi-channel rendering across web, Slack, Teams and Google Chat.',
-      'Built AI-assisted phishing scenario and visual automation editors for trigger / condition / action workflows.',
-      'Designed analytics and observability for activation tracking, journey analysis, logs, metrics, alerts and production health.',
-      'Shipped reliable async workflows and safe rollouts with retries, rate limits, idempotency, feature flags, staged migrations and backfills.',
+      'Most active contributor to the codebase, with 2 500+ commits and 3 600+ PR reviews across product, architecture, reliability, observability, and developer experience.',
+      'Owned complex product areas end-to-end across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics, observability, and AI-assisted workflows.',
+      'Built AI-assisted editors, visual automation workflows, analytics infrastructure, multi-channel communication flows, and production reliability systems.',
+      'Applied AI agents and automation tools, including OpenClaw, to improve error triage, workflow monitoring, and production issue investigation.',
+      'Shipped reliable async workflows and safe rollouts with durable jobs, retries, rate limits, idempotency, feature flags, staged migrations, and backfills.',
+      'Worked daily in Linear to shape feature ideas, technical refinements, bug reports, and async product/engineering collaboration.',
     ],
     coreTools:
-      'TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, PostHog, Axiom, Sentry, AI SDK',
+      'TypeScript, React, Next.js, GraphQL, Apollo, Hasura, PostgreSQL, Inngest, PostHog, Sentry, AI-SDK, OpenClaw',
   },
   {
-    period: '2017 - 2022',
+    period: '2017 - 2021',
     company: 'Ricardo',
     title: 'Principal Frontend Engineer',
     location: 'Sophia-Antipolis, France',
     bullets: [
       "Core contributor to one of Switzerland's largest second-hand e-commerce platforms.",
       'Led migration of core pages to React and prepared the introduction of Next.js.',
-      'Drove Flow to TypeScript migration and built BFF APIs using Node.js / Express.',
-      'Introduced testing with React Testing Library and Cypress; contributed to admin tools and a Material-UI / Storybook design system.',
-      'Built observability with Prometheus, Grafana and Sentry; improved CI/CD, monitoring and hiring.',
+      'Drove Flow to TypeScript migration and built BFF APIs using Node.js and Express.',
+      'Introduced testing with React Testing Library and Cypress; contributed to admin tools and a Material UI / Storybook design system.',
+      'Built observability with Prometheus, Grafana, and Sentry; improved CI/CD, monitoring, and hiring.',
     ],
     coreTools:
-      'React, Typescript, Material-UI, Node.js, RTL, Cypress, Github, CircleCI',
+      'TypeScript, React, Material UI, Node.js, Express, React Testing Library, Cypress, GitHub, CircleCI',
   },
   {
-    period: '2016 - 2022',
+    period: '2016 - 2021',
     company: 'Freelance',
     title: 'Frontend Engineer',
     location: '',
     bullets: [
-      'Delivered web applications and dashboards for multiple clients using React, Next.js, TypeScript, react-query and NATS.',
+      'Delivered web applications and dashboards for multiple clients using React, Next.js, TypeScript, React Query, and NATS.',
       'Set up and optimized CI/CD with GitHub Actions and Vercel.',
     ],
-    coreTools: 'React, Typescript, Material-UI, Next.js, RTL, Cypress, Github, Vercel',
+    coreTools:
+      'React, TypeScript, Next.js, Material UI, React Testing Library, Cypress, GitHub Actions, Vercel',
   },
   {
     period: '2014 - 2017',
@@ -101,20 +104,23 @@ const experiences: Experience[] = [
     title: 'Full Stack Web Developer',
     location: 'Sophia-Antipolis, France',
     bullets: [
-      'Built data-oriented SaaS dashboards for the air transport industry using AngularJS, Python and MongoDB.',
+      'Built data-oriented SaaS dashboards for the air transport industry using AngularJS, Python, MongoDB, maps, and data visualization.',
     ],
-    coreTools: 'AngularJS, D3.js, Leaflet, Python, Scikit-learn, MongoDB, Gitlab',
+    coreTools: 'AngularJS, D3.js, Leaflet, Python, Scikit-learn, MongoDB, GitLab',
   },
 ];
 
 const skillGroups: SkillGroup[] = [
   {
     title: 'Core',
-    items: 'TypeScript, React, Next.js, GraphQL',
+    items: 'TypeScript, React, Next.js, GraphQL, Hasura',
   },
   {
+    title: 'Frontend',
+    items: 'Tailwind CSS, Apollo Client, Shadcn UI, Zustand',
+  },{
     title: 'Backend',
-    items: 'Node.js, Bun, PostgreSQL, Inngest',
+    items: 'Node.js, Bun, PostgreSQL, Inngest, React Email',
   },
   {
     title: 'AI',
@@ -130,7 +136,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Delivery',
-    items: 'Git, GitHub, GitHub Actions, Graphite, Vercel, Render, feature flags',
+    items: 'Linear, GitHub, GitHub Actions, Graphite, Vercel, Render, feature flags',
   },
   {
     title: 'Mobile',
@@ -142,11 +148,12 @@ const projects = [
   {
     title: 'react-easy-crop',
     description:
-      'Open-source image cropping library with near 100 million downloads.',
+      'Open-source React image/video cropping library with nearly 100 million downloads.',
   },
   {
     title: 'ConcoursAdmis',
-    description: 'AI-powered oral exam simulations with realtime voice chat and feedback reports.',
+    description:
+      'AI-powered oral exam simulator with real-time voice chat, dynamic turn detection, transcripts, playback, and feedback reports.',
   },
   {
     title: 'Medicalist',
@@ -163,7 +170,7 @@ const education = [
   {
     period: '2009 - 2011',
     title: 'IUT Caen Basse-Normandie',
-    description: 'Two-year technical degree in Computer Sciences',
+    description: 'Two-year technical degree in Computer Science',
   },
 ];
 
@@ -223,7 +230,7 @@ function Resume() {
                         </li>
                       ))}
                     </ul>
-                    <p className="m-[1mm_0_0] pl-[4mm] text-[9.4px] leading-[1.25] font-semibold text-[#656577] italic">
+                    <p className="m-[1mm_0_0] text-[9.4px] leading-[1.25] font-semibold text-[#656577] italic">
                       {experience.coreTools}
                     </p>
                   </article>
@@ -287,7 +294,7 @@ function Resume() {
           <Section icon={faHeart} title="Hobbies" separated>
             <ul className="m-0 grid list-none gap-[4mm] p-0">
               <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
-                Badminton, Piano, Lego
+                Badminton, Piano, Lego, Raycast
               </li>
             </ul>
           </Section>
