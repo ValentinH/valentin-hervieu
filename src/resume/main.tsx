@@ -7,6 +7,7 @@ import {
   faCode,
   faEnvelope,
   faGraduationCap,
+  faHeart,
   faLanguage,
   faLink,
   faLocationDot,
@@ -31,6 +32,7 @@ type Experience = {
   title: string;
   location: string;
   bullets: string[];
+  coreTools: string;
 };
 
 type SkillGroup = {
@@ -45,12 +47,17 @@ const contactItems: ContactItem[] = [
   { icon: faLink, label: import.meta.env.VITE_RESUME_WEBSITE ?? '' },
 ];
 
+const summary = `Product-minded engineer with 12+ years building polished SaaS products. Strong in
+TypeScript, React, Next.js, GraphQL and product architecture. Experienced in turning
+ambiguous problems into high-quality UI, reliable systems, AI-assisted workflows, and
+strong collaboration with product and design.`
+
 const experiences: Experience[] = [
   {
     period: '2022 - Present',
     company: 'elba.security',
     title: 'Founding Product Engineer',
-    location: 'France',
+    location: 'Remote, France',
     bullets: [
       "Founding engineer in a small product team building Elba's B2B security SaaS from early foundations to a production-grade platform.",
       'Owned complex product areas end-to-end across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics, observability and AI-assisted workflows.',
@@ -59,6 +66,8 @@ const experiences: Experience[] = [
       'Designed analytics and observability for activation tracking, journey analysis, logs, metrics, alerts and production health.',
       'Shipped reliable async workflows and safe rollouts with retries, rate limits, idempotency, feature flags, staged migrations and backfills.',
     ],
+    coreTools:
+      'TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, PostHog, Axiom, Sentry, AI SDK',
   },
   {
     period: '2017 - 2022',
@@ -72,9 +81,11 @@ const experiences: Experience[] = [
       'Introduced testing with React Testing Library and Cypress; contributed to admin tools and a Material-UI / Storybook design system.',
       'Built observability with Prometheus, Grafana and Sentry; improved CI/CD, monitoring and hiring.',
     ],
+    coreTools:
+      'React, Typescript, Material-UI, Node.js, RTL, Cypress, Github, CircleCI',
   },
   {
-    period: '2016 - Present',
+    period: '2016 - 2022',
     company: 'Freelance',
     title: 'Frontend Engineer',
     location: '',
@@ -82,6 +93,7 @@ const experiences: Experience[] = [
       'Delivered web applications and dashboards for multiple clients using React, Next.js, TypeScript, react-query and NATS.',
       'Set up and optimized CI/CD with GitHub Actions and Vercel.',
     ],
+    coreTools: 'React, Typescript, Material-UI, Next.js, RTL, Cypress, Github, Vercel',
   },
   {
     period: '2014 - 2017',
@@ -89,32 +101,36 @@ const experiences: Experience[] = [
     title: 'Full Stack Web Developer',
     location: 'Sophia-Antipolis, France',
     bullets: [
-      'Built data-oriented SaaS dashboards for the air transport industry using AngularJS and Python.',
+      'Built data-oriented SaaS dashboards for the air transport industry using AngularJS, Python and MongoDB.',
     ],
+    coreTools: 'AngularJS, D3.js, Leaflet, Python, Scikit-learn, MongoDB, Gitlab',
   },
 ];
 
 const skillGroups: SkillGroup[] = [
   {
     title: 'Core',
-    items: 'TypeScript, React, Next.js, GraphQL, PostgreSQL, Node.js',
+    items: 'TypeScript, React, Next.js, GraphQL',
   },
   {
-    title: 'Product Engineering',
-    items:
-      'UI architecture, design systems, product discovery, UX polish, AI-assisted features, automation workflows',
+    title: 'Backend',
+    items: 'Node.js, Bun, PostgreSQL, Inngest',
+  },
+  {
+    title: 'AI',
+    items: 'AI SDK, OpenAI Realtime API, OpenClaw',
   },
   {
     title: 'Quality',
-    items: 'Vitest, React Testing Library, Playwright',
+    items: 'Vitest, React Testing Library, Playwright, Oxlint, Oxfmt',
   },
   {
     title: 'Observability',
-    items: 'Prometheus, Grafana, Sentry, analytics',
+    items: 'PostHog, Axiom, Sentry, Prometheus, Grafana',
   },
   {
     title: 'Delivery',
-    items: 'Git, GitHub, GitHub Actions, CircleCI, Vercel, feature flags, migrations',
+    items: 'Git, GitHub, GitHub Actions, Graphite, Vercel, Render, feature flags',
   },
   {
     title: 'Mobile',
@@ -126,11 +142,15 @@ const projects = [
   {
     title: 'react-easy-crop',
     description:
-      'Creator and main contributor. Open-source image cropping library with near 4M downloads.',
+      'Open-source image cropping library with near 100 million downloads.',
+  },
+  {
+    title: 'ConcoursAdmis',
+    description: 'AI-powered oral exam simulations with realtime voice chat and feedback reports.',
   },
   {
     title: 'Medicalist',
-    description: 'Creator. Mobile app to manage and learn about medicines.',
+    description: 'Expo React Native app to manage and learn about medicines.',
   },
 ];
 
@@ -162,23 +182,20 @@ function Resume() {
           <h1 className="m-0 text-[25px] font-extrabold leading-none tracking-normal text-[#0c1027] uppercase">
             Valentin Hervieu
           </h1>
-          <p className="my-[4px] mb-[5px] text-[14px] leading-[1.2] text-[#036eb3]">
+          <p className="my-[4px] mb-[5px] text-[14px] leading-[1.2] text-primary">
             Staff Product Engineer
           </p>
           <p className="m-0 max-w-[112mm] text-[#25263a]">
-            Product-minded engineer with 12+ years building polished SaaS products. Strong in
-            TypeScript, React, Next.js, GraphQL and product architecture. Experienced in turning
-            ambiguous problems into high-quality UI, reliable systems, AI-assisted workflows, and
-            strong collaboration with product and design.
+            {summary}
           </p>
         </div>
-        <ul className="m-0 flex min-h-[34mm] list-none flex-col gap-[6.2mm] p-[0_0_0_6mm]">
+        <ul className="m-0 flex min-h-[34mm] list-none flex-col gap-[4mm] p-0">
           {contactItems.map((item) => (
             <li
-              className="grid grid-cols-[5mm_1fr] items-center gap-[4mm]"
+              className="grid grid-cols-[1.7mm_1fr] items-center gap-[3mm]"
               key={item.label || item.icon.iconName}
             >
-              <FontAwesomeIcon className="text-[#036eb3]" icon={item.icon} />
+              <FontAwesomeIcon className="justify-self-center text-primary" icon={item.icon} />
               <span>{item.label || 'Missing env value'}</span>
             </li>
           ))}
@@ -199,13 +216,16 @@ function Resume() {
                       <span> — {experience.title}</span>
                     </ItemTitle>
                     {experience.location && <Location>{experience.location}</Location>}
-                    <ul className="m-0 list-disc pl-[4mm] marker:text-[#036eb3]">
+                    <ul className="m-0 list-disc pl-[4mm] marker:text-primary">
                       {experience.bullets.map((bullet) => (
                         <li className="pl-[1mm]" key={bullet}>
                           {bullet}
                         </li>
                       ))}
                     </ul>
+                    <p className="m-[1mm_0_0] pl-[4mm] text-[9.4px] leading-[1.25] font-semibold text-[#656577] italic">
+                      {experience.coreTools}
+                    </p>
                   </article>
                 </Fragment>
               ))}
@@ -213,10 +233,10 @@ function Resume() {
           </Section>
 
           <Section icon={faRocket} title="Projects" withHeadingRule separated>
-            <ul className="m-0 grid list-disc gap-[1.5mm] pl-[26mm] marker:text-[#036eb3]">
+            <ul className="m-0 grid list-disc gap-[1.5mm] pl-[4mm] marker:text-primary">
               {projects.map((project) => (
                 <li key={project.title}>
-                  <strong className="text-[#036eb3]">{project.title}</strong>
+                  <strong className="text-primary">{project.title}</strong>
                   <span> — {project.description}</span>
                 </li>
               ))}
@@ -230,7 +250,7 @@ function Resume() {
                   <Period>{item.period}</Period>
                   <div>
                     <ItemTitle>{item.title}</ItemTitle>
-                    <p className="m-0">{item.description}</p>
+                    <p className="m-0 text-gray-500">{item.description}</p>
                   </div>
                 </Fragment>
               ))}
@@ -238,7 +258,7 @@ function Resume() {
           </Section>
         </div>
 
-        <aside className="flex flex-col gap-[6mm]">
+        <aside className="flex flex-col gap-[4mm]">
           <Section icon={faCode} title="Skills">
             <div className="grid gap-[4.8mm]">
               {skillGroups.map((group) => (
@@ -255,11 +275,19 @@ function Resume() {
 
           <Section icon={faLanguage} title="Languages" separated>
             <ul className="m-0 grid list-none gap-[4mm] p-0">
-              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-[#036eb3] before:align-middle before:content-['']">
+              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
                 <strong>English</strong> — Fluent <span>(TOEIC 985/990)</span>
               </li>
-              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-[#036eb3] before:align-middle before:content-['']">
+              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
                 <strong>French</strong> — Native
+              </li>
+            </ul>
+          </Section>
+
+          <Section icon={faHeart} title="Hobbies" separated>
+            <ul className="m-0 grid list-none gap-[4mm] p-0">
+              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
+                Badminton, Piano, Lego
               </li>
             </ul>
           </Section>
@@ -284,10 +312,10 @@ function Section({
 }) {
   return (
     <section className={cn('break-inside-avoid', separated && 'mt-[5mm]')}>
-      <h2 className="!m-[0_0_4mm] grid grid-cols-[6mm_max-content_1fr] items-center gap-[4mm] !text-[11px] !leading-none font-bold tracking-normal !text-[#101126] uppercase">
-        <FontAwesomeIcon className="text-[#036eb3]" icon={icon} />
+      <h2 className="!m-[0_0_4mm] grid grid-cols-[6mm_max-content_1fr] items-center !text-[11px] !leading-none font-bold tracking-normal !text-[#101126] uppercase">
+        <FontAwesomeIcon className="text-primary" icon={icon} />
         <span>{title}</span>
-        {withHeadingRule && <span className="h-px bg-[#d7d7de]" />}
+        {withHeadingRule && <span className="h-px bg-[#d7d7de] ml-[2mm]" />}
       </h2>
       {children}
     </section>
@@ -295,13 +323,13 @@ function Section({
 }
 
 function Period({ children }: { children: ReactNode }) {
-  return <p className="m-0 text-[10.2px] text-[#036eb3]">{children}</p>;
+  return <p className="m-0 text-[10.2px] text-primary">{children}</p>;
 }
 
 function TimelineLine() {
   return (
     <div className="relative flex justify-center">
-      <span className="absolute top-[0.7mm] size-[2mm] rounded-full bg-[#036eb3]" />
+      <span className="absolute top-[0.7mm] size-[2mm] rounded-full bg-primary" />
       <span className="mt-[5mm] mb-[1mm] w-px bg-[#d9d9e2]" />
     </div>
   );
@@ -317,7 +345,7 @@ function Location({ children }: { children: ReactNode }) {
 
 function DotHeading({ children }: { children: ReactNode }) {
   return (
-    <div className="mb-[2.2mm] text-[10.5px] leading-[1.22] text-[#14162b] before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-[#036eb3] before:align-middle before:content-['']">
+    <div className="mb-[2.2mm] text-[10.5px] leading-[1.22] text-[#14162b] before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
       {children}
     </div>
   );
