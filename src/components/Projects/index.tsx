@@ -4,7 +4,7 @@ import SortableList, { SortableItem } from 'react-easy-sort';
 import Cropper from 'react-easy-crop';
 import 'react-easy-crop/react-easy-crop.css';
 
-import { arrayMove, cn, useMediaQuery } from '#src/lib/utils';
+import { arrayMove, cn, useMediaQuery, useScrollIntoViewWhenNeeded } from '#src/lib/utils';
 
 import AppImage from '../AppImage';
 import ExternalLink from '../ExternalLink';
@@ -176,9 +176,17 @@ const accordionEase = [0.25, 0.46, 0.45, 0.94] as const;
 
 const Projects = () => {
   const [activeProjectKey, setActiveProjectKey] = useState<ProjectKey>('react-easy-crop');
+  const [scrollTargetProjectKey, setScrollTargetProjectKey] = useState<ProjectKey | null>(null);
   const isMobile = useMediaQuery('(max-width: 1023px)');
   const activeProject = projects.find((project) => project.key === activeProjectKey) ?? projects[0];
   const canRenderPreview = isMobile !== null;
+  const onSelectProject = (projectKey: ProjectKey) => {
+    setActiveProjectKey(projectKey);
+
+    if (isMobile) {
+      setScrollTargetProjectKey(projectKey);
+    }
+  };
 
   return (
     <section>
@@ -192,8 +200,9 @@ const Projects = () => {
               key={project.key}
               project={project}
               isActive={project.key === activeProjectKey}
+              shouldScrollToHeader={scrollTargetProjectKey === project.key}
               shouldRenderPreview={canRenderPreview && isMobile}
-              onSelect={setActiveProjectKey}
+              onSelect={onSelectProject}
             />
           ))}
         </div>
@@ -213,6 +222,7 @@ export default Projects;
 type ProjectAccordionItemProps = {
   project: (typeof projects)[number];
   isActive: boolean;
+  shouldScrollToHeader: boolean;
   shouldRenderPreview: boolean;
   onSelect: (key: ProjectKey) => void;
 };
@@ -220,59 +230,68 @@ type ProjectAccordionItemProps = {
 const ProjectAccordionItem = ({
   project,
   isActive,
+  shouldScrollToHeader,
   shouldRenderPreview,
   onSelect,
-}: ProjectAccordionItemProps) => (
-  <div className={cn('relative border-b border-black/10 last:border-b-0', isActive && 'lg:grow')}>
-    <button
-      type="button"
-      aria-expanded={isActive}
-      aria-controls={`${project.key}-description`}
-      onClick={() => onSelect(project.key)}
-      className="flex w-full min-w-0 cursor-pointer items-center gap-3 border-0 bg-transparent px-4 py-5 pr-36 text-left focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary lg:px-5 lg:py-6 lg:pr-40"
-    >
-      <span
-        className={cn(
-          'h-4 w-4 shrink-0 rounded-full border border-solid border-black/10 bg-white ring-4 ring-black/[0.03]',
-          isActive && 'border-primary/20 bg-primary ring-primary/20',
-        )}
-        aria-hidden="true"
-      />
-      <Typography as="span" variant="bodyStrong" color="heading" className="min-w-0">
-        {project.title}
-      </Typography>
-    </button>
+}: ProjectAccordionItemProps) => {
+  const headerRef = useScrollIntoViewWhenNeeded<HTMLButtonElement>({
+    delayMs: 300,
+    shouldScroll: isActive && shouldScrollToHeader,
+  });
 
-    {project.titleAdornment && (
-      <div className="absolute right-4 top-6 z-10 lg:right-5">{project.titleAdornment}</div>
-    )}
+  return (
+    <div className={cn('relative border-b border-black/10 last:border-b-0', isActive && 'lg:grow')}>
+      <button
+        ref={headerRef}
+        type="button"
+        aria-expanded={isActive}
+        aria-controls={`${project.key}-description`}
+        onClick={() => onSelect(project.key)}
+        className="flex w-full min-w-0 cursor-pointer items-center gap-3 border-0 bg-transparent px-4 py-5 pr-36 text-left focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary lg:px-5 lg:py-6 lg:pr-40"
+      >
+        <span
+          className={cn(
+            'h-4 w-4 shrink-0 rounded-full border border-solid border-black/10 bg-white ring-4 ring-black/[0.03]',
+            isActive && 'border-primary/20 bg-primary ring-primary/20',
+          )}
+          aria-hidden="true"
+        />
+        <Typography as="span" variant="bodyStrong" color="heading" className="min-w-0">
+          {project.title}
+        </Typography>
+      </button>
 
-    <AnimatePresence initial={false}>
-      {isActive ? (
-        <motion.div
-          id={`${project.key}-description`}
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: 'auto', opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{
-            height: { duration: 0.3, ease: accordionEase },
-            opacity: { duration: 0.16, ease: accordionEase },
-          }}
-          className="overflow-hidden"
-        >
-          <Typography as="div" className="mx-4 lg:ml-12">
-            {project.description}
-          </Typography>
-          {shouldRenderPreview ? (
-            <div className="mx-4 mb-4 bg-slate-100 p-2 rounded overflow-hidden">
-              <ProjectPreview key={project.key} project={project} />
-            </div>
-          ) : null}
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
-  </div>
-);
+      {project.titleAdornment && (
+        <div className="absolute right-4 top-6 z-10 lg:right-5">{project.titleAdornment}</div>
+      )}
+
+      <AnimatePresence initial={false}>
+        {isActive ? (
+          <motion.div
+            id={`${project.key}-description`}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              height: { duration: 0.3, ease: accordionEase },
+              opacity: { duration: 0.16, ease: accordionEase },
+            }}
+            className="overflow-hidden"
+          >
+            <Typography as="div" className="mx-4 lg:ml-12">
+              {project.description}
+            </Typography>
+            {shouldRenderPreview ? (
+              <div className="mx-4 mb-4 bg-slate-100 p-2 rounded overflow-hidden">
+                <ProjectPreview key={project.key} project={project} />
+              </div>
+            ) : null}
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const ProjectPreview = ({ project }: { project: ProjectData }) => (
   <motion.div
