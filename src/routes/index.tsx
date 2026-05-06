@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import Education from '#src/components/Education';
 import ImagesGallery from '#src/components/ImagesGallery';
 import Intro from '#src/components/Intro';
 import Projects from '#src/components/Projects';
@@ -20,7 +19,6 @@ function IndexPage() {
       <Intro />
       <WorkTimeline />
       <Projects />
-      <Education />
       <ImagesGallery />
     </>
   );
