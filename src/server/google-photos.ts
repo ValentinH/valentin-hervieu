@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const regex = /\["(https:\/\/lh3\.googleusercontent\.com\/pw\/[a-zA-Z0-9\-_]*)"/g;
 
 function extractPhotos(content: string) {
@@ -12,6 +10,9 @@ function extractPhotos(content: string) {
 }
 
 export async function getAlbum(id: string): Promise<string[]> {
-  const response = await axios.get(`https://photos.app.goo.gl/${id}`);
-  return extractPhotos(response.data);
+  const response = await fetch(`https://photos.app.goo.gl/${id}`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch Google Photos album: ${response.status}`);
+  }
+  return extractPhotos(await response.text());
 }
