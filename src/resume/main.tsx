@@ -117,7 +117,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Frontend',
-    items: 'Tailwind CSS, Apollo Client, Shadcn UI, Zustand',
+    items: 'Apollo Client, Zustand, Shadcn UI, Tailwind CSS, framer-motion',
   },{
     title: 'Backend',
     items: 'Node.js, Bun, PostgreSQL, Inngest, React Email',
