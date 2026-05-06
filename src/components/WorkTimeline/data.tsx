@@ -131,26 +131,6 @@ const data: Data = [
     ],
   },
   {
-    year: 2021,
-    data: [
-      {
-        date: 'November 2021 – January 2022',
-        company: 'Hublo',
-        companyUrl: 'https://hublo.com',
-        place: 'Sophia-Antipolis, France',
-        title: 'Senior Frontend Engineer',
-        current: false,
-        content: (
-          <p>
-            Hublo modernizes human resource management in healthcare.
-            <br /> Their mission is to create digital tools that make the daily life of healthcare
-            professionals easier, so that they can focus on their own mission: take care of patient.
-          </p>
-        ),
-      },
-    ],
-  },
-  {
     year: 2022,
     current: true,
     data: [
