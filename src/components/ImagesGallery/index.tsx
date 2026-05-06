@@ -9,61 +9,74 @@ import AppImage from '../AppImage';
 const emptyImages: GalleryImage[] = [];
 
 const ImagesGallery = () => {
-  const images = useGalleryImages();
-
-  if (!images.length) return null;
+  const { images, isLoading } = useGalleryImages();
 
   return (
     <section>
       <h2>Some pictures from my camera</h2>
-      <ImageGallery
-        items={images.map((item) => ({
-          original: item.src,
-          thumbnail: item.src,
-          renderItem: () =>
-            item.src && (
-              <div className="relative bg-[#121212] pb-[56.25%]">
-                <AppImage
-                  src={item.src}
-                  alt={item.alt}
-                  layout="fullWidth"
-                  aspectRatio={16 / 9}
-                  breakpoints={[320, 640, 960, 1280, 1600, 1920]}
-                  objectFit="contain"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    position: 'absolute',
-                    inset: 0,
-                  }}
-                />
-              </div>
-            ),
-          renderThumbInner: () =>
-            item.src && (
-              <AppImage
-                src={item.src}
-                width={92}
-                height={55}
-                layout="fixed"
-                breakpoints={[92, 184]}
-                alt={item.thumbnailAlt || ''}
-                objectFit="cover"
-                style={{
-                  display: 'block',
-                }}
-              />
-            ),
-        }))}
-        showFullscreenButton={false}
-        additionalClass="[&_.image-gallery-thumbnail]:inline-flex [&_.image-gallery-thumbnail]:overflow-hidden"
-      />
+      {isLoading ? (
+        <ImagesGallerySkeleton />
+      ) : (
+        images.length > 0 && (
+          <ImageGallery
+            items={images.map((item) => ({
+              original: item.src,
+              thumbnail: item.src,
+              renderItem: () =>
+                item.src && (
+                  <div className="relative bg-[#121212] pb-[56.25%]">
+                    <AppImage
+                      src={item.src}
+                      alt={item.alt}
+                      layout="fullWidth"
+                      aspectRatio={16 / 9}
+                      breakpoints={[320, 640, 960, 1280, 1600, 1920]}
+                      objectFit="contain"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        inset: 0,
+                      }}
+                    />
+                  </div>
+                ),
+              renderThumbInner: () =>
+                item.src && (
+                  <AppImage
+                    src={item.src}
+                    width={92}
+                    height={55}
+                    layout="fixed"
+                    breakpoints={[92, 184]}
+                    alt={item.thumbnailAlt || ''}
+                    objectFit="cover"
+                    style={{
+                      display: 'block',
+                    }}
+                  />
+                ),
+            }))}
+            showFullscreenButton={false}
+            additionalClass="[&_.image-gallery-thumbnail]:inline-flex [&_.image-gallery-thumbnail]:overflow-hidden"
+          />
+        )
+      )}
     </section>
   );
 };
 
+function ImagesGallerySkeleton() {
+  return (
+    <div aria-busy="true" aria-label="Loading camera pictures">
+      <div className="relative bg-neutral-300 pb-[56.25%] animate-pulse" />
+    </div>
+  );
+}
+
 function useGalleryImages() {
   const [images, setImages] = React.useState(emptyImages);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     let shouldUpdate = true;
@@ -80,14 +93,20 @@ function useGalleryImages() {
       }
     }
 
-    fetchImages().catch(() => undefined);
+    fetchImages()
+      .catch(() => undefined)
+      .finally(() => {
+        if (shouldUpdate) {
+          setIsLoading(false);
+        }
+      });
 
     return () => {
       shouldUpdate = false;
     };
   }, []);
 
-  return images;
+  return { images, isLoading };
 }
 
 export default ImagesGallery;
