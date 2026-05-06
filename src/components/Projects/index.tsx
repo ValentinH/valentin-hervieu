@@ -4,7 +4,7 @@ import SortableList, { SortableItem } from 'react-easy-sort';
 import Cropper from 'react-easy-crop';
 import 'react-easy-crop/react-easy-crop.css';
 
-import { cn } from '#src/lib/utils';
+import { arrayMove, cn, useMediaQuery } from '#src/lib/utils';
 
 import AppImage from '../AppImage';
 import ExternalLink from '../ExternalLink';
@@ -176,7 +176,9 @@ const accordionEase = [0.25, 0.46, 0.45, 0.94] as const;
 
 const Projects = () => {
   const [activeProjectKey, setActiveProjectKey] = useState<ProjectKey>('react-easy-crop');
+  const isMobile = useMediaQuery('(max-width: 1023px)');
   const activeProject = projects.find((project) => project.key === activeProjectKey) ?? projects[0];
+  const canRenderPreview = isMobile !== null;
 
   return (
     <section>
@@ -190,14 +192,17 @@ const Projects = () => {
               key={project.key}
               project={project}
               isActive={project.key === activeProjectKey}
+              shouldRenderPreview={canRenderPreview && isMobile}
               onSelect={setActiveProjectKey}
             />
           ))}
         </div>
 
-        <div className="relative flex min-h-[420px] items-center justify-center border-t border-black/10 bg-[#f8fbfd] p-3 lg:min-h-0 lg:border-t-0 lg:p-4">
-          <ProjectPreview key={activeProject.key} project={activeProject} />
-        </div>
+        {!isMobile && canRenderPreview ? (
+          <div className="relative flex items-center justify-center bg-slate-100 min-h-0 p-4">
+            <ProjectPreview key={activeProject.key} project={activeProject} />
+          </div>
+        ) : null}
       </div>
     </section>
   );
@@ -208,21 +213,16 @@ export default Projects;
 type ProjectAccordionItemProps = {
   project: (typeof projects)[number];
   isActive: boolean;
+  shouldRenderPreview: boolean;
   onSelect: (key: ProjectKey) => void;
 };
 
-const ProjectPreview = ({ project }: { project: ProjectData }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 8 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.18, ease: accordionEase }}
-    className="flex h-full min-h-[300px] w-full items-center justify-center rounded bg-sky-950 p-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] lg:min-h-full"
-  >
-    <div className="flex h-full w-full items-center justify-center">{project.preview}</div>
-  </motion.div>
-);
-
-const ProjectAccordionItem = ({ project, isActive, onSelect }: ProjectAccordionItemProps) => (
+const ProjectAccordionItem = ({
+  project,
+  isActive,
+  shouldRenderPreview,
+  onSelect,
+}: ProjectAccordionItemProps) => (
   <div className={cn('relative border-b border-black/10 last:border-b-0', isActive && 'lg:grow')}>
     <button
       type="button"
@@ -260,13 +260,29 @@ const ProjectAccordionItem = ({ project, isActive, onSelect }: ProjectAccordionI
           }}
           className="overflow-hidden"
         >
-          <div className="mb-5 ml-11 mr-4 max-w-[580px] lg:mb-6 lg:ml-12 lg:mr-5">
+          <Typography as="div" className="mx-4 lg:ml-12">
             {project.description}
-          </div>
+          </Typography>
+          {shouldRenderPreview ? (
+            <div className="mx-4 mb-4 bg-slate-100 p-2 rounded overflow-hidden">
+              <ProjectPreview key={project.key} project={project} />
+            </div>
+          ) : null}
         </motion.div>
       ) : null}
     </AnimatePresence>
   </div>
+);
+
+const ProjectPreview = ({ project }: { project: ProjectData }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.18, ease: accordionEase }}
+    className="flex h-[300px] w-full items-center rounded overflow-hidden justify-center lg:h-full lg:min-h-full"
+  >
+    <div className="flex grow h-full w-full items-center justify-center">{project.preview}</div>
+  </motion.div>
 );
 
 function ReactEasyCropDemo() {
@@ -298,20 +314,35 @@ const sortableQuotes = [
   'Clarity beats cleverness',
 ] as const;
 
-function ReactEasySortDemo() {
-  const [items, setItems] = useState([...sortableQuotes]);
+const mobileHiddenSortableQuotes = new Set(
+  [...sortableQuotes].sort((a, b) => b.length - a.length).slice(0, 2),
+);
 
+function ReactEasySortDemo() {
+  const isMobile = useMediaQuery('(max-width: 1023px)');
+  const items = isMobile
+    ? sortableQuotes.filter((item) => !mobileHiddenSortableQuotes.has(item))
+    : sortableQuotes;
+
+  return <SortableQuotesDemo key={isMobile ? 'mobile' : 'desktop'} items={items} />;
+}
+
+function SortableQuotesDemo({ items }: { items: readonly string[] }) {
+  const [sortedItems, setSortedItems] = useState([...items]);
   const onSortEnd = (oldIndex: number, newIndex: number) => {
-    setItems((currentItems) => arrayMove(currentItems, oldIndex, newIndex));
+    setSortedItems((currentItems) => arrayMove(currentItems, oldIndex, newIndex));
   };
 
   return (
     <SortableList
       onSortEnd={onSortEnd}
       draggedItemClassName="scale-105 cursor-grabbing shadow-xl"
-      className="grid h-full w-full grid-cols-2 grid-rows-4 gap-3"
+      className={cn(
+        'grid h-full w-full grid-cols-2 gap-3',
+        sortedItems.length === 6 ? 'grid-rows-3' : 'grid-rows-4',
+      )}
     >
-      {items.map((item) => (
+      {sortedItems.map((item) => (
         <SortableItem key={item}>
           <Typography
             as="div"
@@ -325,11 +356,4 @@ function ReactEasySortDemo() {
       ))}
     </SortableList>
   );
-}
-
-function arrayMove<T>(items: readonly T[], oldIndex: number, newIndex: number) {
-  const nextItems = [...items];
-  const [item] = nextItems.splice(oldIndex, 1);
-  nextItems.splice(newIndex, 0, item);
-  return nextItems;
 }
