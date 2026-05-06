@@ -36,7 +36,7 @@ const WorkTimeline = () => {
 
   const playAnimation = () => {
     setStartAnimation(true);
-    scrollTimeline({ delay: 2000, speed: 1000 });
+    scrollTimeline({ delay: 1000, speed: 1000 });
   };
 
   const onDragStart = (x: number) => {
@@ -46,12 +46,12 @@ const WorkTimeline = () => {
 
   const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onDragStopped);
+    document.addEventListener('pointermove', onPointerMove);
+    document.addEventListener('pointerup', onDragStopped);
     onDragStart(getMousePoint(e));
   };
 
-  const onMouseMove = React.useCallback((e: MouseEvent) => {
+  const onPointerMove = React.useCallback((e: MouseEvent) => {
     const x = getMousePoint(e);
 
     if (rafTimeoutRef.current) window.cancelAnimationFrame(rafTimeoutRef.current);
@@ -66,9 +66,9 @@ const WorkTimeline = () => {
   }, []);
 
   const onDragStopped = React.useCallback(() => {
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onDragStopped);
-  }, [onMouseMove]);
+    document.removeEventListener('pointermove', onPointerMove);
+    document.removeEventListener('pointerup', onDragStopped);
+  }, [onPointerMove]);
 
   React.useEffect(() => {
     return () => {
@@ -81,7 +81,7 @@ const WorkTimeline = () => {
       <Typography as="h2" variant="sectionTitle" color="heading" className="mb-4">
         Work experience
       </Typography>
-      <InView as="div" threshold={0.1} triggerOnce onChange={(inView) => inView && playAnimation()}>
+      <InView as="div" threshold={0.5} triggerOnce onChange={(inView) => inView && playAnimation()}>
         <div
           className={cn(
             styles.wrapper,

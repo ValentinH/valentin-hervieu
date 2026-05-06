@@ -5,7 +5,6 @@ import { routeTree } from './routeTree.gen';
 export function getRouter() {
   return createTanStackRouter({
     routeTree,
-    scrollRestoration: true,
     defaultPreload: 'intent',
     defaultPreloadStaleTime: 0,
   });

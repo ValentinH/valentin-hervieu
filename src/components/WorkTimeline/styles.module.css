@@ -40,6 +40,15 @@
   animation: timeline-slide-in 450ms var(--timeline-ease-out) forwards;
 }
 
+@keyframes timeline-slide-in {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .year {
   border-left-color: rgba(0, 114, 188, 0.4);
   transform: translateX(-20%) scaleX(0);
@@ -71,6 +80,17 @@
 
 .yearAnimated {
   animation: timeline-appear 260ms var(--timeline-ease-out) forwards;
+}
+
+@keyframes timeline-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 
 .year:nth-of-type(1) {
@@ -111,24 +131,4 @@
 
 .year:nth-of-type(10) {
   animation-delay: 790ms;
-}
-
-@keyframes timeline-slide-in {
-  0% {
-    transform: translateX(-200%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes timeline-appear {
-  0% {
-    opacity: 0;
-    transform: translateX(-20%) scaleX(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px) scaleX(1);
-  }
 }
