@@ -30,8 +30,7 @@
     "lint:ts": "tsc --noEmit"
   },
   "dependencies": {
-    "@fontsource/alegreya-sans-sc": "^5.2.7",
-    "@fontsource/roboto": "^5.2.10",
+    "@fontsource-variable/inter": "^5.2.8",
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
@@ -42,6 +41,7 @@
     "@unpic/react": "^1.0.2",
     "@vercel/analytics": "^2.0.1",
     "animated-scroll-to": "^2.3.2",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "motion": "^12.38.0",
     "nitro": "^3.0.260429-beta",

@@ -5,11 +5,10 @@
 
 @theme {
   --color-primary: #036eb3;
-  --color-secondary: #fa4b2a;
   --color-page: #eee;
   --color-heading: #272222;
   --color-header: #1b2030;
-  --font-alegreya: 'Alegreya Sans SC', sans-serif;
+  --font-inter: 'Inter Variable', sans-serif;
 }
 
 html {
@@ -20,7 +19,7 @@ html {
 }
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-inter);
   background: var(--color-page);
   overflow-x: hidden;
 }
@@ -33,15 +32,4 @@ body {
 ::selection {
   background: var(--color-primary);
   color: white;
-}
-
-h2 {
-  color: var(--color-heading);
-  font-size: 24px;
-  margin: 16px 0;
-}
-
-h3 {
-  color: var(--color-heading);
-  margin: 0;
 }

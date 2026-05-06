@@ -5,6 +5,7 @@ import ImageGallery from 'react-image-gallery';
 import { GalleryImage } from '#src/types/images';
 
 import AppImage from '../AppImage';
+import { Typography } from '../Typography';
 
 const emptyImages: GalleryImage[] = [];
 
@@ -13,7 +14,9 @@ const ImagesGallery = () => {
 
   return (
     <section>
-      <h2>Some pictures from my camera</h2>
+      <Typography as="h2" variant="sectionTitle" color="heading" className="mb-4">
+        Some pictures from my camera
+      </Typography>
       {isLoading ? (
         <ImagesGallerySkeleton />
       ) : (

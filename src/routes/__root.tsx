@@ -1,4 +1,4 @@
-import '@fontsource/roboto';
+import '@fontsource-variable/inter/wght.css';
 import 'react-image-gallery/styles/image-gallery.css';
 
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router';
@@ -40,7 +40,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header siteTitle={config.title} />
-        <main className="max-w-screen-xl mx-auto p-4 space-y-12">{children}</main>
+        <main className="max-w-screen-xl mx-auto min-h-[calc(100vh-328px)] space-y-12 p-4">
+          {children}
+        </main>
         <Footer />
         <Analytics />
         <Scripts />

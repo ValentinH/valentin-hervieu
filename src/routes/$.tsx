@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import ExternalLink from '#src/components/ExternalLink';
+import { Typography } from '#src/components/Typography';
 import config from '#src/const/config';
 
 export const Route = createFileRoute('/$')({
@@ -9,11 +11,16 @@ export const Route = createFileRoute('/$')({
 function NotFoundPage() {
   return (
     <>
-      <h1>NOT FOUND</h1>
-      <p>
+      <Typography as="h1" variant="pageTitle" color="heading" className="mb-4">
+        NOT FOUND
+      </Typography>
+      <Typography>
         This page doesn&apos;t exist. However, if you really need it, you can submit a PR{' '}
-        <a href={config.repository}>here</a>!
-      </p>
+        <Typography as={ExternalLink} variant="body" color="primary" href={config.repository}>
+          here
+        </Typography>
+        !
+      </Typography>
     </>
   );
 }

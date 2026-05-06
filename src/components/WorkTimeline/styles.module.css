@@ -69,10 +69,6 @@
   background: #b8dbec;
 }
 
-.yearCurrent {
-  border-left-color: rgba(250, 75, 42, 0.4);
-}
-
 .yearAnimated {
   animation: timeline-appear 260ms var(--timeline-ease-out) forwards;
 }

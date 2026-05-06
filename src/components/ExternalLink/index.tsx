@@ -1,19 +1,23 @@
-import { HTMLProps, ReactNode } from 'react';
+import { forwardRef, type ComponentPropsWithoutRef } from 'react';
+
 import { cn } from '#src/lib/utils';
 
-type Props = HTMLProps<HTMLAnchorElement> & {
-  children: ReactNode;
-};
+type Props = ComponentPropsWithoutRef<'a'>;
 
-const ExternalLink = ({ children, className, ...rest }: Props) => (
-  <a
-    {...rest}
-    className={cn('text-primary no-underline hover:underline', className)}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {children}
-  </a>
+const ExternalLink = forwardRef<HTMLAnchorElement, Props>(
+  ({ children, className, ...rest }, ref) => (
+    <a
+      ref={ref}
+      {...rest}
+      className={cn('no-underline hover:underline', className)}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </a>
+  ),
 );
+
+ExternalLink.displayName = 'ExternalLink';
 
 export default ExternalLink;

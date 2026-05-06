@@ -1,4 +1,4 @@
-import '@fontsource/roboto';
+import '@fontsource-variable/inter/wght.css';
 import '#src/global.css';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';

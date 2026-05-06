@@ -9,6 +9,7 @@ import { cn } from '#src/lib/utils';
 import AppImage from '../AppImage';
 import ExternalLink from '../ExternalLink';
 import GithubButton from '../GithubButton';
+import { Typography } from '../Typography';
 import concoursAdmisIllustration from './concoursadmis.png';
 import dogIllustration from './dog.jpeg';
 import medicalistIllustration from './medicalist.png';
@@ -28,17 +29,23 @@ const projects: ProjectData[] = [
     titleAdornment: <GithubButton user="ValentinH" repo="react-easy-crop" />,
     preview: <ReactEasyCropDemo />,
     description: (
-      <>
+      <Typography as="div">
         A React component library to crop images with easy interactions. I&apos;ve started to
         implement this component at work for the listing form of{' '}
-        <ExternalLink href="https://ricardo.ch" title="Ricardo.ch">
+        <Typography
+          as={ExternalLink}
+          variant="body"
+          color="primary"
+          href="https://ricardo.ch"
+          title="Ricardo.ch"
+        >
           Ricardo.ch
-        </ExternalLink>
+        </Typography>
         .<br /> Then, I thought it was a nice project and I decided to continue working on it on my
         personal time and made it open-source with the agreement of my employer.
         <br />
         Today, it has been downloaded near 100 million times on NPM.
-      </>
+      </Typography>
     ),
   },
   {
@@ -47,20 +54,26 @@ const projects: ProjectData[] = [
     titleAdornment: <GithubButton user="ValentinH" repo="react-easy-sort" />,
     preview: <ReactEasySortDemo />,
     description: (
-      <>
+      <Typography as="div">
         A React component library to build sortable lists and grids with simple drag interactions.
         It focuses on the boring-but-good API shape: bring your own markup and styles, wrap the
         sortable items, and keep state ownership in your app.
-      </>
+      </Typography>
     ),
   },
   {
     key: 'concoursadmis',
     title: 'ConcoursAdmis',
     titleAdornment: (
-      <ExternalLink href="https://www.concoursadmis.fr" title="ConcoursAdmis">
+      <Typography
+        as={ExternalLink}
+        variant="body"
+        color="primary"
+        href="https://www.concoursadmis.fr"
+        title="ConcoursAdmis"
+      >
         concoursadmis.fr
-      </ExternalLink>
+      </Typography>
     ),
     preview: (
       <AppImage
@@ -74,16 +87,16 @@ const projects: ProjectData[] = [
     ),
     description: (
       <>
-        <p className="m-0">
+        <Typography>
           Shipped the AI-powered oral exam simulation feature for ConcoursAdmis (a friend&apos;s
           project), a SaaS platform preparing candidates for French gendarmerie entrance exams.
-        </p>
-        <p className="mb-0 mt-3">
+        </Typography>
+        <Typography className="mt-3">
           Built a realistic voice-based mock interview experience using the OpenAI Realtime API,
           dynamic voice activity detection for turn-taking, Gemini Flash 3 for subject/question
           generation, timestamped transcripts, recording playback, and detailed AI feedback reports
           covering answer content, speech patterns, pacing, and delivery.
-        </p>
+        </Typography>
       </>
     ),
   },
@@ -91,9 +104,15 @@ const projects: ProjectData[] = [
     key: 'medicalist',
     title: 'Medicalist',
     titleAdornment: (
-      <ExternalLink href="https://medicalist.fr" title="Medicalist">
+      <Typography
+        as={ExternalLink}
+        variant="body"
+        color="primary"
+        href="https://medicalist.fr"
+        title="Medicalist"
+      >
         medicalist.fr
-      </ExternalLink>
+      </Typography>
     ),
     preview: (
       <AppImage
@@ -106,20 +125,20 @@ const projects: ProjectData[] = [
       />
     ),
     description: (
-      <>
+      <Typography as="div">
         This is a react-native application to manage your medicines and learn about them. As this is
         using open-data from the French government, it is only available in French.
         <br />
         <ul className="my-2 pl-5">
-          <li>Scan medicine boxes using their QR code or barcode</li>
-          <li>Keep track of your stock and add personal notes</li>
-          <li>Search for any medicine</li>
-          <li>
+          <Typography as="li">Scan medicine boxes using their QR code or barcode</Typography>
+          <Typography as="li">Keep track of your stock and add personal notes</Typography>
+          <Typography as="li">Search for any medicine</Typography>
+          <Typography as="li">
             Medicine record with all needed information: usage, dosage, composition, price, leaflet,
             etc.
-          </li>
+          </Typography>
         </ul>
-      </>
+      </Typography>
     ),
   },
   {
@@ -133,17 +152,20 @@ const projects: ProjectData[] = [
       />
     ),
     description: (
-      <>
+      <Typography as="div">
         I use this website as a playground to try new things. At the moment, it is built with
         Typescript, TanStack Start and Tailwind. I have written an article about{' '}
-        <ExternalLink
+        <Typography
+          as={ExternalLink}
+          variant="body"
+          color="primary"
           href="https://medium.com/@ValentinHervieu/how-i-used-google-photos-to-host-my-website-pictures-gallery-d49f037c8e3c"
           title="How I used Google Photos to host my pictures gallery"
         >
           how I used Google Photos to host my pictures gallery
-        </ExternalLink>
+        </Typography>
         .
-      </>
+      </Typography>
     ),
   },
 ];
@@ -158,7 +180,9 @@ const Projects = () => {
 
   return (
     <section>
-      <h2>Projects</h2>
+      <Typography as="h2" variant="sectionTitle" color="heading" className="mb-4">
+        Projects
+      </Typography>
       <div className="mb-6 grid overflow-hidden rounded-sm border border-solid border-black/10 bg-white shadow-[1px_1px_4px_rgba(0,0,0,0.12)] lg:min-h-[620px] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)]">
         <div className="flex flex-col border-black/10 lg:border-r">
           {projects.map((project) => (
@@ -214,7 +238,9 @@ const ProjectAccordionItem = ({ project, isActive, onSelect }: ProjectAccordionI
         )}
         aria-hidden="true"
       />
-      <span className="min-w-0 text-[20px] leading-tight text-heading">{project.title}</span>
+      <Typography as="span" variant="bodyStrong" color="heading" className="min-w-0">
+        {project.title}
+      </Typography>
     </button>
 
     {project.titleAdornment && (
@@ -234,7 +260,7 @@ const ProjectAccordionItem = ({ project, isActive, onSelect }: ProjectAccordionI
           }}
           className="overflow-hidden"
         >
-          <div className="mb-5 ml-11 mr-4 max-w-[580px] text-[16px] leading-[1.55] text-[#333] lg:mb-6 lg:ml-12 lg:mr-5">
+          <div className="mb-5 ml-11 mr-4 max-w-[580px] lg:mb-6 lg:ml-12 lg:mr-5">
             {project.description}
           </div>
         </motion.div>
@@ -287,9 +313,14 @@ function ReactEasySortDemo() {
     >
       {items.map((item) => (
         <SortableItem key={item}>
-          <div className="flex h-full cursor-grab select-none items-center justify-center rounded bg-white p-4 text-center text-[15px] font-bold leading-snug text-heading shadow active:cursor-grabbing">
+          <Typography
+            as="div"
+            variant="captionStrong"
+            color="heading"
+            className="flex h-full cursor-grab select-none items-center justify-center rounded bg-white p-4 text-center shadow active:cursor-grabbing"
+          >
             {item}
-          </div>
+          </Typography>
         </SortableItem>
       ))}
     </SortableList>

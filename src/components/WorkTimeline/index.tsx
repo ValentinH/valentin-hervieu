@@ -1,13 +1,13 @@
 import animateScrollTo from 'animated-scroll-to';
 import React from 'react';
 import { InView } from 'react-intersection-observer';
-import '@fontsource/roboto/700.css';
 
 import { cn } from '#src/lib/utils';
 
 import srcData, { ExperienceData, YearData } from './data';
 import styles from './styles.module.css';
 import ExternalLink from '../ExternalLink';
+import { Typography } from '../Typography';
 
 const getMousePoint = (e: React.MouseEvent<HTMLDivElement> | MouseEvent) => Number(e.clientX);
 
@@ -78,7 +78,9 @@ const WorkTimeline = () => {
 
   return (
     <section>
-      <h2>Work experience</h2>
+      <Typography as="h2" variant="sectionTitle" color="heading" className="mb-4">
+        Work experience
+      </Typography>
       <InView as="div" threshold={0.1} triggerOnce onChange={(inView) => inView && playAnimation()}>
         <div
           className={cn(
@@ -117,15 +119,17 @@ const Year = ({ year, current, startAnimation, data }: YearProps) => (
     className={cn(
       styles.year,
       'relative -top-6 mb-[-25px] mr-4 flex items-center border-l-[5px] pb-4 pt-10 opacity-0',
-      current && styles.yearCurrent,
       startAnimation && styles.yearAnimated,
     )}
   >
-    <div
-      className={cn('absolute top-0 ml-2 font-bold', current ? 'text-secondary' : 'text-primary')}
+    <Typography
+      as="div"
+      variant="captionStrong"
+      color="primary"
+      className="absolute top-0 ml-2"
     >
       {current ? `${year} ... ${now.getFullYear()}` : year}
-    </div>
+    </Typography>
     <div className="ml-4 flex">
       {data.map((experience: ExperienceData) => (
         <Experience key={experience.title} {...experience} />
@@ -146,14 +150,22 @@ const Experience = ({
   <div
     className={cn(
       'mx-2 w-[280px] rounded-sm border border-solid border-[#ddd] p-4 shadow-[1px_1px_4px_rgba(0,0,0,0.2)]',
-      current && 'bg-[#ffec6e63]',
+      current && 'bg-orange-50',
     )}
   >
-    <div className="mb-2 text-[12px] italic">{date}</div>
-    <ExternalLink href={companyUrl}>{company}</ExternalLink>
-    <div className="mb-2 text-[14px] font-bold text-[#666]">{place}</div>
-    <div className="text-[16px] font-bold text-[#444]">{title}</div>
-    <div className="text-[14px] leading-[1.5]">{content}</div>
+    <Typography as="div" variant="meta" color="muted" className="mb-1">
+      {date}
+    </Typography>
+    <Typography as={ExternalLink} variant="body" color="primary" href={companyUrl}>
+      {company}
+    </Typography>
+    <Typography as="div" variant="captionStrong" color="muted" className="mb-2">
+      {place}
+    </Typography>
+    <Typography as="div" variant="bodyStrong" color="heading" className="mb-1">
+      {title}
+    </Typography>
+    {content}
   </div>
 );
 
