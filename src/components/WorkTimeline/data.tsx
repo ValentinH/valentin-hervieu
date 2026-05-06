@@ -138,7 +138,7 @@ const data: Data = [
     data: [
       {
         date: 'January 2022 – Present',
-        company: 'elba',
+        company: 'elba.security',
         companyUrl: 'https://elba-security',
         place: 'Remote from France',
         title: 'Founding Product Engineer',

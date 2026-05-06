@@ -234,36 +234,45 @@ const ProjectAccordionItem = ({
   shouldRenderPreview,
   onSelect,
 }: ProjectAccordionItemProps) => {
-  const headerRef = useScrollIntoViewWhenNeeded<HTMLButtonElement>({
+  const headerRef = useScrollIntoViewWhenNeeded<HTMLDivElement>({
     delayMs: 300,
     shouldScroll: isActive && shouldScrollToHeader,
   });
 
   return (
     <div className={cn('relative border-b border-black/10 last:border-b-0', isActive && 'lg:grow')}>
-      <button
-        ref={headerRef}
-        type="button"
-        aria-expanded={isActive}
-        aria-controls={`${project.key}-description`}
-        onClick={() => onSelect(project.key)}
-        className="flex w-full min-w-0 cursor-pointer items-center gap-3 border-0 bg-transparent px-4 py-5 pr-36 text-left focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary lg:px-5 lg:py-6 lg:pr-40"
-      >
-        <span
-          className={cn(
-            'h-4 w-4 shrink-0 rounded-full border border-solid border-black/10 bg-white ring-4 ring-black/[0.03]',
-            isActive && 'border-primary/20 bg-primary ring-primary/20',
-          )}
-          aria-hidden="true"
-        />
-        <Typography as="span" variant="bodyStrong" color="heading" className="min-w-0">
-          {project.title}
-        </Typography>
-      </button>
+      <div 
+          ref={headerRef} className="relative flex items-center px-4 py-5">
+        <button
+          type="button"
+          aria-expanded={isActive}
+          aria-controls={`${project.key}-description`}
+          onClick={() => onSelect(project.key)}
+          className="flex min-w-0 flex-1 cursor-pointer items-center gap-3 border-0 bg-transparent text-left before:absolute before:inset-0 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+        >
+          <span
+            className={cn(
+              'relative h-4 w-4 shrink-0 rounded-full border border-solid border-black/10 bg-white ring-4 ring-black/[0.03]',
+              isActive && 'border-primary/20 bg-primary ring-primary/20',
+            )}
+            aria-hidden="true"
+          />
+          <Typography
+            as="span"
+            variant="bodyStrong"
+            color="heading"
+            className="relative min-w-0 whitespace-nowrap"
+          >
+            {project.title}
+          </Typography>
+        </button>
 
-      {project.titleAdornment && (
-        <div className="absolute right-4 top-6 z-10 lg:right-5">{project.titleAdornment}</div>
-      )}
+        {project.titleAdornment && (
+          <div className="relative z-10 shrink-0">
+            {project.titleAdornment}
+          </div>
+        )}
+      </div>
 
       <AnimatePresence initial={false}>
         {isActive ? (
