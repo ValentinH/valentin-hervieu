@@ -21,6 +21,9 @@
     "dev": "vite dev",
     "build": "vite build",
     "start": "node .output/server/index.mjs",
+    "resume:setup": "bunx playwright install chromium",
+    "resume:dev": "vite --config vite.resume.config.ts --host 127.0.0.1 --open /src/resume/index.html",
+    "resume:pdf": "bun scripts/generate-resume-pdf.ts",
     "format": "oxfmt . '!src/routeTree.gen.ts'",
     "format:check": "oxfmt --check . '!src/routeTree.gen.ts'",
     "lint": "oxlint . --react-plugin --jsx-a11y-plugin --import-plugin",
@@ -61,6 +64,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "oxfmt": "^0.47.0",
     "oxlint": "^1.62.0",
+    "playwright": "^1.59.1",
     "typescript": "^6.0.3",
     "vite": "^8.0.10"
   },
