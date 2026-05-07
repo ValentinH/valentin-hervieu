@@ -47,10 +47,10 @@ const contactItems: ContactItem[] = [
   { icon: faLink, label: import.meta.env.VITE_RESUME_WEBSITE ?? '' },
 ];
 
-const summary =
-`Product Engineer with 12+ years building polished SaaS products, production systems, and open-source developer tools.
-Strong in TypeScript, React, Next.js, GraphQL, product architecture, AI-assisted workflows, observability,
- and close product/design collaboration.`;
+const summary = [
+  'Product Engineer with 12+ years building polished SaaS products, production systems, and open-source developer tools.',
+  'Strong in TypeScript, React, Next.js, GraphQL, product architecture, AI-assisted workflows, observability, and close product/design collaboration.',
+].join(' ');
 
 
 const experiences: Experience[] = [
@@ -175,10 +175,10 @@ const education = [
 
 function Resume() {
   return (
-    <main className="relative mx-auto min-h-[297mm] w-[210mm] bg-white p-[10mm_10mm_2mm] text-[10.2px] leading-[1.34] text-[#16172a] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] print:m-0 print:shadow-none">
-      <div className="absolute bottom-[8mm] left-[146mm] top-[10mm] w-px bg-[#d7d7de]" />
+    <main className="relative mx-auto min-h-[297mm] w-[210mm] bg-white p-[9mm_9mm_4mm] text-[10.2px] leading-[1.34] text-[#16172a] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] print:m-0 print:shadow-none">
+      <div className="absolute bottom-[12mm] left-[149.5mm] top-[6mm] w-px bg-[#d7d7de]" />
 
-      <header className="grid grid-cols-[26mm_1fr_48mm] items-start gap-[6mm] pb-[5mm]">
+      <header className="grid grid-cols-[26mm_1fr_48mm] items-start gap-[6mm] pb-[8mm]">
         <img
           className="h-[32mm] w-[26mm] rounded-[2mm] object-cover"
           src={profilePicture}
@@ -195,7 +195,7 @@ function Resume() {
             {summary}
           </p>
         </div>
-        <ul className="m-0 flex min-h-[34mm] list-none flex-col gap-[4mm] p-0">
+        <ul className="m-0 flex min-h-[34mm] list-none flex-col gap-[3.4mm] p-0">
           {contactItems.map((item) => (
             <li
               className="grid grid-cols-[1.7mm_1fr] items-center gap-[3mm]"
@@ -208,10 +208,10 @@ function Resume() {
         </ul>
       </header>
 
-      <div className="grid grid-cols-[1fr_48mm]">
-        <div className="pr-[5mm]">
+      <div className="grid grid-cols-[1fr_48mm] gap-[7mm]">
+        <div>
           <Section icon={faBriefcase} title="Experience" withHeadingRule>
-            <div className="grid grid-cols-[max-content_4mm_1fr] gap-x-[4mm] gap-y-[3.2mm]">
+            <div className="grid grid-cols-[max-content_4mm_1fr] gap-x-[4mm] gap-y-[3.8mm]">
               {experiences.map((experience) => (
                 <Fragment key={`${experience.period}-${experience.company}`}>
                   <Period>{experience.period}</Period>
@@ -239,7 +239,7 @@ function Resume() {
           </Section>
 
           <Section icon={faRocket} title="Projects" withHeadingRule separated>
-            <ul className="m-0 grid list-disc gap-[1.5mm] pl-[4mm] marker:text-primary">
+            <ul className="m-0 grid list-disc gap-[1.4mm] pl-[4mm] marker:text-primary">
               {projects.map((project) => (
                 <li key={project.title}>
                   <strong className="text-primary">{project.title}</strong>
@@ -264,12 +264,12 @@ function Resume() {
           </Section>
         </div>
 
-        <aside className="flex flex-col gap-[4mm]">
+        <aside className="flex flex-col gap-[5.5mm]">
           <Section icon={faCode} title="Skills">
-            <div className="grid gap-[4.8mm]">
+            <div className="grid gap-[4.4mm]">
               {skillGroups.map((group) => (
                 <article
-                  className="border-b border-[#d7d7de] pb-[4.8mm] last:border-b-0"
+                  className="border-b border-[#d7d7de] pb-[4.4mm] last:border-b-0"
                   key={group.title}
                 >
                   <DotHeading>{group.title}</DotHeading>
@@ -280,7 +280,7 @@ function Resume() {
           </Section>
 
           <Section icon={faLanguage} title="Languages" separated>
-            <ul className="m-0 grid list-none gap-[4mm] p-0">
+            <ul className="m-0 grid list-none gap-[3.2mm] p-0">
               <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
                 <strong>English</strong> — Fluent <span>(TOEIC 985/990)</span>
               </li>
@@ -291,7 +291,7 @@ function Resume() {
           </Section>
 
           <Section icon={faHeart} title="Hobbies" separated>
-            <ul className="m-0 grid list-none gap-[4mm] p-0">
+            <ul className="m-0 grid list-none gap-[3.2mm] p-0">
               <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
                 Badminton, Piano, Lego, Raycast
               </li>
@@ -317,7 +317,7 @@ function Section({
   separated?: boolean;
 }) {
   return (
-    <section className={cn('break-inside-avoid', separated && 'mt-[4mm]')}>
+    <section className={cn('break-inside-avoid', separated && 'mt-[6mm]')}>
       <h2 className="!m-[0_0_4mm] grid grid-cols-[6mm_max-content_1fr] items-center !text-[11px] !leading-none font-bold tracking-normal !text-[#101126] uppercase">
         <FontAwesomeIcon className="text-primary" icon={icon} />
         <span>{title}</span>
@@ -351,7 +351,7 @@ function Location({ children }: { children: ReactNode }) {
 
 function DotHeading({ children }: { children: ReactNode }) {
   return (
-    <div className="mb-[2.2mm] text-[10.5px] leading-[1.22] text-[#14162b] before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
+    <div className="mb-[2mm] text-[10.5px] leading-[1.22] text-[#14162b] before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
       {children}
     </div>
   );
