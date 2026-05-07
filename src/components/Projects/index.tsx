@@ -154,7 +154,7 @@ const projects: ProjectData[] = [
     description: (
       <Typography as="div">
         I use this website as a playground to try new things. At the moment, it is built with
-        Typescript, TanStack Start and Tailwind. I have written an article about{' '}
+        TypeScript, TanStack Start and Tailwind. I have written an article about{' '}
         <Typography
           as={ExternalLink}
           variant="body"

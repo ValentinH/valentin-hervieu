@@ -48,7 +48,7 @@ const contactItems: ContactItem[] = [
 ];
 
 const summary =
-`Product Engineer with 12+ years building polished SaaS products and open-source developer tools.
+`Product Engineer with 12+ years building polished SaaS products, production systems, and open-source developer tools.
 Strong in TypeScript, React, Next.js, GraphQL, product architecture, AI-assisted workflows, observability,
  and close product/design collaboration.`;
 
@@ -57,7 +57,7 @@ const experiences: Experience[] = [
   {
     period: '2022 - 2026',
     company: 'elba.security',
-    title: 'Founding Product Engineer',
+    title: 'Founding Engineer',
     location: 'Remote, France',
     bullets: [
       "Founding engineer in a small product team building Elba's B2B security SaaS from early foundations to a production-grade platform.",
@@ -66,7 +66,6 @@ const experiences: Experience[] = [
       'Built AI-assisted editors, visual automation workflows, analytics infrastructure, multi-channel communication flows, and production reliability systems.',
       'Applied AI agents and automation tools, including OpenClaw, to improve error triage, workflow monitoring, and production issue investigation.',
       'Shipped reliable async workflows and safe rollouts with durable jobs, retries, rate limits, idempotency, feature flags, staged migrations, and backfills.',
-      'Worked daily in Linear to shape feature ideas, technical refinements, bug reports, and async product/engineering collaboration.',
     ],
     coreTools:
       'TypeScript, React, Next.js, GraphQL, Apollo, Hasura, PostgreSQL, Inngest, PostHog, Sentry, Vercel, Render, AI-SDK, OpenClaw',
@@ -176,10 +175,10 @@ const education = [
 
 function Resume() {
   return (
-    <main className="relative mx-auto min-h-[297mm] w-[210mm] bg-white p-[10mm_10mm_8mm] text-[10.2px] leading-[1.34] text-[#16172a] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] print:m-0 print:shadow-none">
+    <main className="relative mx-auto min-h-[297mm] w-[210mm] bg-white p-[10mm_10mm_2mm] text-[10.2px] leading-[1.34] text-[#16172a] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] print:m-0 print:shadow-none">
       <div className="absolute bottom-[8mm] left-[146mm] top-[10mm] w-px bg-[#d7d7de]" />
 
-      <header className="grid grid-cols-[26mm_1fr_48mm] items-start gap-[6mm] pb-[10mm]">
+      <header className="grid grid-cols-[26mm_1fr_48mm] items-start gap-[6mm] pb-[5mm]">
         <img
           className="h-[32mm] w-[26mm] rounded-[2mm] object-cover"
           src={profilePicture}
@@ -209,7 +208,7 @@ function Resume() {
         </ul>
       </header>
 
-      <div className="grid grid-cols-[1fr_48mm] gap-[6mm]">
+      <div className="grid grid-cols-[1fr_48mm]">
         <div className="pr-[5mm]">
           <Section icon={faBriefcase} title="Experience" withHeadingRule>
             <div className="grid grid-cols-[max-content_4mm_1fr] gap-x-[4mm] gap-y-[3.2mm]">
@@ -318,7 +317,7 @@ function Section({
   separated?: boolean;
 }) {
   return (
-    <section className={cn('break-inside-avoid', separated && 'mt-[5mm]')}>
+    <section className={cn('break-inside-avoid', separated && 'mt-[4mm]')}>
       <h2 className="!m-[0_0_4mm] grid grid-cols-[6mm_max-content_1fr] items-center !text-[11px] !leading-none font-bold tracking-normal !text-[#101126] uppercase">
         <FontAwesomeIcon className="text-primary" icon={icon} />
         <span>{title}</span>

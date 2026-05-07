@@ -7,7 +7,7 @@ import ExternalLink from '../ExternalLink';
 
 const links = [
   { name: 'Twitter', url: config.twitterUrl, icon: faTwitterSquare },
-  { name: 'Github', url: config.githubUrl, icon: faGithubSquare },
+  { name: 'GitHub', url: config.githubUrl, icon: faGithubSquare },
   { name: 'LinkedIn', url: config.linkedinUrl, icon: faLinkedin },
 ];
 

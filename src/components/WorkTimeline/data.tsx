@@ -122,7 +122,7 @@ const data: Data = [
         title: 'Principal Front-end Engineer',
         content: (
           <Typography variant="caption">
-            Polished a 20 y.o. ecommerce website using cool stuffs: React, SSR, Typescript, Webpack,
+            Polished a 20 y.o. ecommerce website using cool stuffs: React, SSR, TypeScript, Webpack,
             Node.js, MaterialUI...
             <br /> Ensuring that everything runs smoothly using Prometheus, Grafana and Google
             Analytics.
