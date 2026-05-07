@@ -48,7 +48,7 @@ const contactItems: ContactItem[] = [
 ];
 
 const summary =
-`Staff-level Product Engineer with 12+ years building polished SaaS products and open-source developer tools.
+`Product Engineer with 12+ years building polished SaaS products and open-source developer tools.
 Strong in TypeScript, React, Next.js, GraphQL, product architecture, AI-assisted workflows, observability,
  and close product/design collaboration.`;
 
@@ -190,7 +190,7 @@ function Resume() {
             Valentin Hervieu
           </h1>
           <p className="my-[4px] mb-[5px] text-[14px] leading-[1.2] text-primary">
-            Staff Product Engineer
+            Product Engineer
           </p>
           <p className="m-0 max-w-[112mm] text-[#25263a]">
             {summary}

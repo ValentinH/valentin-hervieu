@@ -27,7 +27,7 @@ const Intro = () => (
         Hi 👋
       </Typography>
       <Typography className="mb-2">
-        I&apos;m Valentin, a Staff-level Product Engineer with 12+ years of experience trying to
+        I&apos;m Valentin, a Product Engineer with 12+ years of experience trying to
         build the right things right.
       </Typography>
       <Typography className="mb-2">

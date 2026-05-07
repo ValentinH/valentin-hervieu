@@ -126,7 +126,7 @@ const data: Data = [
             Node.js, MaterialUI...
             <br /> Ensuring that everything runs smoothly using Prometheus, Grafana and Google
             Analytics.
-            <br /> Powered by our micro-services APIs.
+            <br /> Powered by our micro-services APIs running on Kubernetes.
           </Typography>
         ),
       },
@@ -141,11 +141,11 @@ const data: Data = [
         company: 'elba.security',
         companyUrl: 'https://elba-security',
         place: 'Remote from France',
-        title: 'Founding Product Engineer',
+        title: 'Founding Engineer',
         current: true,
         content: (
           <Typography variant="caption">
-            Helped build Elba&apos;s B2B security SaaS from early foundations to production.
+            Built Elba&apos;s B2B security SaaS from early foundations to production.
             <br />
             Owned end-to-end product work across AI-assisted editors, security automation workflows,
             analytics, observability, and multi-channel communication.
