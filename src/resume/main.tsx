@@ -49,7 +49,7 @@ const contactItems: ContactItem[] = [
 
 const summary = [
   'Product Engineer with 12+ years building polished SaaS products, production systems, and open-source developer tools.',
-  'Strong in TypeScript, React, Next.js, GraphQL, product architecture, AI-assisted workflows, observability, and close product/design collaboration.',
+  'Strong in TypeScript, React, Next.js, GraphQL, product architecture, production AI systems, observability, and close product/design collaboration.',
 ].join(' ');
 
 
@@ -62,7 +62,7 @@ const experiences: Experience[] = [
     bullets: [
       "Founding engineer in a small product team building Elba's B2B security SaaS from early foundations to a production-grade platform.",
       'Most active contributor to the codebase, with 2 500+ commits and 3 600+ PR reviews across product, architecture, reliability, observability, and developer experience.',
-      'Owned complex product areas end-to-end across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics, observability, and AI-assisted workflows.',
+      'Owned complex product areas end-to-end across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics, observability, and production AI features.',
       'Built AI-assisted editors, visual automation workflows, analytics infrastructure, multi-channel communication flows, and production reliability systems.',
       'Applied AI agents and automation tools, including OpenClaw, to improve error triage, workflow monitoring, and production issue investigation.',
       'Shipped reliable async workflows and safe rollouts with durable jobs, retries, rate limits, idempotency, feature flags, staged migrations, and backfills.',
@@ -83,7 +83,7 @@ const experiences: Experience[] = [
       'Built observability with Prometheus, Grafana, and Sentry; improved CI/CD, monitoring, and hiring.',
     ],
     coreTools:
-      'TypeScript, React, Material UI, Node.js, Express, React Testing Library, Cypress, GitHub, CircleCI',
+      'TypeScript, React, Material UI, Node.js, Express, React Testing Library, Cypress, GitHub, CircleCI, Kubernetes',
   },
   {
     period: '2016 - 2021',
