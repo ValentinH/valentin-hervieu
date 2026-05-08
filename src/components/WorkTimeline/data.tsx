@@ -122,8 +122,7 @@ const data: Data = [
         title: 'Principal Front-end Engineer',
         content: (
           <Typography variant="caption">
-            Polished a 20 y.o. ecommerce website using cool stuffs: React, SSR, TypeScript, Webpack,
-            Node.js, MaterialUI...
+            Modernized and polished a 20-year-old ecommerce website using React, SSR, TypeScript, Webpack, Node.js, and Material UI.
             <br /> Ensuring that everything runs smoothly using Prometheus, Grafana and Google
             Analytics.
             <br /> Powered by our micro-services APIs running on Kubernetes.
