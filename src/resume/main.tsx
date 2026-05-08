@@ -281,10 +281,10 @@ function Resume() {
 
           <Section icon={faLanguage} title="Languages" separated>
             <ul className="m-0 grid list-none gap-[3.2mm] p-0">
-              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
+              <li className="before:mr-[3mm] before:inline-block before:size-[1.2mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
                 <strong>English</strong> — Fluent <span>(TOEIC 985/990)</span>
               </li>
-              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
+              <li className="before:mr-[3mm] before:inline-block before:size-[1.2mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
                 <strong>French</strong> — Native
               </li>
             </ul>
@@ -292,7 +292,7 @@ function Resume() {
 
           <Section icon={faHeart} title="Hobbies" separated>
             <ul className="m-0 grid list-none gap-[3.2mm] p-0">
-              <li className="before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
+              <li className="before:mr-[3mm] before:inline-block before:size-[1.2mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
                 Badminton, Piano, Lego, Raycast
               </li>
             </ul>
@@ -351,7 +351,7 @@ function Location({ children }: { children: ReactNode }) {
 
 function DotHeading({ children }: { children: ReactNode }) {
   return (
-    <div className="mb-[2mm] text-[10.5px] leading-[1.22] text-[#14162b] before:mr-[3mm] before:inline-block before:size-[1.7mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
+    <div className="mb-[2mm] text-[10.5px] leading-[1.22] text-[#14162b] before:mr-[3mm] before:inline-block before:size-[1.2mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
       {children}
     </div>
   );
