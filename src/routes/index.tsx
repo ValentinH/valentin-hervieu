@@ -17,8 +17,8 @@ function IndexPage() {
   return (
     <>
       <Intro />
-      <WorkTimeline />
       <Projects />
+      <WorkTimeline />
       <ImagesGallery />
     </>
   );

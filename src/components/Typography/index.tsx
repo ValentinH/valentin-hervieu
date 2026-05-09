@@ -16,7 +16,7 @@ const typographyCva = cva('m-0 font-inter tracking-normal', {
       bodyStrong: 'text-[16px] font-medium leading-snug',
       caption: 'text-[14px] font-normal leading-[1.5]',
       captionStrong: 'text-[14px] font-medium leading-normal',
-      meta: 'text-[12px] font-normal italic leading-normal',
+      meta: 'text-[12px] font-normal leading-normal',
     },
     color: {
       inherit: 'text-inherit',
