@@ -92,7 +92,7 @@ const WorkTimeline = () => {
           <div
             className={cn(
               styles.container,
-              'relative mx-[200px] mt-6 inline-flex h-[400px] cursor-grab bg-white active:cursor-[grabing]',
+              'relative mx-[200px] mt-6 inline-flex h-[400px] cursor-grab bg-white ring-1 ring-black/10 active:cursor-[grabing]',
               startAnimation && styles.containerAnimated,
             )}
             onMouseDown={onMouseDown}
@@ -122,12 +122,7 @@ const Year = ({ year, current, startAnimation, data }: YearProps) => (
       startAnimation && styles.yearAnimated,
     )}
   >
-    <Typography
-      as="div"
-      variant="captionStrong"
-      color="primary"
-      className="absolute top-0 ml-2"
-    >
+    <Typography as="div" variant="captionStrong" color="primary" className="absolute top-0 ml-2">
       {current ? `${year} ... ${now.getFullYear()}` : year}
     </Typography>
     <div className="ml-4 flex">
@@ -149,7 +144,7 @@ const Experience = ({
 }: ExperienceData) => (
   <div
     className={cn(
-      'mx-2 w-[280px] rounded-sm border border-solid border-[#ddd] p-4 shadow-[1px_1px_4px_rgba(0,0,0,0.2)]',
+      'mx-2 w-[280px] rounded-lg border border-solid border-black/10 bg-white p-4',
       current && 'bg-orange-50',
     )}
   >

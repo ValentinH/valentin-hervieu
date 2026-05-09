@@ -193,7 +193,7 @@ const Projects = () => {
       <Typography as="h2" variant="sectionTitle" color="heading" className="mb-4">
         Projects
       </Typography>
-      <div className="mb-6 grid overflow-hidden rounded-sm border border-solid border-black/10 bg-white shadow-[1px_1px_4px_rgba(0,0,0,0.12)] lg:min-h-[620px] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)]">
+      <div className="mb-6 grid overflow-hidden rounded-lg border border-solid border-black/10 bg-white lg:min-h-[620px] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)]">
         <div className="flex flex-col border-black/10 lg:border-r">
           {projects.map((project) => (
             <ProjectAccordionItem
@@ -208,7 +208,7 @@ const Projects = () => {
         </div>
 
         {!isMobile && canRenderPreview ? (
-          <div className="relative flex items-center justify-center bg-slate-100 min-h-0 p-4">
+          <div className="relative flex min-h-0 items-center justify-center bg-zinc-50 p-4">
             <ProjectPreview key={activeProject.key} project={activeProject} />
           </div>
         ) : null}
@@ -241,8 +241,7 @@ const ProjectAccordionItem = ({
 
   return (
     <div className={cn('relative border-b border-black/10 last:border-b-0', isActive && 'lg:grow')}>
-      <div 
-          ref={headerRef} className="relative flex items-center px-4 py-5">
+      <div ref={headerRef} className="relative flex items-center px-4 py-5">
         <button
           type="button"
           aria-expanded={isActive}
@@ -268,9 +267,7 @@ const ProjectAccordionItem = ({
         </button>
 
         {project.titleAdornment && (
-          <div className="relative z-10 shrink-0">
-            {project.titleAdornment}
-          </div>
+          <div className="relative z-10 shrink-0">{project.titleAdornment}</div>
         )}
       </div>
 
@@ -291,7 +288,7 @@ const ProjectAccordionItem = ({
               {project.description}
             </Typography>
             {shouldRenderPreview ? (
-              <div className="mx-4 mb-4 bg-slate-100 p-2 rounded overflow-hidden">
+              <div className="mx-4 mb-4 overflow-hidden rounded-lg border border-black/10 bg-zinc-50 p-2">
                 <ProjectPreview key={project.key} project={project} />
               </div>
             ) : null}
@@ -307,7 +304,7 @@ const ProjectPreview = ({ project }: { project: ProjectData }) => (
     initial={{ opacity: 0, y: 8 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.18, ease: accordionEase }}
-    className="flex h-[300px] w-full items-center rounded overflow-hidden justify-center lg:h-full lg:min-h-full"
+    className="flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg lg:h-full lg:min-h-full"
   >
     <div className="flex grow h-full w-full items-center justify-center">{project.preview}</div>
   </motion.div>
@@ -364,7 +361,7 @@ function SortableQuotesDemo({ items }: { items: readonly string[] }) {
   return (
     <SortableList
       onSortEnd={onSortEnd}
-      draggedItemClassName="scale-105 cursor-grabbing shadow-xl"
+      draggedItemClassName="scale-105 cursor-grabbing ring-2 ring-primary/25"
       className={cn(
         'grid h-full w-full grid-cols-2 gap-3',
         sortedItems.length === 6 ? 'grid-rows-3' : 'grid-rows-4',
@@ -376,7 +373,7 @@ function SortableQuotesDemo({ items }: { items: readonly string[] }) {
             as="div"
             variant="captionStrong"
             color="heading"
-            className="flex h-full cursor-grab select-none items-center justify-center rounded bg-white p-4 text-center shadow active:cursor-grabbing"
+            className="flex h-full cursor-grab select-none items-center justify-center rounded-lg border border-black/10 bg-white p-4 text-center ring-1 ring-white active:cursor-grabbing"
           >
             {item}
           </Typography>

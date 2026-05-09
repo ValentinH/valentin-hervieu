@@ -7,10 +7,8 @@ import { forwardRefWithAs, type ComponentPropsWithAs } from './polymorphism';
 const typographyCva = cva('m-0 font-inter tracking-normal', {
   variants: {
     variant: {
-      heroTitle:
-        'text-[40px] font-light leading-[40px] [text-shadow:0_2px_14px_rgba(0,0,0,0.9),0_1px_2px_rgba(0,0,0,0.95)] 2xl:text-[60px] 2xl:leading-[60px]',
-      heroSubtitle:
-        'text-[18px] font-normal leading-normal [text-shadow:0_2px_10px_rgba(0,0,0,0.88),0_1px_2px_rgba(0,0,0,0.95)] 2xl:text-[26px]',
+      heroTitle: 'text-[40px] font-medium leading-[40px] 2xl:text-[60px] 2xl:leading-[60px]',
+      heroSubtitle: 'text-[18px] font-normal leading-normal 2xl:text-[26px]',
       pageTitle: 'text-[32px] font-medium leading-tight',
       sectionTitle: 'text-[24px] font-medium leading-normal',
       title: 'text-[20px] font-medium leading-tight',

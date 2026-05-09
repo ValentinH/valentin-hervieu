@@ -7,7 +7,7 @@ import { Typography } from '../Typography';
 
 const Intro = () => (
   <section className="flow-root sm:mt-8">
-    <div className="mx-auto mb-2 w-[156px] rounded border border-solid border-[#ddd] bg-white p-[3px] shadow-[1px_1px_3px_#ccc] sm:float-left sm:mb-2 sm:mr-2 sm:w-[95px] lg:mr-6 lg:w-[156px]">
+    <div className="mx-auto mb-2 w-[156px] rounded-lg border border-solid border-black/10 bg-white p-1 ring-1 ring-white/80 sm:float-left sm:mb-2 sm:mr-2 sm:w-[95px] lg:mr-6 lg:w-[156px]">
       <AppImage
         src={profilPic}
         alt="Valentin Hervieu"
@@ -27,11 +27,14 @@ const Intro = () => (
         Hi 👋
       </Typography>
       <Typography className="mb-2">
-        I&apos;m Valentin, a Product Engineer with 12+ years of experience working to
-        build the right things right.
+        I&apos;m Valentin, a Product Engineer with 12+ years of experience working to build the
+        right things right.
       </Typography>
       <Typography className="mb-2">
-        My work sits at the intersection of product craft, TypeScript/React, AI systems, and pragmatic architecture. I care about the full product loop: taking ambiguous ideas and turning them into fast, polished software, handling everything from data models and UI details to production rollouts and analytics.
+        My work sits at the intersection of product craft, TypeScript/React, AI systems, and
+        pragmatic architecture. I care about the full product loop: taking ambiguous ideas and
+        turning them into fast, polished software, handling everything from data models and UI
+        details to production rollouts and analytics.
       </Typography>
       <Typography className="mb-2">
         I also maintain open-source projects used by thousands of developers, including React/Svelte
