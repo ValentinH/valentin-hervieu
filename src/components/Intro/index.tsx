@@ -31,7 +31,7 @@ const Intro = () => (
         build the right things right.
       </Typography>
       <Typography className="mb-2">
-        My work sits at the intersection of product craft, TypeScript/React, AI systems, and pragmatic architecture. I care about the full product loop: taking ambiguous ideas and turning them into fast, polished software—from data models and UI details to production rollouts and analytics.
+        My work sits at the intersection of product craft, TypeScript/React, AI systems, and pragmatic architecture. I care about the full product loop: taking ambiguous ideas and turning them into fast, polished software, handling everything from data models and UI details to production rollouts and analytics.
       </Typography>
       <Typography className="mb-2">
         I also maintain open-source projects used by thousands of developers, including React/Svelte
