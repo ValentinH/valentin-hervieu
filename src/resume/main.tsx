@@ -219,7 +219,7 @@ function Resume() {
                   <article>
                     <ItemTitle>
                       <strong>{experience.company}</strong>
-                      <span> — {experience.title}</span>
+                      <span> - {experience.title}</span>
                     </ItemTitle>
                     {experience.location && <Location>{experience.location}</Location>}
                     <ul className="m-0 list-disc pl-[4mm] marker:text-primary">
@@ -243,7 +243,7 @@ function Resume() {
               {projects.map((project) => (
                 <li key={project.title}>
                   <strong className="text-primary">{project.title}</strong>
-                  <span> — {project.description}</span>
+                  <span> - {project.description}</span>
                 </li>
               ))}
             </ul>
@@ -282,10 +282,10 @@ function Resume() {
           <Section icon={faLanguage} title="Languages" separated>
             <ul className="m-0 grid list-none gap-[3.2mm] p-0">
               <li className="before:mr-[3mm] before:inline-block before:size-[1.2mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
-                <strong>English</strong> — Fluent <span>(TOEIC 985/990)</span>
+                <strong>English</strong> - Fluent <span>(TOEIC 985/990)</span>
               </li>
               <li className="before:mr-[3mm] before:inline-block before:size-[1.2mm] before:rounded-full before:bg-primary before:align-middle before:content-['']">
-                <strong>French</strong> — Native
+                <strong>French</strong> - Native
               </li>
             </ul>
           </Section>

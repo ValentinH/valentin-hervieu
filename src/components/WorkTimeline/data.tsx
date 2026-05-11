@@ -20,6 +20,16 @@ export type YearData = {
 
 export type Data = YearData[];
 
+const WorkBullets = ({ items, className = 'mt-2' }: { items: string[]; className?: string }) => (
+  <ul className={`${className} list-disc space-y-1 pl-5 marker:text-primary`}>
+    {items.map((item) => (
+      <Typography as="li" variant="caption" key={item}>
+        {item}
+      </Typography>
+    ))}
+  </ul>
+);
+
 const data: Data = [
   {
     year: 2011,
@@ -113,16 +123,20 @@ const data: Data = [
         place: 'Sophia-Antipolis, France',
         title: 'Full-stack engineer',
         content: (
-          <Typography variant="caption">
-            Development of a SAAS application, powered by AngularJS and Python. We provide many
-            data-oriented dashboards for the air transport industry (airlines and airports).
-            <br />
-            Main tasks:
-            <br />- design and development of interactive data-powered visualisations using
-            AngularJS, D3 and Leaflet
-            <br />- query and transformation of large amount of data in Python/MongoDB
-            <br />- setup and maintenance of the continuous integration process using Gitlab
-          </Typography>
+          <div>
+            <Typography variant="caption">
+              Development of a SAAS application, powered by AngularJS and Python. We provide many
+              data-oriented dashboards for the air transport industry (airlines and airports),
+              mostly through:
+            </Typography>
+            <WorkBullets
+              items={[
+                'Design and development of interactive data-powered visualisations using AngularJS, D3 and Leaflet',
+                'Query and transformation of large amount of data in Python/MongoDB',
+                'Setup and maintenance of the continuous integration process using Gitlab',
+              ]}
+            />
+          </div>
         ),
       },
     ],
@@ -154,25 +168,29 @@ const data: Data = [
         place: 'Sophia-Antipolis, France',
         title: 'Principal Front-end Engineer',
         content: (
-          <Typography variant="caption">
-            Core contributor of the largest second-hand e-commerce website of Switzerland.
-            <br />‣ Migration of the main pages to React with homemade SSR setup
-            <br />‣ Implementation of BFF APIs using Node.js/Express
-            <br />‣ Lead of the Flow to Typescript migration
-            <br />‣ Preparation of the introduction of Next.js to replace our SSR setup
-            <br />‣ Introduction of react-testing-library and Cypress for testing
-            <br />‣ Introduction of the react-admin framework for our admin tools
-            <br />‣ Contribution to our design system using Material-UI and Storybook
-            <br />‣ Architecture and implementation of realtime Core Web Vitals monitoring using
-            Prometheus and Grafana
-            <br />‣ Frontend error monitoring using Sentry
-            <br />‣ Part of the on-call team to keep the platform up and running 24/7
-            <br />‣ Optimisation of our CI/CD pipelines (CircleCI)
-            <br />‣ Knowledge-sharing and mentoring (documentation, guidelines, code-reviews,
-            pair-programming, workshops organisation)
-            <br />‣ Technical interviews as part of the hiring process
-            <br />‣ Open-source of several projects
-          </Typography>
+          <div>
+            <Typography variant="caption">
+              Core contributor of the largest second-hand e-commerce website of Switzerland.
+            </Typography>
+            <WorkBullets
+              items={[
+                'Migration of the main pages to React with homemade SSR setup',
+                'Implementation of BFF APIs using Node.js/Express',
+                'Lead of the Flow to Typescript migration',
+                'Preparation of the introduction of Next.js to replace our SSR setup',
+                'Introduction of react-testing-library and Cypress for testing',
+                'Introduction of the react-admin framework for our admin tools',
+                'Contribution to our design system using Material-UI and Storybook',
+                'Architecture and implementation of realtime Core Web Vitals monitoring using Prometheus and Grafana',
+                'Frontend error monitoring using Sentry',
+                'Part of the on-call team to keep the platform up and running 24/7',
+                'Optimisation of our CI/CD pipelines (CircleCI)',
+                'Knowledge-sharing and mentoring (documentation, guidelines, code-reviews, pair-programming, workshops organisation)',
+                'Technical interviews as part of the hiring process',
+                'Open-source of several projects',
+              ]}
+            />
+          </div>
         ),
       },
     ],
@@ -194,57 +212,29 @@ const data: Data = [
               Founding engineer in a small product team building Elba&apos;s B2B security SaaS from
               early foundations to a production-grade platform.
             </Typography>
-            <Typography variant="caption" className="mt-6">
+            <Typography variant="caption" className="mt-4">
               Worked as a product engineer across TypeScript, React, Next.js, GraphQL, PostgreSQL,
               Inngest, analytics, observability, and AI-assisted product features. Owned complex
               product areas from ambiguous problem framing to polished UI, rollout, monitoring, and
               long-term maintenance.
             </Typography>
-            <Typography variant="caption" className="mt-6">
+            <Typography variant="caption" className="mt-4">
               Most active contributor to the codebase, with 2 500+ commits and 3 600+ PR reviews
               across product, architecture, reliability, observability, and developer experience.
             </Typography>
-            <div className="mt-6">
-              <Typography variant="caption">Selected work:</Typography>
-              <div className="mt-2">
-                <Typography variant="caption">
-                  - Built a training editor with AI-assisted generation, translation, quizzes,
-                  localized previews, and multi-channel rendering across web, Slack, Teams, and
-                  Google Chat.
-                </Typography>
-                <Typography variant="caption" className="mt-2">
-                  - Built an AI-assisted phishing scenario editor with prompt-based generation,
-                  translation, real-time previews, validation, image handling, and polished editing
-                  flows.
-                </Typography>
-                <Typography variant="caption" className="mt-2">
-                  - Built a visual security automation editor for trigger/condition/action
-                  workflows, with reusable primitives, validation, templates, runtime execution,
-                  versioning, and legacy migration.
-                </Typography>
-                <Typography variant="caption" className="mt-2">
-                  - Designed analytics and observability infrastructure for product monitoring,
-                  activation tracking, journey analysis, logs, metrics, alerts, and production
-                  health.
-                </Typography>
-                <Typography variant="caption" className="mt-2">
-                  - Built multi-channel employee/admin communication workflows across web, email,
-                  Slack, Microsoft Teams, and Google Chat.
-                </Typography>
-                <Typography variant="caption" className="mt-2">
-                  - Implemented reliable async workflows with durable jobs, retries, rate limits,
-                  concurrency controls, idempotency, cancellation paths, and monitoring.
-                </Typography>
-                <Typography variant="caption" className="mt-2">
-                  - Shipped non-breaking rollouts with feature flags, staged migrations, backfills,
-                  compatibility layers, and legacy cleanup.
-                </Typography>
-                <Typography variant="caption" className="mt-2">
-                  - Helped raise the engineering bar through code reviews, pragmatic architecture,
-                  mentoring, and close product/design collaboration.
-                </Typography>
-              </div>
-            </div>
+            <WorkBullets
+              className="mt-4"
+              items={[
+                'Built a training editor with AI-assisted generation, translation, quizzes, localized previews, and multi-channel rendering across web, Slack, Teams, and Google Chat.',
+                'Built an AI-assisted phishing scenario editor with prompt-based generation, translation, real-time previews, validation, image handling, and polished editing flows.',
+                'Built a visual security automation editor for trigger/condition/action workflows, with reusable primitives, validation, templates, runtime execution, versioning, and legacy migration.',
+                'Designed analytics and observability infrastructure for product monitoring, activation tracking, journey analysis, logs, metrics, alerts, and production health.',
+                'Built multi-channel employee/admin communication workflows across web, email, Slack, Microsoft Teams, and Google Chat.',
+                'Implemented reliable async workflows with durable jobs, retries, rate limits, concurrency controls, idempotency, cancellation paths, and monitoring.',
+                'Shipped non-breaking rollouts with feature flags, staged migrations, backfills, compatibility layers, and legacy cleanup.',
+                'Helped raise the engineering bar through code reviews, pragmatic architecture, mentoring, and close product/design collaboration.',
+              ]}
+            />
           </div>
         ),
       },

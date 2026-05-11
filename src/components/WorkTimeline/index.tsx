@@ -38,11 +38,11 @@ const Experience = ({
 }: ExperienceData) => (
   <li className="relative pb-6 pl-6 last:pb-0">
     <span
-      className="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-page bg-primary"
+      className="absolute left-[-7px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-page bg-primary"
       aria-hidden="true"
     />
     <article className="rounded-lg border border-black/10 bg-white p-4">
-      <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+      <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <Typography as="div" variant="bodyStrong" color="heading">
