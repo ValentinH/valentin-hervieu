@@ -42,9 +42,8 @@ const data: Data = [
         title: 'Student Intern, Software Development',
         content: (
           <Typography variant="caption">
-            Developed applications for Android mobile devices using Java and CSS3/JQuery in order to
-            compare these two technologies. Also implemented new features and maintained existing
-            websites using PHP and Javascript.
+            Built Android mobile applications with Java and CSS3/jQuery to compare both approaches.
+            Also implemented new features and maintained existing websites with PHP and JavaScript.
           </Typography>
         ),
       },
@@ -61,8 +60,9 @@ const data: Data = [
         title: 'Software Engineer Intern',
         content: (
           <Typography variant="caption">
-            Working in Automation systems and HMI department. I developed mobile applications
-            (native and web) using Android and CSS3/jQuery. Back-end implementation using .NET/C++.
+            Worked in the Automation Systems and HMI department. Built native and web mobile
+            applications with Android and CSS3/jQuery, and implemented backend features with .NET
+            and C++.
             <br />
             Technologies: HTML5, CSS3, JQuery, PhoneGap, Push messages, C++, .NET, Android
           </Typography>
@@ -81,15 +81,10 @@ const data: Data = [
         title: 'Full-stack engineer',
         content: (
           <Typography variant="caption">
-            As part of a project with the Junior Company of the UTC, I worked for an organization
-            which help people with disabilities to integrate into non-technical business
-            environments. The aim of the project was the realization of an Android app for tablets
-            allowing people supervised by the organization (called &quot;residents&quot;) to assess
-            their workday. The results of these assessments are then synchronized to a server. The
-            screens of the Android application are fully configurable through a web application,
-            used by the staff of the association. The administration application has a dual purpose:
-            to present the results of each resident in a structured layout and to customize the
-            Android app in order to adapt the questions to each resident.
+            Built an Android tablet app and web administration platform for an organization
+            supporting workers with disabilities in sheltered workshops. Workers used the tablet app
+            to assess their workday, while staff used the web app to configure questions for each
+            worker and review the results.
             <br />
             Technologies: Android, Symfony2, Bootstrap3 & JQuery.
           </Typography>
@@ -108,9 +103,8 @@ const data: Data = [
         title: 'Software Engineering Intern - Amadeus',
         content: (
           <Typography variant="caption">
-            Within the Reservations service of Amadeus, I&apos;m developing a product named
-            Community Trip Organizer. It is a web application providing a platform for groups in
-            order to organize trips in a collaborative way.
+            Built Community Trip Organizer from scratch in the Amadeus Reservations team, turning
+            product specs into a working prototype for groups planning trips together.
             <br />
             Technologies: AngularJS, Play! Framework, REST API, Bootstrap3.
           </Typography>
@@ -125,15 +119,14 @@ const data: Data = [
         content: (
           <div>
             <Typography variant="caption">
-              Development of a SAAS application, powered by AngularJS and Python. We provide many
-              data-oriented dashboards for the air transport industry (airlines and airports),
-              mostly through:
+              Built a SaaS application with AngularJS and Python, providing data-oriented
+              dashboards for the air transport industry, mainly airlines and airports.
             </Typography>
             <WorkBullets
               items={[
-                'Design and development of interactive data-powered visualisations using AngularJS, D3 and Leaflet',
-                'Query and transformation of large amount of data in Python/MongoDB',
-                'Setup and maintenance of the continuous integration process using Gitlab',
+                'Designed and developed interactive data visualizations using AngularJS, D3, and Leaflet.',
+                'Queried and transformed large datasets with Python and MongoDB.',
+                'Set up and maintained the continuous integration process with GitLab.',
               ]}
             />
           </div>
@@ -152,7 +145,7 @@ const data: Data = [
         content: (
           <Typography variant="caption">
             As a freelance on my free time, I work on various Javascript projects (mainly using
-            React)
+            React).
           </Typography>
         ),
       },
@@ -174,20 +167,20 @@ const data: Data = [
             </Typography>
             <WorkBullets
               items={[
-                'Migration of the main pages to React with homemade SSR setup',
-                'Implementation of BFF APIs using Node.js/Express',
-                'Lead of the Flow to Typescript migration',
-                'Preparation of the introduction of Next.js to replace our SSR setup',
-                'Introduction of react-testing-library and Cypress for testing',
-                'Introduction of the react-admin framework for our admin tools',
-                'Contribution to our design system using Material-UI and Storybook',
-                'Architecture and implementation of realtime Core Web Vitals monitoring using Prometheus and Grafana',
-                'Frontend error monitoring using Sentry',
-                'Part of the on-call team to keep the platform up and running 24/7',
-                'Optimisation of our CI/CD pipelines (CircleCI)',
-                'Knowledge-sharing and mentoring (documentation, guidelines, code-reviews, pair-programming, workshops organisation)',
-                'Technical interviews as part of the hiring process',
-                'Open-source of several projects',
+                'Migrated the main pages to React with a custom SSR setup.',
+                'Implemented BFF APIs using Node.js and Express.',
+                'Led the Flow to TypeScript migration.',
+                'Prepared the introduction of Next.js to replace the custom SSR setup.',
+                'Introduced React Testing Library and Cypress for testing.',
+                'Introduced react-admin for internal admin tools.',
+                'Contributed to the design system using Material UI and Storybook.',
+                'Designed and implemented real-time Core Web Vitals monitoring with Prometheus and Grafana.',
+                'Set up frontend error monitoring with Sentry.',
+                'Joined the on-call rotation to keep the platform running 24/7.',
+                'Optimized CI/CD pipelines with CircleCI.',
+                'Shared knowledge and mentored through documentation, guidelines, code reviews, pair programming, and workshops.',
+                'Took part in technical interviews.',
+                'Open-sourced several internal projects.',
               ]}
             />
           </div>
@@ -218,11 +211,10 @@ const data: Data = [
               framing to UI, rollout, monitoring, and maintenance.
             </Typography>
             <Typography variant="caption" className="mt-4">
-              Most active contributor to the codebase, with 2 500+ commits and 3 600+ PR reviews
+              Most active contributor to the codebase, with 2,500+ commits and 3,600+ PR reviews
               across product, architecture, reliability, observability, and developer experience.
             </Typography>
             <WorkBullets
-              className="mt-4"
               items={[
                 'Built a training editor with AI-assisted generation, translation, quizzes, localized previews, and rendering for web, Slack, Teams, and Google Chat.',
                 'Built an AI-assisted phishing scenario editor with prompt-based generation, translation, real-time previews, validation, image handling, and clean editing flows.',
