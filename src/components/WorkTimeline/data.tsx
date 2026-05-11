@@ -144,8 +144,7 @@ const data: Data = [
         title: 'Freelance Web Developer',
         content: (
           <Typography variant="caption">
-            As a freelance on my free time, I work on various Javascript projects (mainly using
-            React).
+            Worked on JavaScript projects as a freelancer in my spare time, mainly with React.
           </Typography>
         ),
       },
