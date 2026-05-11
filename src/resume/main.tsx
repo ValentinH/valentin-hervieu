@@ -52,7 +52,6 @@ const summary = [
   'Strong in TypeScript, React, Next.js, GraphQL, product architecture, production AI systems, observability, and close product/design collaboration.',
 ].join(' ');
 
-
 const experiences: Experience[] = [
   {
     period: '2022 - 2026',
@@ -60,10 +59,10 @@ const experiences: Experience[] = [
     title: 'Founding Engineer',
     location: 'Remote, France',
     bullets: [
-      "Founding engineer in a small product team building Elba's B2B security SaaS from early foundations to a production-grade platform.",
+      "Founding engineer in a small product team that built Elba's B2B security SaaS from the first MVP to a production platform.",
       'Most active contributor to the codebase, with 2 500+ commits and 3 600+ PR reviews across product, architecture, reliability, observability, and developer experience.',
       'Owned complex product areas end-to-end across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics, observability, and production AI features.',
-      'Built AI-assisted editors, visual automation workflows, analytics infrastructure, multi-channel communication flows, and production reliability systems.',
+      'Built AI-assisted editors, visual automation workflows, analytics infrastructure, communication flows, and production reliability systems.',
       'Applied AI agents and automation tools, including OpenClaw, to improve error triage, workflow monitoring, and production issue investigation.',
       'Shipped reliable async workflows and safe rollouts with durable jobs, retries, rate limits, idempotency, feature flags, staged migrations, and backfills.',
     ],
@@ -117,7 +116,8 @@ const skillGroups: SkillGroup[] = [
   {
     title: 'Frontend',
     items: 'Apollo Client, Zustand, Shadcn UI, Tailwind CSS, framer-motion',
-  },{
+  },
+  {
     title: 'Backend',
     items: 'Node.js, Bun, PostgreSQL, Inngest, React Email',
   },
@@ -191,9 +191,7 @@ function Resume() {
           <p className="my-[4px] mb-[5px] text-[14px] leading-[1.2] text-primary">
             Product Engineer
           </p>
-          <p className="m-0 max-w-[112mm] text-[#25263a]">
-            {summary}
-          </p>
+          <p className="m-0 max-w-[112mm] text-[#25263a]">{summary}</p>
         </div>
         <ul className="m-0 flex min-h-[34mm] list-none flex-col gap-[3.4mm] p-0">
           {contactItems.map((item) => (

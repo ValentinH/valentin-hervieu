@@ -49,9 +49,7 @@ export default Header;
 const headerImageWidths = [640, 828, 1080, 1200, 1600, 1920, 2560, 3200, 3840];
 
 function getHeaderImageSrcSet(src: string) {
-  return headerImageWidths
-    .map((width) => `${getHeaderImageSrc(src, width)} ${width}w`)
-    .join(', ');
+  return headerImageWidths.map((width) => `${getHeaderImageSrc(src, width)} ${width}w`).join(', ');
 }
 
 function getHeaderImageSrc(src: string, width: number) {

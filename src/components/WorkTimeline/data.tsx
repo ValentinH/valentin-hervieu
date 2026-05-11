@@ -209,14 +209,13 @@ const data: Data = [
         content: (
           <div>
             <Typography variant="caption">
-              Founding engineer in a small product team building Elba&apos;s B2B security SaaS from
-              early foundations to a production-grade platform.
+              Founding engineer in a small product team that built Elba&apos;s B2B security SaaS
+              from the first MVP to a production platform.
             </Typography>
             <Typography variant="caption" className="mt-4">
-              Worked as a product engineer across TypeScript, React, Next.js, GraphQL, PostgreSQL,
-              Inngest, analytics, observability, and AI-assisted product features. Owned complex
-              product areas from ambiguous problem framing to polished UI, rollout, monitoring, and
-              long-term maintenance.
+              Worked across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics,
+              observability, and AI-assisted product features. I owned product areas from problem
+              framing to UI, rollout, monitoring, and maintenance.
             </Typography>
             <Typography variant="caption" className="mt-4">
               Most active contributor to the codebase, with 2 500+ commits and 3 600+ PR reviews
@@ -225,11 +224,11 @@ const data: Data = [
             <WorkBullets
               className="mt-4"
               items={[
-                'Built a training editor with AI-assisted generation, translation, quizzes, localized previews, and multi-channel rendering across web, Slack, Teams, and Google Chat.',
-                'Built an AI-assisted phishing scenario editor with prompt-based generation, translation, real-time previews, validation, image handling, and polished editing flows.',
-                'Built a visual security automation editor for trigger/condition/action workflows, with reusable primitives, validation, templates, runtime execution, versioning, and legacy migration.',
+                'Built a training editor with AI-assisted generation, translation, quizzes, localized previews, and rendering for web, Slack, Teams, and Google Chat.',
+                'Built an AI-assisted phishing scenario editor with prompt-based generation, translation, real-time previews, validation, image handling, and clean editing flows.',
+                'Built a visual security automation editor for trigger/condition/action workflows, including reusable primitives, validation, templates, runtime execution, versioning, and legacy migration.',
                 'Designed analytics and observability infrastructure for product monitoring, activation tracking, journey analysis, logs, metrics, alerts, and production health.',
-                'Built multi-channel employee/admin communication workflows across web, email, Slack, Microsoft Teams, and Google Chat.',
+                'Built employee and admin communication workflows across web, email, Slack, Microsoft Teams, and Google Chat.',
                 'Implemented reliable async workflows with durable jobs, retries, rate limits, concurrency controls, idempotency, cancellation paths, and monitoring.',
                 'Shipped non-breaking rollouts with feature flags, staged migrations, backfills, compatibility layers, and legacy cleanup.',
                 'Helped raise the engineering bar through code reviews, pragmatic architecture, mentoring, and close product/design collaboration.',
