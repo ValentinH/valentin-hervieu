@@ -13,3 +13,4 @@ bun-error.log
 dist
 generated
 tsconfig.tsbuildinfo
+.env*

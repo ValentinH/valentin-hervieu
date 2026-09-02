@@ -27,6 +27,7 @@
         "tailwind-merge": "^3.5.0",
         "tailwindcss": "^4.2.4",
         "unpic": "^4.2.2",
+        "zod": "^3.25.76",
       },
       "devDependencies": {
         "@tanstack/router-plugin": "^1.167.32",
