@@ -44,7 +44,7 @@ const projects: ProjectData[] = [
         .<br /> Then, I thought it was a nice project and I decided to continue working on it on my
         personal time and made it open-source with the agreement of my employer.
         <br />
-        Today, it has been downloaded near 100 million times on NPM.
+        Today, it has over 100 million downloads on NPM.
       </Typography>
     ),
   },

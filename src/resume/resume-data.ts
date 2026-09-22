@@ -93,20 +93,22 @@ export const defaultResumeData: ResumeData = {
     headline: 'Product Engineer',
   },
   summary: [
-    'Product Engineer with 12+ years building polished SaaS products, production systems, and open-source developer tools.',
-    'Strong in TypeScript, React, Next.js, GraphQL, product architecture, production AI systems, observability, and close product/design collaboration.',
+    'Product Engineer with 12+ years building SaaS products and open-source developer tools.',
+    'I help define what to build, simplify complex problems, and carry solutions through design, implementation, and production.',
+    'I help other engineers through code reviews and shared technical practices.',
   ].join(' '),
   experience: [
     {
-      dates: '2022 - 2026',
+      dates: '2022 - Jun 2026',
       company: 'elba.security',
       role: 'Founding Engineer',
       location: 'Remote, France',
       bullets: [
         "Founding engineer in a small product team that built Elba's B2B security SaaS from the first MVP to a production platform.",
         'Most active contributor to the codebase, with 2,500+ commits and 3,600+ PR reviews across product, architecture, reliability, observability, and developer experience.',
-        'Owned complex product areas end-to-end across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics, observability, and production AI features.',
-        'Built AI-assisted editors, visual automation workflows, analytics infrastructure, communication flows, and production reliability systems.',
+        'Shaped product scope with product and design, prototyped solutions, joined user testing, and owned delivery through production and iteration.',
+        'Designed reusable foundations for AI-assisted editing and visual automation, alongside analytics and multi-channel communication workflows.',
+        'Helped engineers simplify solutions and split complex changes into reviewable steps through code reviews, architecture discussions, and knowledge sharing.',
         'Applied AI agents and automation tools, including OpenClaw, to improve error triage, workflow monitoring, and production issue investigation.',
         'Shipped reliable async workflows and safe rollouts with durable jobs, retries, rate limits, idempotency, feature flags, staged migrations, and backfills.',
       ],
@@ -115,14 +117,13 @@ export const defaultResumeData: ResumeData = {
     {
       dates: '2017 - 2021',
       company: 'Ricardo',
-      role: 'Principal Frontend Engineer',
+      role: 'Frontend Engineer → Senior → Principal',
       location: 'Sophia-Antipolis, France',
       bullets: [
-        "Core contributor to one of Switzerland's largest second-hand e-commerce platforms.",
-        'Led migration of core pages to React and prepared the introduction of Next.js.',
-        'Drove Flow to TypeScript migration and built BFF APIs using Node.js and Express.',
-        'Introduced testing with React Testing Library and Cypress; contributed to admin tools and a Material UI / Storybook design system.',
-        'Built observability with Prometheus, Grafana, and Sentry; improved CI/CD, monitoring, and hiring.',
+        'Promoted from Frontend to Senior, then Principal Engineer in under two years at the largest second-hand e-commerce website in Switzerland.',
+        'Led React and Flow-to-TypeScript migrations, built Node.js BFF APIs, and prepared the introduction of Next.js.',
+        'Introduced React Testing Library and Cypress, contributed to the design system, and mentored through reviews, pairing, and workshops.',
+        'Built observability with Prometheus, Grafana, and Sentry; joined on-call and improved CI/CD and hiring.',
       ],
       tech: 'TypeScript, React, Material UI, Node.js, Express, React Testing Library, Cypress, GitHub, CircleCI, Kubernetes',
     },
@@ -151,7 +152,7 @@ export const defaultResumeData: ResumeData = {
     {
       name: 'react-easy-crop',
       description:
-        'Open-source React image/video cropping library with nearly 100 million downloads.',
+        'Open-source React image/video cropping library with 100+ million downloads on npm.',
     },
     {
       name: 'ConcoursAdmis',
@@ -181,7 +182,7 @@ export const defaultResumeData: ResumeData = {
       category: 'Frontend',
       items: 'Apollo Client, Zustand, Shadcn UI, Tailwind CSS, Framer Motion',
     },
-    { category: 'Backend', items: 'Node.js, Bun, PostgreSQL, Inngest, React Email' },
+    { category: 'Backend', items: 'Node.js, Bun, PostgreSQL, Inngest, React Email, Resend' },
     { category: 'AI', items: 'AI SDK, OpenAI Realtime API, OpenClaw' },
     {
       category: 'Quality',

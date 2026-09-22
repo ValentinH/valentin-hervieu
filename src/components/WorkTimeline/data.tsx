@@ -119,8 +119,8 @@ const data: Data = [
         content: (
           <div>
             <Typography variant="caption">
-              Built a SaaS application with AngularJS and Python, providing data-oriented
-              dashboards for the air transport industry, mainly airlines and airports.
+              Built a SaaS application with AngularJS and Python, providing data-oriented dashboards
+              for the air transport industry, mainly airlines and airports.
             </Typography>
             <WorkBullets
               items={[
@@ -158,11 +158,13 @@ const data: Data = [
         company: 'Ricardo.ch',
         companyUrl: 'https://www.ricardo.ch',
         place: 'Sophia-Antipolis, France',
-        title: 'Principal Front-end Engineer',
+        title: 'Frontend Engineer → Senior → Principal',
         content: (
           <div>
             <Typography variant="caption">
-              Core contributor of the largest second-hand e-commerce website of Switzerland.
+              Core contributor to the largest second-hand e-commerce website in Switzerland. Joined
+              as Frontend Engineer in July 2017, promoted to Senior in July 2018, then Principal in
+              May 2019.
             </Typography>
             <WorkBullets
               items={[
@@ -189,15 +191,13 @@ const data: Data = [
   },
   {
     year: 2022,
-    current: true,
     data: [
       {
-        date: 'January 2022 – Present',
+        date: 'January 2022 – June 2026',
         company: 'elba',
         companyUrl: 'https://elba.security',
         place: 'Remote from France',
         title: 'Founding Engineer',
-        current: true,
         content: (
           <div>
             <Typography variant="caption">
@@ -205,9 +205,10 @@ const data: Data = [
               from the first MVP to a production platform.
             </Typography>
             <Typography variant="caption" className="mt-4">
-              Worked across TypeScript, React, Next.js, GraphQL, PostgreSQL, Inngest, analytics,
-              observability, and AI-assisted product features. I owned product areas from problem
-              framing to UI, rollout, monitoring, and maintenance.
+              Worked with product and design to clarify customer problems, question proposed
+              solutions, and define a useful scope before implementation. I prototyped ideas, took
+              part in user testing, and owned product areas through UI details, rollout, monitoring,
+              and maintenance.
             </Typography>
             <Typography variant="caption" className="mt-4">
               Most active contributor to the codebase, with 2,500+ commits and 3,600+ PR reviews
@@ -216,13 +217,14 @@ const data: Data = [
             <WorkBullets
               items={[
                 'Built a training editor with AI-assisted generation, translation, quizzes, localized previews, and rendering for web, Slack, Teams, and Google Chat.',
-                'Built an AI-assisted phishing scenario editor with prompt-based generation, translation, real-time previews, validation, image handling, and clean editing flows.',
-                'Built a visual security automation editor for trigger/condition/action workflows, including reusable primitives, validation, templates, runtime execution, versioning, and legacy migration.',
-                'Designed analytics and observability infrastructure for product monitoring, activation tracking, journey analysis, logs, metrics, alerts, and production health.',
+                'Built an AI-assisted phishing scenario editor with prompt-based generation, translation, real-time previews, validation, and image handling.',
+                'Designed and built a visual security automation editor with reusable triggers, conditions, and actions, including validation, templates, runtime execution, versioning, and legacy migration.',
+                'Worked closely with design on interaction details, keyboard support, and consistency, from early prototypes to finished interfaces.',
+                'Helped engineers simplify solutions and break complex changes into small, reviewable steps through code reviews, architecture discussions, and knowledge sharing.',
+                'Built analytics and observability for activation tracking, user journeys, logs, metrics, alerts, and production health.',
                 'Built employee and admin communication workflows across web, email, Slack, Microsoft Teams, and Google Chat.',
                 'Implemented reliable async workflows with durable jobs, retries, rate limits, concurrency controls, idempotency, cancellation paths, and monitoring.',
                 'Shipped non-breaking rollouts with feature flags, staged migrations, backfills, compatibility layers, and legacy cleanup.',
-                'Helped raise the engineering bar through code reviews, pragmatic architecture, mentoring, and close product/design collaboration.',
               ]}
             />
           </div>
