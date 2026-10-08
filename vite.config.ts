@@ -8,11 +8,12 @@ const vercelImageConfig = {
   domains: [],
   sizes: [92, 184, 320, 640, 828, 960, 1080, 1200, 1280, 1600, 1920, 2560, 3200, 3840],
   qualities: [75],
+  minimumCacheTTL: 31536000,
   formats: ['image/avif' as const, 'image/webp' as const],
   remotePatterns: [
     {
       protocol: 'https' as const,
-      hostname: 'lh3.googleusercontent.com',
+      hostname: '^lh3\\.googleusercontent\\.com$',
       pathname: '^/pw/.*$',
     },
   ],
